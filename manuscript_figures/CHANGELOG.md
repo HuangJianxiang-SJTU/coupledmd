@@ -62,3 +62,13 @@ corrected figures, resolving the integrity flags:
 - Discussion: added an explicit limitation that the Figure 4A CGN interface
   barcode is a pilot (subset of positions/systems), with full-356/222 extension
   in progress — keeps the manuscript internally consistent with the figure.
+
+## v1.2.1 — Title + proofreading (Phase 3, axes 1, 10)
+- Title: fixed grammar/journal fit — "a web resource … reveals dynamic coupling
+  selectivity" (resource as subject of "reveals") → "a uniform-protocol molecular
+  dynamics web resource for comparative analysis of 222 GPCR–G-protein ternary
+  complexes". (Optional — see report; user may prefer the punchier original.)
+- Proofread: 0 double spaces, 0 repeated words, 0 space-before-punct. Spelling is
+  internally consistent Oxford (-ize / -lyse / double-l) — left unchanged.
+- Diminishing returns reached on prose: the body text was already strong;
+  further rewriting withheld per stopping discipline.
