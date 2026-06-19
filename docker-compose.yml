@@ -1,0 +1,23 @@
+services:
+
+  api:
+    build: .
+    ports:
+      - "${API_PORT:-8000}:${API_PORT:-8000}"
+    environment:
+      - DATA_ROOT=/data
+      - DATABASE_URL=sqlite:////data/db/coupledmd.sqlite
+      - API_PORT=${API_PORT:-8000}
+    volumes:
+      # Single bind-mount: move DATA_ROOT here when migrating to the university host.
+      - ${DATA_ROOT:-.}:/data:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Future: add 'frontend' service here once P4 is complete.
+  # Future: add 'nginx' reverse proxy for TLS termination on the university host.

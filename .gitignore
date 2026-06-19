@@ -5,3 +5,6 @@ __pycache__/
 data/api/
 data/systems_master.parquet
 db/
+frontend/node_modules/
+frontend/dist/
+*.sqlite
