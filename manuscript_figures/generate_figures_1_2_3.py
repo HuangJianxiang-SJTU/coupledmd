@@ -1,420 +1,366 @@
 #!/usr/bin/env python3
 """
-Generate publication-quality Figures 1, 2, and 3 for the CoupledMD NAR paper.
+Generate Figures 1, 2 and 3 for the CoupledMD NAR paper.
 
-Figure 1 — Database overview (double-column, ~7.2 × 5 in, 4 panels)
-Figure 2 — Allosteric pocket case study: CCR5 (single-column, ~3.5 × 5 in, 3 panels)
-Figure 3 — Gateway dynamics: FFAR4 partner switching (double-column, ~7.2 × 4 in, 2 panels)
+Figure 1 — Database overview            (double column, 2x2 panels)
+Figure 2 — CCR5 allosteric recovery     (single column, 3 panels)
+Figure 3 — FFAR4 gateway reorganisation (double column, 1x2 panels)
+
+All values are read from the real pipeline outputs under data/. No value is
+hand-set. See INTEGRITY_FLAGS.md for the data corrections applied here
+(Fig 1A system counts, Fig 1D receptor column, Fig 3 open_fraction metric).
 """
 
 import json
 import os
 
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
+import matplotlib.pyplot as plt
 
-# ── Global style ──────────────────────────────────────────────────────────────
-mpl.rcParams.update({
-    "font.family": "sans-serif",
-    "font.size": 7,
-    "axes.linewidth": 0.5,
-    "xtick.major.width": 0.5,
-    "ytick.major.width": 0.5,
-    "xtick.minor.width": 0.3,
-    "ytick.minor.width": 0.3,
-    "xtick.major.size": 3,
-    "ytick.major.size": 3,
-    "xtick.minor.size": 1.5,
-    "ytick.minor.size": 1.5,
-    "lines.linewidth": 0.8,
-    "pdf.fonttype": 42,
-    "ps.fonttype": 42,
-    "savefig.dpi": 300,
-    "savefig.bbox": "tight",
-    "savefig.pad_inches": 0.05,
-})
+# Liberation Sans lacks the unicode superscript-plus glyph; render via mathtext.
+NA_PLUS = r"Na$^{+}$"
 
-# ── Colour palette ────────────────────────────────────────────────────────────
-FAMILY_COLORS = {
-    "Gi": "#4e9af1",
-    "Gs": "#e8a838",
-    "Gq": "#e05c5c",
-    "G12-13": "#9b59b6",
-}
-FAMILY_ORDER = ["Gi", "Gs", "Gq", "G12-13"]
+import figstyle as fs
+from figstyle import FAMILY, FAMILY_ORDER, FAMILY_LABEL, ACCENT, INK, MUTED, PALE, ZONE
+
+fs.apply_style()
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE, "data")
 API_DIR = os.path.join(DATA_DIR, "api", "v1", "systems")
-OUT_DIR = os.path.dirname(os.path.abspath(__file__))
-os.makedirs(OUT_DIR, exist_ok=True)
+
+# Standard IUPHAR symbols for the multi-system receptors (nomenclature only,
+# used as compact axis labels; receptor_gene is null for most rows).
+RECEPTOR_SYMBOL = {
+    "Orexin receptor type 2": "OX2R",
+    "Corticotropin-releasing factor receptor 2": "CRHR2",
+    "Free fatty acid receptor 4": "FFAR4",
+    "Cholecystokinin receptor type A": "CCKAR",
+    "Endothelin receptor type B": "EDNRB",
+    "Somatostatin receptor type 2": "SSTR2",
+    "Adhesion G protein-coupled receptor E5": "ADGRE5",
+    "5-hydroxytryptamine receptor 4": "HTR4",
+    "P2Y purinoceptor 1": "P2RY1",
+    "Neuromedin-U receptor 2": "NMUR2",
+    "Neuropeptide Y receptor type 1": "NPY1R",
+    "Muscarinic acetylcholine receptor M1": "CHRM1",
+    "Muscarinic acetylcholine receptor M4": "CHRM4",
+    "Alpha-2A adrenergic receptor": "ADRA2A",
+    "Histamine H1 receptor": "HRH1",
+    "Glucagon receptor": "GCGR",
+    "Apelin receptor": "APLNR",
+    "C3a anaphylatoxin chemotactic receptor": "C3AR1",
+    "C5a anaphylatoxin chemotactic receptor 1": "C5AR1",
+    "Calcitonin receptor": "CALCR",
+    "Oxytocin receptor": "OXTR",
+    "Substance-P receptor": "TACR1",
+    "Gastrin/cholecystokinin type B receptor": "CCKBR",
+    "Growth hormone secretagogue receptor type 1": "GHSR",
+    "Lysophosphatidic acid receptor 1": "LPAR1",
+    "Sphingosine 1-phosphate receptor 1": "S1PR1",
+    "5-hydroxytryptamine receptor 1A": "HTR1A",
+    "5-hydroxytryptamine receptor 1E": "HTR1E",
+}
 
 
-def _panel_label(ax, label, x=-0.08, y=1.05):
-    """Add bold uppercase panel label at top-left of axes."""
-    ax.text(x, y, label, transform=ax.transAxes,
-            fontsize=9, fontweight="bold", va="top", ha="left")
-
-
-def _save(fig, name):
-    """Save figure as PDF and PNG (300 dpi)."""
-    for ext in ("pdf", "png"):
-        path = os.path.join(OUT_DIR, f"{name}.{ext}")
-        fig.savefig(path, dpi=300 if ext == "png" else None)
-        print(f"  saved {path}")
+def _symbol(name):
+    return RECEPTOR_SYMBOL.get(name, (name[:18] + "…") if len(name) > 19 else name)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
 #  FIGURE 1 — Database overview
 # ══════════════════════════════════════════════════════════════════════════════
 def make_figure_1():
-    csv_path = os.path.join(DATA_DIR, "systems_master.csv")
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(os.path.join(DATA_DIR, "systems_master.csv"))
 
-    # ── Panel A: Receptor count per G-protein family (horizontal stacked bar) ──
-    family_counts = df.groupby("g_protein_family")["receptor_gene"].nunique()
-    family_counts = family_counts.reindex(FAMILY_ORDER)
-
-    # ── Panel B: Lipid bilayer vs protein-only ──
-    # has_bilayer is True/False boolean in the CSV
-    n_bilayer = int(df["has_bilayer"].sum())       # 212
-    n_protein_only = int((~df["has_bilayer"]).sum())  # 10
-
-    # ── Panel C: Aggregate sampling per family ──
-    sampling_family = df.groupby("g_protein_family")["total_sampling_ns"].sum() / 1000  # µs
-    sampling_family = sampling_family.reindex(FAMILY_ORDER)
-    total_sampling = df["total_sampling_ns"].sum() / 1000  # µs
-
-    # ── Panel D: Top 15 most-simulated receptor genes ──
-    gene_sampling = df.groupby("receptor_gene")["total_sampling_ns"].sum().sort_values(ascending=False)
-    top15 = gene_sampling.head(15).sort_values(ascending=True)  # ascending for horizontal bar
-    # Dominant family per gene
-    gene_dom_family = df.groupby("receptor_gene")["g_protein_family"].agg(
-        lambda x: x.value_counts().index[0])
-    top15_colors = [FAMILY_COLORS[gene_dom_family[g]] for g in top15.index]
-
-    # ── Create figure ──
-    fig, axes = plt.subplots(2, 2, figsize=(7.2, 5),
-                              gridspec_kw={"hspace": 0.45, "wspace": 0.45})
+    fig, axes = plt.subplots(2, 2, figsize=(fs.COL2, 4.7))
+    fig.subplots_adjust(hspace=0.50, wspace=0.30, left=0.09, right=0.97,
+                        top=0.91, bottom=0.11)
     ax_a, ax_b, ax_c, ax_d = axes.flat
 
-    # ── Panel A — horizontal stacked bar ──
-    y_pos = [0]
-    left = 0
-    for fam in FAMILY_ORDER:
-        n = int(family_counts[fam])
-        ax_a.barh(y_pos, n, left=left, height=0.5,
-                  color=FAMILY_COLORS[fam], edgecolor="white", linewidth=0.3)
-        if n > 0:
-            ax_a.text(left + n / 2, y_pos[0], f"{fam}\nn={n}",
-                      ha="center", va="center", fontsize=5.5,
-                      color="white", fontweight="bold")
-        left += n
-    ax_a.set_xlim(0, left * 1.02)
-    ax_a.set_yticks([])
-    ax_a.set_xlabel("Unique receptors")
-    _panel_label(ax_a, "A", x=-0.02, y=1.12)
+    # ── A — system count per family (horizontal bars) ─────────────────────────
+    sys_counts = df.groupby("g_protein_family").size().reindex(FAMILY_ORDER)
+    y = np.arange(len(FAMILY_ORDER))[::-1]
+    ax_a.barh(y, sys_counts.values, height=0.66,
+              color=[FAMILY[f] for f in FAMILY_ORDER])
+    for yi, f in zip(y, FAMILY_ORDER):
+        n = int(sys_counts[f])
+        ax_a.text(n + 2, yi, str(n), va="center", ha="left",
+                  fontsize=6.5, fontweight="bold", color=INK)
+    ax_a.set_yticks(y)
+    ax_a.set_yticklabels([FAMILY_LABEL[f] for f in FAMILY_ORDER])
+    ax_a.set_xlim(0, 116)
+    ax_a.set_xlabel("Systems (n)")
+    ax_a.set_title("222 ternary complexes", fontsize=7.5, pad=4)
+    fs.despine(ax_a)
+    fs.panel_label(ax_a, "A", x=-0.30)
 
-    # ── Panel B — donut chart ──
-    labels_b = ["Lipid bilayer", "Protein-only"]
-    sizes_b = [n_bilayer, n_protein_only]
-    colors_b = ["#5dade2", "#aab7b8"]
+    # ── B — membrane representation (donut) ───────────────────────────────────
+    n_bilayer = int(df["has_bilayer"].sum())
+    n_protein = int((~df["has_bilayer"].astype(bool)).sum())
+    wedges, _ = ax_b.pie(
+        [n_bilayer, n_protein], startangle=90, counterclock=False,
+        colors=[ACCENT, PALE],
+        wedgeprops=dict(width=0.38, edgecolor="white", linewidth=0.6))
+    ax_b.text(0, 0.07, "222", ha="center", va="center",
+              fontsize=10, fontweight="bold", color=INK)
+    ax_b.text(0, -0.12, "systems", ha="center", va="center",
+              fontsize=6, color=MUTED)
+    # direct labels, no legend
+    ax_b.text(0, 1.18, f"POPC bilayer · {n_bilayer}", ha="center", va="center",
+              fontsize=6.5, color=ACCENT, fontweight="bold")
+    ax_b.text(0, -1.24, f"Protein-only · {n_protein}", ha="center", va="center",
+              fontsize=6.5, color=MUTED, fontweight="bold")
+    ax_b.set_title("Membrane environment", fontsize=7.5, pad=2)
+    fs.panel_label(ax_b, "B", x=-0.08)
 
-    wedges, texts, autotexts = ax_b.pie(
-        sizes_b, labels=None,
-        autopct=lambda p: f"{int(round(p * sum(sizes_b) / 100.0))}",
-        startangle=90, colors=colors_b, pctdistance=0.78,
-        wedgeprops=dict(width=0.4, edgecolor="white", linewidth=0.5))
-    for at in autotexts:
-        at.set_fontsize(6)
-        at.set_fontweight("bold")
-    ax_b.legend(labels_b, loc="lower center", fontsize=5.5,
-                frameon=False, ncol=2, bbox_to_anchor=(0.5, -0.08))
-    # Centre annotation
-    ax_b.text(0, 0, f"n={sum(sizes_b)}", ha="center", va="center",
-              fontsize=7, fontweight="bold")
-    _panel_label(ax_b, "B", x=-0.1, y=1.08)
-
-    # ── Panel C — bar chart of aggregate sampling ──
-    x_pos = np.arange(len(FAMILY_ORDER) + 1)
-    vals = list(sampling_family.values) + [total_sampling]
-    bar_colors = [FAMILY_COLORS[f] for f in FAMILY_ORDER] + ["#555555"]
-    bar_labels = FAMILY_ORDER + ["All"]
-    bars = ax_c.bar(x_pos, vals, color=bar_colors, width=0.6,
-                    edgecolor="white", linewidth=0.3)
-    for bar, v in zip(bars, vals):
-        ax_c.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 2,
-                  f"{v:.0f}", ha="center", va="bottom", fontsize=5.5, fontweight="bold")
-    ax_c.set_xticks(x_pos)
-    ax_c.set_xticklabels(bar_labels, fontsize=6)
+    # ── C — aggregate sampling per family + total (vertical bars) ──────────────
+    samp = (df.groupby("g_protein_family")["total_sampling_ns"].sum() / 1000
+            ).reindex(FAMILY_ORDER)
+    total = df["total_sampling_ns"].sum() / 1000
+    xc = np.arange(len(FAMILY_ORDER) + 1)
+    vals = list(samp.values) + [total]
+    cols = [FAMILY[f] for f in FAMILY_ORDER] + [MUTED]
+    labs = [FAMILY_LABEL[f] for f in FAMILY_ORDER] + ["All"]
+    ax_c.bar(xc, vals, width=0.62, color=cols)
+    for xi, v in zip(xc, vals):
+        ax_c.text(xi, v + 5, f"{v:.0f}", ha="center", va="bottom",
+                  fontsize=6, fontweight="bold", color=INK)
+    ax_c.set_xticks(xc)
+    ax_c.set_xticklabels(labs)
     ax_c.set_ylabel("Aggregate sampling (µs)")
-    ax_c.set_ylim(0, max(vals) * 1.15)
-    _panel_label(ax_c, "C", x=-0.08, y=1.12)
+    ax_c.set_ylim(0, total * 1.18)
+    ax_c.set_title("≈332 µs total", fontsize=7.5, pad=4)
+    fs.despine(ax_c)
+    fs.panel_label(ax_c, "C", x=-0.20)
 
-    # ── Panel D — horizontal lollipop chart ──
-    y_pos_d = np.arange(len(top15))
-    ax_d.hlines(y=y_pos_d, xmin=0, xmax=top15.values / 1000,
-                color=top15_colors, linewidth=0.8, alpha=0.6)
-    ax_d.scatter(top15.values / 1000, y_pos_d, c=top15_colors, s=18, zorder=3,
-                 edgecolors="white", linewidths=0.3)
-    ax_d.set_yticks(y_pos_d)
-    ax_d.set_yticklabels(top15.index, fontsize=5.5)
-    ax_d.set_xlabel("Total sampling (µs)")
-    ax_d.set_xlim(0, top15.max() / 1000 * 1.1)
-    # Legend for family colors
-    handles = [Line2D([0], [0], marker='o', color='w',
-                       markerfacecolor=FAMILY_COLORS[f],
-                       markersize=5, label=f) for f in FAMILY_ORDER]
-    ax_d.legend(handles=handles, loc="lower right", fontsize=5,
-                frameon=True, edgecolor="0.8", fancybox=False)
-    _panel_label(ax_d, "D", x=-0.15, y=1.08)
+    # ── D — most-represented receptors (top 12 by system count) ───────────────
+    cnt = df.groupby("receptor_name").size()
+    dom = df.groupby("receptor_name")["g_protein_family"].agg(
+        lambda x: x.value_counts().index[0])
+    top = (pd.DataFrame({"n": cnt, "dom": dom})
+           .sort_values(["n", "n"], ascending=False)
+           .head(12)
+           .sort_values("n"))
+    yd = np.arange(len(top))
+    cold = [FAMILY[f] for f in top["dom"]]
+    ax_d.hlines(yd, 0, top["n"].values, color=cold, linewidth=1.0, alpha=0.55)
+    ax_d.scatter(top["n"].values, yd, c=cold, s=22, zorder=3,
+                 edgecolors="white", linewidths=0.4)
+    ax_d.set_yticks(yd)
+    ax_d.set_yticklabels([_symbol(n) for n in top.index], fontsize=5.8)
+    ax_d.set_xlabel("Systems (n)")
+    ax_d.set_xlim(0, top["n"].max() + 0.6)
+    ax_d.set_xticks(range(0, int(top["n"].max()) + 1))
+    ax_d.set_title("Most-represented receptors", fontsize=7.5, pad=4)
+    handles = [Line2D([0], [0], marker="o", linestyle="", markersize=4,
+                      markerfacecolor=FAMILY[f], markeredgecolor="white",
+                      markeredgewidth=0.3, label=FAMILY_LABEL[f])
+               for f in FAMILY_ORDER]
+    ax_d.legend(handles=handles, loc="lower right", frameon=False,
+                fontsize=5.2, handletextpad=0.2, labelspacing=0.25,
+                borderpad=0.2)
+    fs.despine(ax_d)
+    fs.panel_label(ax_d, "D", x=-0.34)
 
-    fig.suptitle("CoupledMD: 222 GPCR–G-protein MD systems",
-                 fontsize=10, fontweight="bold", y=0.99)
-    _save(fig, "figure_1")
+    fs.save(fig, "figure_1")
     plt.close(fig)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  FIGURE 2 — Allosteric pocket case study: CCR5
+#  FIGURE 2 — CCR5 allosteric recovery
 # ══════════════════════════════════════════════════════════════════════════════
 def make_figure_2():
-    system_id = "Gi_7F1Q"
-    pockets_path = os.path.join(API_DIR, system_id, "pockets.json")
-    pockets_gpcrdb_path = os.path.join(API_DIR, system_id, "pockets_gpcrdb.json")
-
-    with open(pockets_path) as f:
+    sid = "Gi_7F1Q"
+    with open(os.path.join(API_DIR, sid, "pockets.json")) as f:
         pdata = json.load(f)
-    with open(pockets_gpcrdb_path) as f:
+    with open(os.path.join(API_DIR, sid, "pockets_gpcrdb.json")) as f:
         gdata = json.load(f)
 
-    pockets = pdata["pockets"]
-    # Build a lookup for GPCRdb annotations by pocket_id
-    gpcrdb_lookup = {p["pocket_id"]: p for p in gdata["pockets"]}
+    pockets = sorted(pdata["pockets"], key=lambda p: p["mean_freq"], reverse=True)
+    # zone per local pocket id (the Na+/maraviroc pocket is the tm_core_allosteric one)
+    zone_of = {p["pocket_id"]: p.get("zone") for p in gdata["pockets"]}
+    na_id = next((p["pocket_id"] for p in gdata["pockets"]
+                  if p.get("zone") == "tm_core_allosteric"), None)
+    n_frames = gdata.get("n_frames")
+    n_rep = gdata.get("n_replicas")
 
-    # Sort by mean_freq descending
-    pockets_sorted = sorted(pockets, key=lambda p: p["mean_freq"], reverse=True)
+    fig, (ax_a, ax_b, ax_c) = plt.subplots(
+        3, 1, figsize=(fs.COL1, 5.1),
+        gridspec_kw={"height_ratios": [1.25, 1.0, 0.5], "hspace": 0.62})
+    fig.subplots_adjust(left=0.20, right=0.95, top=0.90, bottom=0.08)
 
-    # ── Create figure ──
-    fig, (ax_a, ax_b, ax_c) = plt.subplots(3, 1, figsize=(3.5, 5),
-                                             gridspec_kw={"hspace": 0.55})
+    def pcolor(p):
+        if p["is_orthosteric"]:
+            return ZONE["orthosteric"]
+        if p["pocket_id"] == na_id:
+            return FAMILY["Gq"]            # highlight Na+/maraviroc pocket
+        return ACCENT
 
-    # ── Panel A — horizontal bar chart of 13 pockets sorted by mean_freq ──
-    labels_a = [f"Pocket {p['pocket_id']}" for p in pockets_sorted]
-    freqs = [p["mean_freq"] for p in pockets_sorted]
-    is_ortho = [p["is_orthosteric"] for p in pockets_sorted]
-    bar_colors_a = ["#e74c3c" if o else "#3498db" for o in is_ortho]
-
-    y_pos_a = np.arange(len(pockets_sorted))
-    ax_a.barh(y_pos_a, freqs, color=bar_colors_a, height=0.7,
-              edgecolor="white", linewidth=0.3)
-    ax_a.set_yticks(y_pos_a)
-    ax_a.set_yticklabels(labels_a, fontsize=5.5)
-    ax_a.set_xlabel("Mean frequency")
-    ax_a.set_xlim(0.84, 0.96)
+    # ── A — ranked pocket frequencies ─────────────────────────────────────────
+    freqs = [p["mean_freq"] for p in pockets]
+    ya = np.arange(len(pockets))
+    ax_a.barh(ya, freqs, height=0.7, color=[pcolor(p) for p in pockets])
+    ax_a.set_yticks(ya)
+    ax_a.set_yticklabels([f"P{p['pocket_id']}" for p in pockets], fontsize=5.5)
     ax_a.invert_yaxis()
+    ax_a.set_xlim(0.84, 0.97)
+    ax_a.set_xlabel("Mean occupancy frequency")
+    ax_a.set_title("13 persistent pockets (CCR5, Gi_7F1Q)", fontsize=7, pad=4)
+    # colour-coded legend in clear lower-right space (avoids label–bar overlap)
+    handles = [Patch(color=ZONE["orthosteric"], label="Orthosteric"),
+               Patch(color=FAMILY["Gq"], label=NA_PLUS + " / maraviroc"),
+               Patch(color=ACCENT, label="Other allosteric")]
+    ax_a.legend(handles=handles, loc="lower right", frameon=False, fontsize=5.2,
+                handlelength=1.0, handletextpad=0.4, labelspacing=0.3,
+                borderpad=0.2)
+    fs.despine(ax_a)
+    fs.panel_label(ax_a, "A", x=-0.24, y=1.10)
 
-    # Vertical dashed line at x=0.9 for maraviroc / Na⁺ site
-    ax_a.axvline(x=0.9, color="#e67e22", linestyle="--", linewidth=0.8, alpha=0.8)
-    ax_a.text(0.902, 12.5, "maraviroc / Na⁺\nsite (cluster 4)",
-              fontsize=4.5, color="#e67e22", va="top")
-
-    # Annotate orthosteric pocket
-    for i, p in enumerate(pockets_sorted):
-        if p["is_orthosteric"]:
-            ax_a.annotate("orthosteric", xy=(p["mean_freq"], i),
-                          xytext=(p["mean_freq"] - 0.04, i + 0.8),
-                          fontsize=4.5, color="#e74c3c", fontweight="bold",
-                          arrowprops=dict(arrowstyle="->", color="#e74c3c", lw=0.5))
-
-    # Annotate top non-orthosteric
-    for i, p in enumerate(pockets_sorted):
-        if not p["is_orthosteric"]:
-            ax_a.annotate("top allosteric", xy=(p["mean_freq"], i),
-                          xytext=(p["mean_freq"] + 0.003, i + 0.8),
-                          fontsize=4.5, color="#2980b9", fontweight="bold",
-                          arrowprops=dict(arrowstyle="->", color="#2980b9", lw=0.5))
-            break
-
-    _panel_label(ax_a, "A", x=-0.15, y=1.08)
-
-    # ── Panel B — scatter of n_lining vs mean_freq, size ∝ n_voxels ──
-    n_lining = [p["n_lining"] for p in pockets_sorted]
-    mean_freq = [p["mean_freq"] for p in pockets_sorted]
-    n_voxels = [p["n_voxels"] for p in pockets_sorted]
-    scatter_colors = ["#e74c3c" if o else "#3498db" for o in is_ortho]
-
-    sizes = [max(v / 5, 8) for v in n_voxels]  # scale for visibility
-    ax_b.scatter(n_lining, mean_freq, s=sizes, c=scatter_colors,
-                 edgecolors="white", linewidths=0.3, alpha=0.85, zorder=3)
-
-    # Annotate pocket 4 (Na⁺ pocket)
-    for p in pockets_sorted:
-        if p["pocket_id"] == 4:
-            ax_b.annotate("Na⁺ pocket\n(2.50 · 3.39 · 7.49)",
-                          xy=(p["n_lining"], p["mean_freq"]),
-                          xytext=(p["n_lining"] + 10, p["mean_freq"] - 0.02),
-                          fontsize=4.5, color="#e67e22",
-                          arrowprops=dict(arrowstyle="->", color="#e67e22", lw=0.5))
-            break
-
-    # Annotate orthosteric pocket
-    for p in pockets_sorted:
-        if p["is_orthosteric"]:
-            ax_b.annotate("orthosteric",
-                          xy=(p["n_lining"], p["mean_freq"]),
-                          xytext=(p["n_lining"] - 15, p["mean_freq"] + 0.005),
-                          fontsize=4.5, color="#e74c3c",
-                          arrowprops=dict(arrowstyle="->", color="#e74c3c", lw=0.5))
-            break
-
+    # ── B — pocket size vs frequency, bubble ∝ volume ─────────────────────────
+    for p in pockets:
+        ax_b.scatter(p["n_lining"], p["mean_freq"],
+                     s=max(p["n_voxels"] / 6, 6), c=pcolor(p),
+                     edgecolors="white", linewidths=0.4, alpha=0.9, zorder=3)
+    na = next(p for p in pockets if p["pocket_id"] == na_id)
+    ortho = next(p for p in pockets if p["is_orthosteric"])
+    ax_b.annotate(NA_PLUS + " pocket\n2.50·3.39·7.49", xy=(na["n_lining"], na["mean_freq"]),
+                  xytext=(na["n_lining"] + 8, na["mean_freq"] - 0.018),
+                  fontsize=5, color=FAMILY["Gq"], va="top",
+                  arrowprops=dict(arrowstyle="-", color=FAMILY["Gq"], lw=0.5))
+    ax_b.annotate("orthosteric", xy=(ortho["n_lining"], ortho["mean_freq"]),
+                  xytext=(ortho["n_lining"] - 6, ortho["mean_freq"] + 0.006),
+                  fontsize=5, color=ZONE["orthosteric"], ha="right", va="bottom",
+                  arrowprops=dict(arrowstyle="-", color=ZONE["orthosteric"], lw=0.5))
     ax_b.set_xlabel("Lining residues (n)")
     ax_b.set_ylabel("Mean frequency")
-    ax_b.set_xlim(0, 80)
-    ax_b.set_ylim(0.84, 0.96)
+    ax_b.set_xlim(0, 82)
+    ax_b.set_ylim(0.845, 0.965)
+    # size legend in clear lower-right
+    for vox, lab in [(50, "50"), (300, "300"), (800, "800")]:
+        ax_b.scatter([], [], s=max(vox / 6, 6), c="0.7",
+                     edgecolors="white", linewidths=0.4, label=lab)
+    ax_b.legend(title="Volume (voxels)", loc="lower right", frameon=False,
+                fontsize=4.8, title_fontsize=4.8, handletextpad=0.3,
+                labelspacing=0.5, borderpad=0.2)
+    fs.despine(ax_b)
+    fs.panel_label(ax_b, "B", x=-0.24, y=1.08)
 
-    # Size legend
-    for vox, label in [(20, "20 vox"), (100, "100 vox"), (500, "500 vox")]:
-        ax_b.scatter([], [], s=max(vox / 5, 8), c="#3498db", edgecolors="white",
-                     linewidths=0.3, label=label)
-    ax_b.legend(title="Pocket volume", fontsize=4.5, title_fontsize=4.5,
-                loc="lower right", frameon=True, edgecolor="0.8", fancybox=False)
-
-    _panel_label(ax_b, "B", x=-0.12, y=1.08)
-
-    # ── Panel C — text/annotation panel with key facts ──
+    # ── C — compact summary (clean table, no chartjunk) ───────────────────────
     ax_c.axis("off")
-    facts = (
-        "Key findings — CCR5 (Gi, PDB 7F1Q)\n"
-        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        "• 13 persistent pockets detected across 600 frames (3 × 200 ns)\n"
-        "• Orthosteric pocket recovered (mean freq = 0.947, 70 lining residues)\n"
-        "• Allosteric Na⁺ pocket at 2.50 · 3.39 · 7.49 (mean freq = 0.91)\n"
-        "  — co-localises with maraviroc binding site (FDA-approved inhibitor)\n"
-        "• 5 / 13 pockets at the G-protein coupling interface\n"
-        "  — potential sites for pathway-selective modulation"
-    )
-    ax_c.text(0.05, 0.95, facts, transform=ax_c.transAxes,
-              fontsize=5.5, va="top", ha="left", family="monospace",
-              bbox=dict(boxstyle="round,pad=0.4", fc="#f7f9fc", ec="#bdc3c7", linewidth=0.5))
-    _panel_label(ax_c, "C", x=-0.05, y=0.98)
+    rows = [
+        ("System", "CCR5 · Gi · PDB 7F1Q"),
+        ("Sampling", f"{n_frames} frames · {n_rep} replicas"),
+        ("Orthosteric", f"recovered, freq {ortho['mean_freq']:.3f}"),
+        (NA_PLUS + " / maraviroc", f"freq {na['mean_freq']:.3f} · positions 2.50·3.39·7.49"),
+        ("Clinical link", "maraviroc — FDA-approved CCR5 inhibitor"),
+    ]
+    y0 = 0.96
+    ax_c.text(0.0, 1.04, "CCR5 case summary", fontsize=6.2, fontweight="bold",
+              color=INK, transform=ax_c.transAxes)
+    for k, v in rows:
+        ax_c.plot([0, 1], [y0 + 0.02, y0 + 0.02], color="#e3e7ec",
+                  lw=0.4, transform=ax_c.transAxes)
+        ax_c.text(0.0, y0, k, fontsize=5.4, fontweight="bold", color=MUTED,
+                  va="top", transform=ax_c.transAxes)
+        ax_c.text(0.34, y0, v, fontsize=5.4, color=INK, va="top",
+                  transform=ax_c.transAxes)
+        y0 -= 0.205
+    fs.panel_label(ax_c, "C", x=-0.24, y=1.18)
 
-    fig.suptitle("MD recovers the FDA-approved allosteric site in CCR5",
-                 fontsize=9, fontweight="bold", y=0.99)
-    _save(fig, "figure_2")
+    fig.suptitle("MD blind-recovers the maraviroc allosteric site in CCR5",
+                 fontsize=8, fontweight="bold", y=0.985)
+    fs.save(fig, "figure_2")
     plt.close(fig)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  FIGURE 3 — Gateway dynamics: FFAR4 partner switching
+#  FIGURE 3 — FFAR4 gateway reorganisation (Gi vs Gq)
 # ══════════════════════════════════════════════════════════════════════════════
 def make_figure_3():
-    gi_path = os.path.join(API_DIR, "Gi_8ID9", "gateways.json")
-    gq_path = os.path.join(API_DIR, "Gq_8IYS", "gateways.json")
-
-    with open(gi_path) as f:
-        gi_data = json.load(f)
-    with open(gq_path) as f:
-        gq_data = json.load(f)
+    with open(os.path.join(API_DIR, "Gi_8ID9", "gateways.json")) as f:
+        gi = json.load(f)
+    with open(os.path.join(API_DIR, "Gq_8IYS", "gateways.json")) as f:
+        gq = json.load(f)
 
     pairs = ["TM1-TM2", "TM2-TM3", "TM3-TM4", "TM4-TM5",
              "TM5-TM6", "TM6-TM7", "TM7-TM1"]
 
-    def extract_metric(records, metric_name):
-        """Extract mean, ci_lo, ci_hi for each pair for a given metric."""
-        result = {}
-        for rec in records:
-            if rec["metric"] == metric_name:
-                result[rec["pair"]] = {
-                    "mean": rec["mean"],
-                    "ci_lo": rec["ci_lo"],
-                    "ci_hi": rec["ci_hi"],
-                }
-        return result
-
-    # Panel A uses "occupancy" (water/ion count)
-    gi_occ = extract_metric(gi_data["records"], "occupancy")
-    gq_occ = extract_metric(gq_data["records"], "occupancy")
-
-    # Panel B uses "penetration" (mean penetration depth, Å-like)
-    # The "occupancy" metric in the gateway data represents the mean distance (Å)
-    # between portal centres — values range 2–11 Å, consistent with the 8 Å threshold.
-    # We use occupancy for Panel B as "mean distance" per the task specification.
-    # (The data has: occupancy, penetration, penetration_p90, open_fraction)
-
-    # ── Create figure ──
-    fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(7.2, 4),
-                                       gridspec_kw={"wspace": 0.35})
+    def metric(data, name):
+        out = {}
+        for r in data["records"]:
+            if r["metric"] == name:
+                out[r["pair"]] = (r["mean"], r["mean"] - r["ci_lo"],
+                                  r["ci_hi"] - r["mean"])
+        return out
 
     x = np.arange(len(pairs))
-    width = 0.35
+    w = 0.38
+    fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(fs.COL2, 3.4))
+    fig.subplots_adjust(wspace=0.28, left=0.09, right=0.98, top=0.86, bottom=0.20)
 
-    # ── Panel A — Grouped bar chart of occupancy ──
-    gi_means_occ = [gi_occ[p]["mean"] for p in pairs]
-    gq_means_occ = [gq_occ[p]["mean"] for p in pairs]
-    gi_err_occ = [[gi_occ[p]["mean"] - gi_occ[p]["ci_lo"] for p in pairs],
-                  [gi_occ[p]["ci_hi"] - gi_occ[p]["mean"] for p in pairs]]
-    gq_err_occ = [[gq_occ[p]["mean"] - gq_occ[p]["ci_lo"] for p in pairs],
-                  [gq_occ[p]["ci_hi"] - gq_occ[p]["mean"] for p in pairs]]
+    def grouped(ax, gi_m, gq_m, ylabel, highlight=None):
+        gi_v = [gi_m[p][0] for p in pairs]
+        gq_v = [gq_m[p][0] for p in pairs]
+        gi_e = [[gi_m[p][1] for p in pairs], [gi_m[p][2] for p in pairs]]
+        gq_e = [[gq_m[p][1] for p in pairs], [gq_m[p][2] for p in pairs]]
+        ax.bar(x - w / 2, gi_v, w, color=FAMILY["Gi"], label="Gi/o",
+               yerr=gi_e, capsize=1.5, error_kw={"linewidth": 0.5, "ecolor": INK})
+        ax.bar(x + w / 2, gq_v, w, color=FAMILY["Gq"], label="Gq/11",
+               yerr=gq_e, capsize=1.5, error_kw={"linewidth": 0.5, "ecolor": INK})
+        ax.set_xticks(x)
+        ax.set_xticklabels(pairs, rotation=35, ha="right", fontsize=5.8)
+        ax.set_ylabel(ylabel)
+        fs.despine(ax)
+        return gi_v, gq_v
 
-    ax_a.bar(x - width / 2, gi_means_occ, width, label="Gi",
-             color=FAMILY_COLORS["Gi"], edgecolor="white", linewidth=0.3,
-             yerr=gi_err_occ, capsize=1.5, error_kw={"linewidth": 0.5})
-    ax_a.bar(x + width / 2, gq_means_occ, width, label="Gq",
-             color=FAMILY_COLORS["Gq"], edgecolor="white", linewidth=0.3,
-             yerr=gq_err_occ, capsize=1.5, error_kw={"linewidth": 0.5})
+    # ── A — open fraction (the partner-switching signal) ──────────────────────
+    gi_of = metric(gi, "open_fraction")
+    gq_of = metric(gq, "open_fraction")
+    gi_v, gq_v = grouped(ax_a, gi_of, gq_of, "Gateway open fraction")
+    ax_a.set_ylim(0, max(max(gi_v), max(gq_v)) * 1.30)
+    ax_a.legend(loc="upper left", frameon=False, fontsize=6,
+                handlelength=1.0, handletextpad=0.4)
+    # highlight the TM6-TM7 ~10-fold divergence (point at the near-closed Gi bar)
+    i67 = pairs.index("TM6-TM7")
+    ax_a.annotate(f"~10× closure\nGi {gi_of['TM6-TM7'][0]:.3f} · Gq {gq_of['TM6-TM7'][0]:.3f}",
+                  xy=(i67 - w / 2, gi_of["TM6-TM7"][0]),
+                  xytext=(i67 - 1.7, 0.45), fontsize=5, color=INK, ha="left",
+                  va="top",
+                  arrowprops=dict(arrowstyle="->", color=MUTED, lw=0.5,
+                                  shrinkA=0, shrinkB=2))
+    ax_a.set_title("Open-state fraction", fontsize=7.5, pad=3)
+    fs.panel_label(ax_a, "A", x=-0.12)
 
-    ax_a.set_xticks(x)
-    ax_a.set_xticklabels(pairs, fontsize=5.5, rotation=30, ha="right")
-    ax_a.set_ylabel("Occupancy (water / ion count)")
-    ax_a.legend(fontsize=6, frameon=True, edgecolor="0.8", fancybox=False)
-    ax_a.set_ylim(0, max(max(gi_means_occ), max(gq_means_occ)) * 1.2)
-    _panel_label(ax_a, "A", x=-0.06, y=1.08)
+    # ── B — mean portal distance (Å) with 8 Å open threshold ──────────────────
+    gi_d = metric(gi, "occupancy")     # 'occupancy' stores mean portal distance (Å)
+    gq_d = metric(gq, "occupancy")
+    gi_v, gq_v = grouped(ax_b, gi_d, gq_d, "Mean portal distance (Å)")
+    ax_b.set_ylim(0, max(max(gi_v), max(gq_v)) * 1.18)
+    ax_b.axhline(8, color=MUTED, linestyle="--", linewidth=0.7)
+    # label sits in the clear space above the short TM2-TM3 bars
+    ax_b.text(1.0, 10.6, "8 Å open\nthreshold", fontsize=5, color=MUTED,
+              ha="center", va="center", linespacing=1.1)
+    ax_b.legend(loc="upper left", frameon=False, fontsize=6,
+                handlelength=1.0, handletextpad=0.4)
+    ax_b.set_title("Portal aperture", fontsize=7.5, pad=3)
+    fs.panel_label(ax_b, "B", x=-0.12)
 
-    # ── Panel B — Grouped bar chart of mean distance (Å) ──
-    # Using occupancy values as mean portal distance (Å) per task spec
-    gi_means_dist = gi_means_occ
-    gq_means_dist = gq_means_occ
-    gi_err_dist = gi_err_occ
-    gq_err_dist = gq_err_occ
-
-    ax_b.bar(x - width / 2, gi_means_dist, width, label="Gi",
-             color=FAMILY_COLORS["Gi"], edgecolor="white", linewidth=0.3,
-             yerr=gi_err_dist, capsize=1.5, error_kw={"linewidth": 0.5})
-    ax_b.bar(x + width / 2, gq_means_dist, width, label="Gq",
-             color=FAMILY_COLORS["Gq"], edgecolor="white", linewidth=0.3,
-             yerr=gq_err_dist, capsize=1.5, error_kw={"linewidth": 0.5})
-
-    # Horizontal dashed line at y=8 Å
-    ax_b.axhline(y=8, color="#7f8c8d", linestyle="--", linewidth=0.8, alpha=0.7)
-    ax_b.text(len(pairs) - 0.5, 8.2, "8 Å threshold", fontsize=5,
-              color="#7f8c8d", ha="right", va="bottom")
-
-    ax_b.set_xticks(x)
-    ax_b.set_xticklabels(pairs, fontsize=5.5, rotation=30, ha="right")
-    ax_b.set_ylabel("Mean distance (Å)")
-    ax_b.legend(fontsize=6, frameon=True, edgecolor="0.8", fancybox=False)
-    ax_b.set_ylim(0, max(max(gi_means_dist), max(gq_means_dist)) * 1.2)
-    _panel_label(ax_b, "B", x=-0.06, y=1.08)
-
-    fig.suptitle("FFAR4 gateway reorganisation between Gi and Gq partners",
-                 fontsize=10, fontweight="bold", y=1.01)
-    _save(fig, "figure_3")
+    fig.suptitle("FFAR4 gateway reorganisation between Gi/o and Gq/11 partners",
+                 fontsize=8.5, fontweight="bold", y=0.99)
+    fs.save(fig, "figure_3")
     plt.close(fig)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  MAIN
-# ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
-    print("Generating Figure 1 — Database overview …")
+    print("Figure 1 — database overview …")
     make_figure_1()
-    print("Generating Figure 2 — Allosteric pocket case study: CCR5 …")
+    print("Figure 2 — CCR5 allosteric recovery …")
     make_figure_2()
-    print("Generating Figure 3 — Gateway dynamics: FFAR4 partner switching …")
+    print("Figure 3 — FFAR4 gateway reorganisation …")
     make_figure_3()
-    print("All figures generated successfully.")
+    print("Done.")
