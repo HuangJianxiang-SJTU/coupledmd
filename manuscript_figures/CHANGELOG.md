@@ -35,3 +35,21 @@ F2b (Fig 1 caption "aminergic"), F4 (CCR5 0.927 vs real 0.910 / cluster-50
 membership), F9 (Fig 4 "356 positions" vs real 25 pilot), F10 (Fig 5D unsupported
 correlation claim). To be reconciled in the figure-text integration + consistency
 passes.
+
+## v1.1.0 — Figure–text integration (Phase 3, axis 5)
+Reconciled all five captions and the tightly-linked body claims with the
+corrected figures, resolving the integrity flags:
+- F2b: Fig 1D caption now "twelve most-represented receptors … peptide- and
+  lipid-sensing" (was "Top 15 … aminergic").
+- F4: CCR5 number corrected to its real system-level frequency 0.910 (Fig 2,
+  §3.2, Methods); the cross-database 0.927 is now correctly attributed to the
+  consensus cluster (10 systems), not to CCR5. "Consensus cluster 50" framing
+  removed. Bar-colour description fixed (red orthosteric / orange Na⁺ / teal).
+- F8: OX2R "ranks highest" softened to "among the top-ranked / tied at rank 1".
+- F9: Fig 4A caption now "25 CGN positions … pilot interface cohort" (was "356
+  positions … exemplar CCR5–Gi"); body "at all 356 CGN positions" → "indexed by
+  the CGN scheme"; "comparable across all 222 simulations (Fig 4A)" → "… across
+  simulations; Fig 4A shows the pilot cohort mean".
+- F10: Fig 5D caption now states no significant association (Spearman, n=13);
+  the unsupported "structural basis" claim removed. Fig 5B/5C captions match the
+  new Jaccard-bar and open-fraction-heatmap panels.
