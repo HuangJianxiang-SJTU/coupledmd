@@ -44,3 +44,24 @@ user, not silently changed. Cross-referenced in SESSION_REPORT.md.
 - **F2b — Fig 1D caption claim.** Caption says "Class A aminergic … dominate".
   The actual most-represented receptors are peptide/lipid (orexin, CRF, FFA,
   CCK, endothelin). Recommend the caption say "peptide and lipid receptors".
+- **F9 — Fig 4A barcode is a 25-position pilot, not 356 (MAJOR).** The caption
+  and Methods describe the "356-position CGN" barcode for "an exemplar system
+  (CCR5–Gi)". The actual source (`a/stage2_outputs/pilot_long.csv`) covers only
+  **25 CGN positions** across a pilot subset, with just two flock classes present
+  (selectivity-determining 95, conserved 62 rows; no paralog-specific/neutral).
+  The figure plots the real 25 positions (cross-system mean). The full 356-position
+  barcode and the per-system "CCR5–Gi exemplar" do not exist in the analysis layer
+  yet. Caption/Methods must be revised to describe the pilot, OR the full barcode
+  computed. Not fabricated. (`reorg_atlas.json` note confirms "no per-system
+  alpha5 geometry files exist in the current analysis layer".)
+- **F10 — Fig 5D / caption correlation claim is unsupported (MAJOR).** Caption 5D:
+  "Systems with extreme pocket divergence also tend to show larger α5 geometry
+  differences, suggesting a structural basis." The resource's own Spearman stats
+  (`reorg_atlas.json → alpha5_reorg_correlations`, n=13) show jaccard vs dtilt
+  r=+0.23 p=0.45, jaccard vs composite r=+0.09 p=0.77 — weak, non-significant,
+  and the positive sign is opposite to the claimed trend. Figure plots the real
+  jaccard-vs-dtilt scatter with NO trend line and NO causal claim; caption claim
+  should be removed or softened to "no significant association (n=13)".
+- **F8 — Fig 4B "OX2R ranks highest".** OX2R (7L1V, Gs) has func_rank=1, but
+  func_rank=1 is shared by several systems (SSTR2, H1R, P2Y1R, FFAR4 …). "Ranks
+  highest" is true only as "tied for top". Soften wording.
