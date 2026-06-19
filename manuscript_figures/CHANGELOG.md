@@ -53,3 +53,12 @@ corrected figures, resolving the integrity flags:
 - F10: Fig 5D caption now states no significant association (Spearman, n=13);
   the unsupported "structural basis" claim removed. Fig 5B/5C captions match the
   new Jaccard-bar and open-fraction-heatmap panels.
+
+## v1.2.0 — Internal consistency + honest limitations (Phase 3, axes 9, 6)
+- F7: pocket cluster mean-frequency range corrected 0.864 → 0.858 (matches the
+  druggable-cluster data). Verified α5 geometry ranges (tilt 29.8–73.1 mean 52.9,
+  depth 20.4–50.8 mean 32.2, hook 1.1–12.3) and counts (50 clusters, 16 contrasts,
+  209+13=222, 182 receptors) — all correct, unchanged.
+- Discussion: added an explicit limitation that the Figure 4A CGN interface
+  barcode is a pilot (subset of positions/systems), with full-356/222 extension
+  in progress — keeps the manuscript internally consistent with the figure.
