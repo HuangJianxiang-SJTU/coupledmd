@@ -47,11 +47,25 @@ OUT_DIR = DATA_ROOT / "data"
 # Key: current label in inventory. Value: corrected label for the master table.
 FF_MAP = {
     "AMBER (FF unresolved — check mdout)": "CHARMM36 (chamber, AMBER pmemd)",
-    # The 10 GROMACS TRR protein-only systems already say "CHARMM36" but need a
-    # more specific label so the engine distinction is clear.
-    "CHARMM36": "CHARMM36 (protein-only, GROMACS)",
+    # The 10 GROMACS TRR systems already say "CHARMM36" but need a more specific
+    # label so the engine distinction is clear. These were initially taken to be
+    # protein-only; on inspection (2026-06-20) their prod*_now.trr trajectories
+    # are full POPC-bilayer systems with water stripped — see
+    # GROMACS_BILAYER_SYSTEMS below.
+    "CHARMM36": "CHARMM36 (membrane-embedded, GROMACS)",
     # Class-B systems from CHARMM-GUI: label is already correct, confirm only.
     "CHARMM36 (via AMBER CHARMM-GUI)": "CHARMM36 (via AMBER CHARMM-GUI)",
+}
+
+# The 10 GROMACS systems were originally classified protein-only because their
+# trajectory is a .trr. Verified (atom count + residue inspection, MDAnalysis,
+# 2026-06-20): prod[1-3]_now.trr are POPC-bilayer trajectories with water
+# stripped; the matching topology is now.tpr (the inventory's prod*.tpr is the
+# full-solvated ~180k-atom run input and does NOT match the stripped traj); the
+# true protein-only export is traj[1-3].xtc; and 8DPF is POPC-only (no DPPC).
+GROMACS_BILAYER_SYSTEMS = {
+    "G12_8H8J", "Gi_7JVR", "Gi_7V68", "Gi_7VUG", "Gi_7YK6",
+    "Gi_8J22", "Gi_8X16", "Gi_8YIC", "Gq_8DPF", "Gs_7VUH",
 }
 
 # Systems flagged as engineered constructs or identity-uncertain.
@@ -129,6 +143,20 @@ def main(args):
     df["trajectory_type"] = traj.apply(
         lambda p: "protein_only" if p.endswith(".trr") else "membrane_embedded"
     )
+
+    # Correct the 10 GROMACS systems: their .trr is membrane-embedded, not
+    # protein-only. Repoint the topology to now.tpr (matches the stripped traj),
+    # repoint the protein-only export to traj1.xtc, and fix the 8DPF lipid label.
+    reclass = df["system_id"].isin(GROMACS_BILAYER_SYSTEMS)
+    for idx in df.index[reclass]:
+        traj_dir = os.path.dirname(df.at[idx, "trajectory_path"])
+        df.at[idx, "trajectory_type"] = "membrane_embedded"
+        df.at[idx, "topology_path"] = os.path.join(traj_dir, "now.tpr")
+        df.at[idx, "protein_only_trajectory_path"] = os.path.join(traj_dir, "traj1.xtc")
+        df.at[idx, "lipid_composition"] = "POPC"
+    print(f"Reclassified {int(reclass.sum())} GROMACS systems protein_only -> "
+          f"membrane_embedded (topology -> now.tpr)")
+
     df["has_bilayer"] = df["trajectory_type"] == "membrane_embedded"
 
     print(f"\nTrajectory type: membrane_embedded={df['has_bilayer'].sum()}, "
