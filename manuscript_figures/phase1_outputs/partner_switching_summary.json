@@ -1,0 +1,38 @@
+{
+  "n_contrasts": 16,
+  "jaccard_dist_range": [
+    0.0,
+    1.0
+  ],
+  "jaccard_sim_range": [
+    0.0,
+    1.0
+  ],
+  "gateway_dist_range": [
+    0.0364285714285714,
+    0.1102857142857142
+  ],
+  "most_reorganized_pockets": "SSTR2",
+  "most_reorganized_jaccard_dist": 1.0,
+  "most_reorganized_receptor_pocket_dist_1": [
+    "SSTR2",
+    "NMUR2",
+    "CRHR2",
+    "H1R",
+    "P2Y1R"
+  ],
+  "ox2r_gq_gs": {
+    "jaccard_dist": 0.0,
+    "jaccard_sim": 1.0,
+    "gateway_dist": 0.1094285714285714,
+    "interpretation": "Identical pocket profiles (Jaccard similarity=1.0); HIGH gateway divergence"
+  },
+  "permutation_null_gateway": {
+    "n_permutations": 5000,
+    "null_median": 0.0739,
+    "null_p95": 0.1276,
+    "n_contrasts_above_p95": 0,
+    "contrasts_above_p95": []
+  },
+  "integrity_note": "jaccard_dist column = 1 - Jaccard_similarity. jaccard_dist=0.0 means IDENTICAL pocket profiles. jaccard_dist=1.0 means COMPLETELY DIFFERENT pocket profiles. The manuscript previously incorrectly called OX2R Gq-Gs (dist=0.0) 'complete non-overlap'. OX2R Gq-Gs actually has IDENTICAL pocket profiles (both in orthosteric cluster 1 only)."
+}

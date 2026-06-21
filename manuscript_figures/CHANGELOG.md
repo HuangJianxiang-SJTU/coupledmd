@@ -72,3 +72,47 @@ corrected figures, resolving the integrity flags:
   internally consistent Oxford (-ize / -lyse / double-l) — left unchanged.
 - Diminishing returns reached on prose: the body text was already strong;
   further rewriting withheld per stopping discipline.
+
+## v1.3.0 — Phase 3 morning session
+- Morning session continuation: further consistency, journal-fit adjustments.
+  (See Phase 3 session report.)
+
+## v1.4.0 — Overnight Phase 0–4 run (2026-06-21)
+**CRITICAL DATA FIX (F11): Jaccard inversion corrected throughout.**
+The `jaccard` column in `reorg_atlas.json` stores Jaccard DISTANCE (1 − similarity),
+not similarity. The manuscript through v1.3.0 had the interpretation inverted:
+- Was: "OX2R Gq–Gs Jaccard = 0.0 → completely reorganized pocket landscape"
+- Corrected: Jaccard distance = 0.0 → IDENTICAL pocket profiles (most conserved)
+- The 5 maximally reorganized contrasts (sim = 0.0, dist = 1.0): SSTR2 Gi–Gq,
+  NMUR2 Gi–Gq, CRHR2 Gi–Gs, H1R Gq–Gs, P2Y1R Gq–Gs.
+- The correct OX2R story: Gi uniquely accesses druggable cluster D18 (absent in
+  Gq and Gs); Gq and Gs have IDENTICAL pocket profiles. Narrative rewritten.
+
+**Phase 1A — Recovery benchmark (new).**
+Computed cohort-wide for the first time (script: `phase1_analysis.py`):
+158/209 = 75.6% orthosteric recovery across systems with detectable pockets.
+By ligand type: small-molecule 94.9%, peptide 85.3%. Added to §3.2 and Table T2.
+
+**Phase 1B — Partner-switching census hardened.**
+All 16 contrasts now quantified with Jaccard SIMILARITY (= 1 − dist) and gateway
+mean |Δ| distances with bootstrap 95% CIs. Permutation null computed (5000 perms,
+p95 = 0.128); no contrast exceeds the null for the MEAN 7-portal metric, but
+FFAR4 TM6–TM7 (Gi vs Gq) has non-overlapping per-replica CIs (10× difference
+is above noise). Table T3 updated with all 16 contrasts.
+
+**Phase 2 — Full table set generated.**
+T1–T3 main-text tables + S1–S6 supplementary tables in `manuscript_figures/tables/`.
+Scripts: `generate_tables.py`.
+
+**Phase 3 — Figure 5 corrected.**
+`generate_figures_4_5.py` rewritten: Figure 5 now plots Jaccard SIMILARITY on all
+axes. OX2R annotations corrected (Gi-unique D18 pocket story). Figure 5D x-axis
+label corrected. `figures/figure5_partner_switching.pdf` + `.png` regenerated.
+
+**Phase 4 — v1.4.0 compiled.**
+`nar_manuscript.md` updated. `build_docx.py` produced `versions/manuscript_v1.4.0.docx`
+(1.86 MB) and `versions/manuscript_v1.4.0.md`.
+
+**Phase 0 — Audit artefacts.**
+`INTEGRITY_FLAGS.md` updated with F11–F14. `MASTER_REPORT.md` written (morning report).
+`phase1_analysis.py` generates `phase1_outputs/` directory with all new statistics.

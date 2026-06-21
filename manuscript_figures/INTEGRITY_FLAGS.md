@@ -65,3 +65,60 @@ user, not silently changed. Cross-referenced in SESSION_REPORT.md.
 - **F8 — Fig 4B "OX2R ranks highest".** OX2R (7L1V, Gs) has func_rank=1, but
   func_rank=1 is shared by several systems (SSTR2, H1R, P2Y1R, FFAR4 …). "Ranks
   highest" is true only as "tied for top". Soften wording.
+
+## New flags (overnight Phase 0, 2026-06-21)
+
+- **F11 — MAJOR: Jaccard interpretation inverted throughout (Fig 5, Section 3.2,
+  Methods, Discussion).** The `jaccard` column in `reorg_atlas.json` (source:
+  `paper1_reorg_build.py` line 127: `jac = 1 - len(inter) / len(union)`) is
+  Jaccard **DISTANCE** (dissimilarity), NOT Jaccard similarity.
+  - jaccard_dist = 0.0 → identical pocket profiles (no reorganization)
+  - jaccard_dist = 1.0 → completely non-overlapping pockets (maximum reorganization)
+  
+  The manuscript INCORRECTLY says: "OX2R Gq–Gs yields Jaccard = 0.0, indicating
+  that the intracellular pocket landscape is entirely reorganized."  
+  **Truth**: OX2R Gq–Gs has Jaccard_distance = 0.0 = IDENTICAL pocket profiles
+  (both Gq_7SR8 and Gs_7L1V belong ONLY to orthosteric cluster O1). This is the
+  MOST CONSERVED contrast in the dataset.
+  
+  **Truth about pocket reorganization**: The MOST reorganized contrasts (Jaccard
+  distance = 1.0, Jaccard similarity = 0.0) are: SSTR2 Gi–Gq, NMUR2 Gi–Gq,
+  CRHR2 Gi–Gs, H1R Gq–Gs, P2Y1R Gq–Gs (all with zero shared pockets).
+  
+  **What IS special about OX2R**: Under Gi coupling, OX2R uniquely accesses a
+  druggable pocket (consensus cluster D18) absent in both Gq and Gs complexes
+  (Jaccard_dist Gi–Gq = 0.5, Gi–Gs = 0.5). Gq and Gs are identical (dist = 0.0).
+  OX2R Gq–Gs also shows relatively high gateway divergence (mean |Δopen| = 0.109),
+  though only TM3–TM4 has non-overlapping per-replica 95% CIs.
+  
+  **Required fix**: Convert figure and text to use Jaccard SIMILARITY (= 1 − dist)
+  throughout, OR label explicitly as Jaccard DISTANCE. Correct the OX2R narrative.
+  Figure 5B bars should show: Gi↔Gq = 0.5 (sim), Gi↔Gs = 0.5 (sim), Gq↔Gs = 1.0
+  (sim; identical), annotated correctly. Update Section 3.2, Methods, Discussion.
+
+- **F12 — 332 vs 333 µs reconciled (not an error, but document it).** "≈332 µs"
+  in the manuscript is correct. The exact aggregate is 332.286 µs, not 333 µs.
+  Discrepancy from naive 222×3×500 = 333 µs because:
+  • Gi_7E32: 3 × 260 ns = 780 ns (short trajectory)
+  • Gi_8HK2: 3 × 2 ns = 6 ns (likely a data-entry anomaly; flag for user)
+  • Gq_8J9N: 6 × 500 ns = 3000 ns (6 replicas instead of 3)
+  Text value "≈332 µs" is accurate; no change needed. Recommend flagging Gi_8HK2
+  (2 ns/replica) as a possible data-entry error in the systems_master.csv.
+
+- **F13 — Orthosteric recovery benchmark (new Phase 1A result).** Cohort-wide
+  orthosteric site recovery: 158/209 systems with pockets recover the orthosteric
+  site (75.6%). By G-family: Gi 73.1%, Gs 76.1%, Gq 81.4%, G12 66.7%.
+  13 systems have no pockets detected (intracellular cavity occluded). This is
+  a new headline number for Section 3.2 and Table T2.
+
+- **F14 — Gateway permutation null: no contrast exceeds null at p95.** The
+  permutation null for mean gateway distance (7 portals, 5000 permutations) has
+  p95 = 0.128. The maximum observed gateway_dist is 0.110 (H1R Gq–Gs), which
+  does NOT exceed the null. HOWEVER, specific portal-level comparisons CAN be
+  above noise: FFAR4 TM6–TM7 (Gi=0.022 vs Gq=0.208) has non-overlapping per-
+  replica 95% CIs, supporting the "~10×" claim for that single portal.
+  Implication: the summary MEAN across 7 portals does not reach significance, but
+  INDIVIDUAL portals (especially TM6–TM7 in FFAR4) show above-noise differences.
+  The manuscript currently describes only the named portal differences for FFAR4,
+  which IS supported. The summary Jaccard-vs-gateway scatter should note the
+  non-significant association across contrasts.

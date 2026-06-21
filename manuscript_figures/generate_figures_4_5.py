@@ -209,8 +209,18 @@ def make_figure4():
 # FIGURE 5 — Partner-switching reorganisation
 # ══════════════════════════════════════════════════════════════════════════════
 def make_figure5():
+    """
+    INTEGRITY NOTE (F11): The 'jaccard' column in reorg_atlas.json equals
+    1 - Jaccard_similarity (i.e. Jaccard DISTANCE). We plot Jaccard SIMILARITY
+    (= 1 - jaccard_dist) so that 0.0 = no shared pockets and 1.0 = identical.
+    OX2R Gq-Gs: Jaccard_sim = 1.0 (identical pocket profiles, both in orthosteric
+    cluster O1 only). The Gi complex uniquely opens a druggable pocket (D18).
+    """
     reorg = json.load(open(REORG_JSON))
     comp = pd.DataFrame(reorg["comparisons"])
+
+    # Convert Jaccard distance to similarity (F11 fix)
+    comp["jaccard_sim"] = (1.0 - comp["jaccard"]).clip(0.0, 1.0)
 
     ox2r = {"Gi": "Gi_7SQO", "Gq": "Gq_7SR8", "Gs": "Gs_7L1V"}
     gateways = {}
@@ -227,54 +237,65 @@ def make_figure5():
     fig.subplots_adjust(hspace=0.42, wspace=0.32, left=0.09, right=0.96,
                         top=0.93, bottom=0.10)
 
-    # ── A — jaccard vs gateway dissimilarity ──────────────────────────────────
+    # ── A — jaccard similarity vs gateway divergence ──────────────────────────
     ax = axes[0, 0]
     for _, r in comp.iterrows():
         is_ox = r["receptor"] == "OX2R"
-        ax.scatter(r["jaccard"], r["gateway_dist"],
+        ax.scatter(r["jaccard_sim"], r["gateway_dist"],
                    c=contrast_color.get(r["contrast"], MUTED),
                    s=46 if is_ox else 26,
                    edgecolors=INK if is_ox else "white",
                    linewidths=0.9 if is_ox else 0.3, zorder=5 if is_ox else 3)
-    # annotate the single most extreme OX2R contrast (Gq-Gs, jaccard 0)
+    # OX2R Gq-Gs: identical pockets (sim=1.0) but notable gateway divergence
     ext = comp[(comp.receptor == "OX2R") & (comp.contrast == "Gq-Gs")].iloc[0]
-    ax.annotate("OX2R Gq→Gs\n(complete reorganisation)",
-                xy=(ext["jaccard"], ext["gateway_dist"]),
-                xytext=(0.12, ext["gateway_dist"] + 0.004), fontsize=5,
-                color=INK, va="center",
+    ax.annotate("OX2R Gq→Gs\n(gateway shift;\nidentical pockets)",
+                xy=(ext["jaccard_sim"], ext["gateway_dist"]),
+                xytext=(ext["jaccard_sim"] - 0.45, ext["gateway_dist"] + 0.005),
+                fontsize=4.8, color=INK, va="center",
                 arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.5))
     ax.axvline(0.5, color="#cccccc", lw=0.5, ls="--", zorder=1)
     ax.set_xlabel("Pocket Jaccard similarity")
-    ax.set_ylabel("Gateway dissimilarity")
-    ax.set_xlim(-0.06, 1.08)
+    ax.set_ylabel("Gateway divergence (mean |Δ open fraction|)")
+    ax.set_xlim(-0.06, 1.12)
     handles = [mpatches.Patch(color=FAMILY["Gq"], label="→ Gq/11"),
                mpatches.Patch(color=FAMILY["Gs"], label="→ Gs")]
-    ax.legend(handles=handles, loc="upper center", frameon=False, fontsize=5.5,
+    ax.legend(handles=handles, loc="upper left", frameon=False, fontsize=5.5,
               handlelength=1.0, handletextpad=0.4, ncol=2, columnspacing=1.0)
     fs.despine(ax)
     fs.panel_label(ax, "A", x=-0.13)
 
-    # ── B — OX2R pairwise pocket residue-set Jaccard (the switching signal) ────
+    # ── B — OX2R pairwise pocket Jaccard SIMILARITY ───────────────────────────
+    # Gi has a unique druggable pocket (cluster D18) absent in Gq and Gs.
+    # Gq and Gs have identical pocket profiles (both in orthosteric cluster O1).
     ax = axes[0, 1]
     ox_j = (comp[comp.receptor == "OX2R"].set_index("contrast")
             .reindex(["Gi-Gq", "Gi-Gs", "Gq-Gs"]))
     labels = ["Gi↔Gq", "Gi↔Gs", "Gq↔Gs"]
-    jvals = ox_j["jaccard"].values
+    jvals = ox_j["jaccard_sim"].values
     xb = np.arange(len(labels))
-    bar_colors = [ACCENT, ACCENT, FAMILY["Gq"]]   # highlight the zero-overlap pair
+    # Gi contrasts show intermediate similarity (Gi has unique druggable pocket)
+    # Gq-Gs shows identical (sim=1.0)
+    bar_colors = [FAMILY["Gi"], FAMILY["Gi"], ACCENT]
     bars = ax.bar(xb, jvals, width=0.58, color=bar_colors, zorder=3)
     for xi, v in zip(xb, jvals):
         ax.text(xi, v + 0.03, f"{v:.2f}", ha="center", va="bottom",
                 fontsize=6, fontweight="bold", color=INK)
-    ax.annotate("complete\nnon-overlap", xy=(2, 0.0), xytext=(2, 0.34),
-                ha="center", va="bottom", fontsize=5, color=FAMILY["Gq"],
+    ax.annotate("Gi-unique\ndruggable pocket", xy=(0, jvals[0]),
+                xytext=(0.5, jvals[0] - 0.30),
+                ha="center", va="top", fontsize=4.8, color=FAMILY["Gi"],
                 fontweight="bold",
-                arrowprops=dict(arrowstyle="->", color=FAMILY["Gq"], lw=0.6))
+                arrowprops=dict(arrowstyle="->", color=FAMILY["Gi"], lw=0.6,
+                                connectionstyle="arc3,rad=0.2"))
+    ax.annotate("identical\npocket profiles", xy=(2, jvals[2]),
+                xytext=(2, jvals[2] - 0.28),
+                ha="center", va="top", fontsize=4.8, color=ACCENT,
+                fontweight="bold",
+                arrowprops=dict(arrowstyle="->", color=ACCENT, lw=0.6))
     ax.set_xticks(xb)
     ax.set_xticklabels(labels)
-    ax.set_ylabel("Pocket residue Jaccard")
-    ax.set_ylim(0, 1.05)
-    ax.set_title("OX2R pocket-set overlap", fontsize=7.5, pad=3)
+    ax.set_ylabel("Pocket Jaccard similarity")
+    ax.set_ylim(0, 1.18)
+    ax.set_title("OX2R partner-specific pockets", fontsize=7.5, pad=3)
     fs.despine(ax)
     fs.panel_label(ax, "B", x=-0.13)
 
@@ -308,24 +329,24 @@ def make_figure5():
     cbar.ax.tick_params(labelsize=5)
     fs.panel_label(ax, "C", x=-0.18)
 
-    # ── D — jaccard vs α5 tilt difference (NO trend: see F10) ──────────────────
+    # ── D — jaccard similarity vs α5 tilt difference (NO trend: see F10) ──────
     ax = axes[1, 1]
     cd = comp.dropna(subset=["dtilt"])
     for _, r in cd.iterrows():
         is_ox = r["receptor"] == "OX2R"
-        ax.scatter(r["jaccard"], r["dtilt"],
+        ax.scatter(r["jaccard_sim"], r["dtilt"],
                    c=contrast_color.get(r["contrast"], MUTED),
                    s=46 if is_ox else 26, marker="D" if is_ox else "o",
                    edgecolors=INK if is_ox else "white",
                    linewidths=0.8 if is_ox else 0.3, zorder=5 if is_ox else 3)
     for _, r in cd[cd.receptor == "OX2R"].iterrows():
         ax.annotate(f"OX2R {r['contrast'].replace('-', '→')}",
-                    xy=(r["jaccard"], r["dtilt"]),
-                    xytext=(r["jaccard"] + 0.03, r["dtilt"] + 1.5),
+                    xy=(r["jaccard_sim"], r["dtilt"]),
+                    xytext=(r["jaccard_sim"] - 0.10, r["dtilt"] + 2.0),
                     fontsize=4.6, color=INK)
     ax.set_xlabel("Pocket Jaccard similarity")
     ax.set_ylabel("α5 tilt difference (°)")
-    ax.set_xlim(-0.06, 1.08)
+    ax.set_xlim(-0.06, 1.12)
     ax.text(0.5, 0.97, "no significant association (n=13)", transform=ax.transAxes,
             ha="center", va="top", fontsize=4.8, color=MUTED, style="italic")
     fs.despine(ax)
