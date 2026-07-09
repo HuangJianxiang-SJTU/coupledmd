@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_7XT8",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-386",
+      "n_residues": 386
+    },
+    "G_beta": {
+      "resid_range": "387-724",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "782-1092",
+      "n_residues": 311
+    },
+    "G_gamma": {
+      "resid_range": "725-781",
+      "n_residues": 57
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1093-1093",
+      "n_residues": 1
+    }
+  }
+}

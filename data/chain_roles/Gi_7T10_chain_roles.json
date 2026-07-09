@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_7T10",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-345",
+      "n_residues": 345
+    },
+    "G_beta": {
+      "resid_range": "346-683",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "755-1042",
+      "n_residues": 288
+    },
+    "G_gamma": {
+      "resid_range": "684-740",
+      "n_residues": 57
+    },
+    "peptide_ligand": {
+      "resid_range": "741-754",
+      "n_residues": 14
+    }
+  }
+}

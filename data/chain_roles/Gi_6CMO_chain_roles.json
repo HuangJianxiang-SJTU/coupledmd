@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_6CMO",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-694",
+      "n_residues": 340
+    },
+    "Receptor": {
+      "resid_range": "753-1084",
+      "n_residues": 332
+    },
+    "G_gamma": {
+      "resid_range": "695-752",
+      "n_residues": 58
+    }
+  }
+}

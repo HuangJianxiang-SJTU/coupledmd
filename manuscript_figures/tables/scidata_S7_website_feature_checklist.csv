@@ -1,0 +1,16 @@
+feature,status,evidence,submission_action
+Browse systems,supported,Systems route and /api/v1/systems endpoint,Show in Fig. 2 or Supp Fig. S3
+Filter by G-protein family,supported,/api/v1/systems supports family; frontend Systems page,Mention in Data Records/Usage Notes
+Filter by GPCR class,supported in frontend/source metadata,"gpcr_class field present, but API docs should expose class filter explicitly if desired",Consider adding explicit class filter docs before submission
+Search by receptor/UniProt/PDB/ligand/system ID,supported,README and Systems page describe free-text search,Use in portal-access text
+Per-system metadata display,supported,/api/v1/systems/{system_id},Data Records
+Pocket and GPCRdb-mapped records,supported,/pockets and pocketgrid endpoints,Technical Validation and reuse
+Gateway/G-protein feature records,supported,"/gateways, /gprotein, /barcode endpoints",Keep descriptive for Paper 1
+Reduced structure/trajectory visualization,supported,"/viz/structure, /viz/trajectory, /viz/meta","Portal access layer, not archive replacement"
+API documentation,supported,"/api/docs, /api/redoc, /api/openapi.json",Archive OpenAPI JSON with dataset
+Citation metadata,supported,/api/v1/citation and /citation.cff,Data/code availability
+Stable archival repository DOI,missing,not yet assigned in current manuscript package,Required before submission or during review
+Reviewer-accessible private archive link,missing,not yet assigned,Required for Scientific Data review
+Full archive manifest/checksums,partial,checksum checklist exists; final per-file manifest not generated,Generate after final archive assembly
+Bulk full-trajectory download route,missing/unclear,portal exposes selected/reduced downloads; archival repository must provide full data,Clarify in Data Records and repository deposit
+License and reuse terms,supported in project files,"LICENSE, LICENSE-CODE, CITATION.cff present",Verify final archive repeats license

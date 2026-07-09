@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_7V9M",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-385",
+      "n_residues": 385
+    },
+    "G_beta": {
+      "resid_range": "386-723",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "743-1016",
+      "n_residues": 274
+    },
+    "peptide_ligand": {
+      "resid_range": "724-742",
+      "n_residues": 19
+    },
+    "G_gamma": {
+      "resid_range": "1017-1073",
+      "n_residues": 57
+    }
+  }
+}

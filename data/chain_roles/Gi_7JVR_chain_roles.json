@@ -1,0 +1,26 @@
+{
+ "system_id": "Gi_7JVR",
+ "n_segments": 4,
+ "roles": {
+  "G_alpha": {
+   "resid_range": "1-350",
+   "n_residues": 350
+  },
+  "G_beta": {
+   "resid_range": "351-692",
+   "n_residues": 342
+  },
+  "Receptor": {
+   "resid_range": "751-1158",
+   "n_residues": 408
+  },
+  "G_gamma": {
+   "resid_range": "693-750",
+   "n_residues": 58
+  },
+  "ligand": {
+   "resid_range": "1159-1159",
+   "n_residues": 1
+  }
+ }
+}

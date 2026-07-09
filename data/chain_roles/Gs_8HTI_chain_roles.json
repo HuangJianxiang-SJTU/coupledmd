@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_8HTI",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-336",
+      "n_residues": 336
+    },
+    "G_beta": {
+      "resid_range": "337-668",
+      "n_residues": 332
+    },
+    "Receptor": {
+      "resid_range": "721-1023",
+      "n_residues": 303
+    },
+    "G_gamma": {
+      "resid_range": "669-720",
+      "n_residues": 52
+    }
+  }
+}

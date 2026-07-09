@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_3SN6",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-372",
+      "n_residues": 372
+    },
+    "G_beta": {
+      "resid_range": "373-712",
+      "n_residues": 340
+    },
+    "Receptor": {
+      "resid_range": "771-1082",
+      "n_residues": 312
+    },
+    "G_gamma": {
+      "resid_range": "713-770",
+      "n_residues": 58
+    }
+  }
+}

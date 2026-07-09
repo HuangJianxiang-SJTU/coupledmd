@@ -1,0 +1,22 @@
+{
+  "system_id": "G12_8IKL",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-224",
+      "n_residues": 224
+    },
+    "G_beta": {
+      "resid_range": "225-561",
+      "n_residues": 337
+    },
+    "Receptor": {
+      "resid_range": "562-830",
+      "n_residues": 269
+    },
+    "G_gamma": {
+      "resid_range": "831-882",
+      "n_residues": 52
+    }
+  }
+}

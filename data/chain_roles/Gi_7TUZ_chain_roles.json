@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_7TUZ",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-693",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "753-1067",
+      "n_residues": 315
+    },
+    "G_gamma": {
+      "resid_range": "694-752",
+      "n_residues": 59
+    }
+  }
+}

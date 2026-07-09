@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_8WJX",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-376",
+      "n_residues": 376
+    },
+    "G_beta": {
+      "resid_range": "377-705",
+      "n_residues": 329
+    },
+    "Receptor": {
+      "resid_range": "749-1045",
+      "n_residues": 297
+    },
+    "G_gamma": {
+      "resid_range": "706-748",
+      "n_residues": 43
+    }
+  }
+}

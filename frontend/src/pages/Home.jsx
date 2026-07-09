@@ -15,7 +15,7 @@ export default function Home({ navigate }) {
   }, [])
 
   const totalNs = families ? families.reduce((s, f) => s + (f.total_sampling_ns || 0), 0) : 0
-  const totalUs = (totalNs / 1000).toFixed(0)
+  const totalUs = (totalNs / 1000).toFixed(1)
 
   return (
     <div className="page">
@@ -40,7 +40,7 @@ export default function Home({ navigate }) {
         <div className="stat-card">
           <div className="num">{totalUs > 0 ? `${totalUs}` : '—'}<span style={{ fontSize: '1rem' }}> μs</span></div>
           <div className="label">Aggregate sampling</div>
-          <div className="sub">3 replicas × 500 ns standard</div>
+          <div className="sub">222 systems · standard 3 × 500 ns</div>
         </div>
         <div className="stat-card">
           <div className="num">4</div>
@@ -97,12 +97,29 @@ export default function Home({ navigate }) {
         </button>
       </div>
 
-      <div style={{ marginTop: 48, padding: '20px 0', borderTop: '1px solid var(--rule)',
+      {/* How to cite */}
+      <div style={{ marginTop: 36, padding: 20, background: 'var(--panel)', borderRadius: 'var(--radius)',
+                    border: '1px solid var(--rule)' }}>
+        <h3 style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase',
+                     letterSpacing: '0.08em', color: 'var(--faint)', marginBottom: 8 }}>
+          How to cite
+        </h3>
+        <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--muted)', margin: 0 }}>
+          Huang J et al., CoupledMD: a web resource for GPCR–G-protein molecular dynamics.
+          Citation details to be confirmed (pre-publication).
+        </p>
+        <p style={{ fontSize: 11, color: 'var(--faint)', marginTop: 8, marginBottom: 0 }}>
+          Data: CC-BY-4.0 &middot; Code: MIT &middot; Zenodo DOI pending (pre-publication)
+        </p>
+      </div>
+
+      <div style={{ marginTop: 24, padding: '20px 0', borderTop: '1px solid var(--rule)',
                     color: 'var(--faint)', fontSize: 12 }}>
-        Force field: CHARMM36 (chamber, AMBER pmemd) for 212 membrane-embedded systems;
+        Force field: CHARMM36 (chamber, AMBER pmemd) for 186 membrane-embedded systems;
         CHARMM36 (via AMBER CHARMM-GUI) for 26 class-B systems;
-        CHARMM36 (protein-only, GROMACS) for 10 protein-only systems.
-        All structures from experimental cryo-EM/X-ray ternary complexes.
+        CHARMM36 (GROMACS) for 10 membrane-embedded systems.
+        Structures from experimental cryo-EM/X-ray ternary complexes (211), plus 11
+        engineered/uncertain models.
       </div>
     </div>
   )

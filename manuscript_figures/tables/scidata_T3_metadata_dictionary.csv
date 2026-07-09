@@ -1,0 +1,26 @@
+field,type,description
+system_id,string,Unique dataset system identifier
+pdb_id,string,Primary PDB or structure identifier
+receptor_name,string,Receptor common/protein name
+receptor_uniprot,string,UniProt accession for receptor
+receptor_gene,string,Gene symbol where available
+gpcr_class,string,GPCR class annotation
+gpcrdb_id,string,GPCRdb receptor identifier; add to final metadata if not yet present
+gpcrdb_numbering,object/table,Generic residue-numbering map used for cross-receptor pocket/interface annotation
+g_protein_family,enum,"Gi/o, Gs, Gq/11, or G12/13 family assignment"
+g_alpha_subtype,string,Specific G-alpha subtype annotation
+ligand_name,string,Ligand name or apo/none annotation
+ligand_chem_id,string,Ligand chemical identifier where available
+state,string,Activation/coupling state annotation; add to final metadata if absent
+source_pdb,string,Input structure/template source
+n_replicas,integer,Number of production replicas included
+length_per_replica_ns,number,Production length per included replica
+total_sampling_ns,number,Aggregate sampling for the system
+force_field,string,Force field and MD engine/protocol annotation
+lipid_composition,string,Membrane composition
+trajectory_path,string/list,Archive path to full trajectories
+topology_path,string/list,Archive path to topology/structure files
+qc_status,enum,pass or held_back
+qc_reason,string,"Reason for exclusion or warnings, if applicable"
+traj_sha256,string,Trajectory checksum; final archive should include per-file checksums
+topo_sha256,string,Topology checksum; final archive should include per-file checksums

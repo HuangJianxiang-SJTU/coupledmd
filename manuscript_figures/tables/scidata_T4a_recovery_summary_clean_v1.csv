@@ -1,0 +1,6 @@
+subset,systems_n,systems_with_pockets,orthosteric_recovered,recovery_rate_percent,mean_best_orthosteric_frequency
+Gi/o,93,91,66,72.5,0.919
+Gs,67,67,51,76.1,0.916
+Gq/11,42,42,35,83.3,0.909
+G12/13,6,6,4,66.7,0.916
+All clean-v1,208,206,156,75.7,0.916

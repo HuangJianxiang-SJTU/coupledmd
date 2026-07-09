@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_6WWZ",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-692",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "693-758",
+      "n_residues": 66
+    },
+    "G_gamma": {
+      "resid_range": "759-814",
+      "n_residues": 56
+    },
+    "Receptor_frag0": {
+      "resid_range": "815-1141",
+      "n_residues": 327
+    }
+  }
+}

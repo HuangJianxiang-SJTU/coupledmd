@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1220" viewBox="0 0 1800 1220">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#6b7280"/></marker></defs>
+<text x="70" y="70" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1b1f2a" text-anchor="start">Figure 1 draft. Clean-v1 dataset composition and construction workflow</text>
+<text x="70" y="105" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#5f6b7a" text-anchor="start">Draft for Scientific Data: update after final QC thresholds are locked</text>
+<text x="70" y="165" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">A</text>
+<text x="110" y="165" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1b1f2a" text-anchor="start">QC funnel</text>
+<polygon points="90.0,205 610.0,205 585.0,253 115.0,253" fill="#34495e" opacity="0.92"/>
+<text x="350" y="236" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">Designed systems: n=222</text>
+<polygon points="100.54054054054055,270 599.4594594594595,270 574.4594594594595,318 125.54054054054055,318" fill="#65768a" opacity="0.92"/>
+<text x="350" y="301" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">PBC/file screen: n=213</text>
+<polygon points="102.88288288288288,335 597.1171171171171,335 572.1171171171171,383 127.88288288288288,383" fill="#78909c" opacity="0.92"/>
+<text x="350" y="366" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">Completeness screen: n=211</text>
+<polygon points="106.3963963963964,400 593.6036036036036,400 568.6036036036036,448 131.3963963963964,448" fill="#3f8f6b" opacity="0.92"/>
+<text x="350" y="431" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">Processed-output screen: n=208</text>
+<polygon points="106.3963963963964,465 593.6036036036036,465 568.6036036036036,513 131.3963963963964,513" fill="#2b7a4b" opacity="0.92"/>
+<text x="350" y="496" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">Clean v1 release: n=208</text>
+<text x="90" y="560" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#1b1f2a" text-anchor="start">Held back: 14 systems</text>
+<rect x="90" y="590" width="520" height="28" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="90" y="590" width="334.2857142857143" height="28" rx="4" fill="#c65f5f" stroke="none" stroke-width="2"/><text x="98" y="611.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">temporary/incomplete files  9</text>
+<rect x="90" y="628" width="520" height="28" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="90" y="628" width="74.28571428571429" height="28" rx="4" fill="#c65f5f" stroke="none" stroke-width="2"/><text x="98" y="649.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">nonstandard length  2</text>
+<rect x="90" y="666" width="520" height="28" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="90" y="666" width="74.28571428571429" height="28" rx="4" fill="#c65f5f" stroke="none" stroke-width="2"/><text x="98" y="687.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">missing processed outputs  2</text>
+<rect x="90" y="704" width="520" height="28" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="90" y="704" width="37.142857142857146" height="28" rx="4" fill="#c65f5f" stroke="none" stroke-width="2"/><text x="98" y="725.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">nonstandard replicas + missing outputs  1</text>
+<text x="690" y="165" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">B</text>
+<text x="730" y="165" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1b1f2a" text-anchor="start">GPCR class distribution</text>
+<rect x="730" y="210" width="430" height="44" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="730" y="210" width="376.25" height="44" rx="4" fill="#4C93D9" stroke="none" stroke-width="2"/><text x="738" y="239.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">Class A  182</text>
+<rect x="730" y="272" width="430" height="44" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="730" y="272" width="53.75" height="44" rx="4" fill="#49A87F" stroke="none" stroke-width="2"/><text x="738" y="301.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">Class B  26</text>
+<text x="730" y="352" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#1b1f2a" text-anchor="start">Total clean-v1 systems: 208</text>
+<text x="1220" y="165" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">C</text>
+<text x="1260" y="165" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1b1f2a" text-anchor="start">G-protein family distribution</text>
+<rect x="1260" y="210" width="430" height="44" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="1260" y="210" width="192.2596153846154" height="44" rx="4" fill="#4C93D9" stroke="none" stroke-width="2"/><text x="1268" y="239.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">Gi/o  93</text>
+<rect x="1260" y="272" width="430" height="44" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="1260" y="272" width="138.5096153846154" height="44" rx="4" fill="#E8A73A" stroke="none" stroke-width="2"/><text x="1268" y="301.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">Gs  67</text>
+<rect x="1260" y="334" width="430" height="44" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="1260" y="334" width="86.82692307692308" height="44" rx="4" fill="#D95C5C" stroke="none" stroke-width="2"/><text x="1268" y="363.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">Gq/11  42</text>
+<rect x="1260" y="396" width="430" height="44" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="1260" y="396" width="12.403846153846153" height="44" rx="4" fill="#8D58B4" stroke="none" stroke-width="2"/><text x="1268" y="425.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">G12/13  6</text>
+<text x="690" y="560" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">D</text>
+<text x="730" y="560" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1b1f2a" text-anchor="start">Provenance and sampling</text>
+<rect x="730" y="610" width="430" height="40" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="730" y="610" width="407.25961538461536" height="40" rx="4" fill="#4C93D9" stroke="none" stroke-width="2"/><text x="738" y="637.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">experimental  197</text>
+<rect x="730" y="665" width="430" height="40" rx="4" fill="#eef1f5" stroke="none" stroke-width="2"/><rect x="730" y="665" width="22.740384615384617" height="40" rx="4" fill="#A8B0BA" stroke="none" stroke-width="2"/><text x="738" y="692.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827" text-anchor="start">engineered/uncertain  11</text>
+<text x="730" y="730" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#1b1f2a" text-anchor="start">All included systems: 3 replicas x 500 ns</text>
+<text x="730" y="762" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#1b1f2a" text-anchor="start">Aggregate clean-v1 sampling: 312.0 microseconds</text>
+<text x="730" y="794" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#1b1f2a" text-anchor="start">Unique receptors: 174</text>
+<text x="70" y="820" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">E</text>
+<text x="110" y="820" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1b1f2a" text-anchor="start">Build-to-data workflow</text>
+<rect x="110" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="205" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">structure selection</text>
+<line x1="300" y1="912" x2="345" y2="912" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="345" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="440" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">standard preparation</text>
+<line x1="535" y1="912" x2="580" y2="912" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="580" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="675" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">membrane/solvent setup</text>
+<line x1="770" y1="912" x2="815" y2="912" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="815" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="910" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">3 x 500 ns MD</text>
+<line x1="1005" y1="912" x2="1050" y2="912" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1050" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="1145" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">trajectory processing</text>
+<line x1="1240" y1="912" x2="1285" y2="912" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1285" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="1380" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">metadata + archive</text>
+<line x1="1475" y1="912" x2="1520" y2="912" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1520" y="875" width="190" height="75" rx="8" fill="#f5f7fa" stroke="#c9d1dc" stroke-width="2"/>
+<text x="1615" y="920" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#1b1f2a" text-anchor="middle">portal/API access</text>
+</svg>

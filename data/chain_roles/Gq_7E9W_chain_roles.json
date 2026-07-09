@@ -1,0 +1,34 @@
+{
+  "system_id": "Gq_7E9W",
+  "n_segments": 7,
+  "roles": {
+    "G_beta": {
+      "resid_range": "714-1052",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "1-500",
+      "n_residues": 500
+    },
+    "G_gamma": {
+      "resid_range": "501-548",
+      "n_residues": 48
+    },
+    "UNRESOLVED_seg2": {
+      "resid_range": "549-568",
+      "n_residues": 20
+    },
+    "UNRESOLVED_seg3": {
+      "resid_range": "569-649",
+      "n_residues": 81
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "650-713",
+      "n_residues": 64
+    },
+    "UNRESOLVED_seg6": {
+      "resid_range": "1053-1110",
+      "n_residues": 58
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "system_id": "G12_7T6B",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-377",
+      "n_residues": 377
+    },
+    "G_beta": {
+      "resid_range": "378-716",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "776-1089",
+      "n_residues": 314
+    },
+    "G_gamma": {
+      "resid_range": "717-775",
+      "n_residues": 59
+    }
+  }
+}

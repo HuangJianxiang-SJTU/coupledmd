@@ -1,0 +1,4 @@
+manifest,records,systems,checksums_present,checksums_pending,notes
+archive_manifest_clean_v1_from_metadata,650,208,0,650,Production archive paths/sizes from systems_master; final repository checksums still pending.
+portal_file_manifest_clean_v1,2080,208,1247,833,Portal/API/reduced files under current server tree; binary or large files marked pending_binary_or_large_file.
+openapi_snapshot,27,,1,0,manuscript_figures/scidata_figures/api_snapshot/coupledmd_openapi_2026-07-07.json

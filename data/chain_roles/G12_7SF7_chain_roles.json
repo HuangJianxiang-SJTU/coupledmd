@@ -1,0 +1,22 @@
+{
+  "system_id": "G12_7SF7",
+  "n_segments": 4,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "836-888",
+      "n_residues": 53
+    },
+    "G_alpha": {
+      "resid_range": "285-497",
+      "n_residues": 213
+    },
+    "G_beta": {
+      "resid_range": "498-835",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "1-284",
+      "n_residues": 284
+    }
+  }
+}

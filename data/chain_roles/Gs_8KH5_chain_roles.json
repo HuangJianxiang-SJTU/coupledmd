@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_8KH5",
+  "n_segments": 4,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "1012-1066",
+      "n_residues": 55
+    },
+    "G_alpha": {
+      "resid_range": "291-673",
+      "n_residues": 383
+    },
+    "G_beta": {
+      "resid_range": "674-1011",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "1-290",
+      "n_residues": 290
+    }
+  }
+}

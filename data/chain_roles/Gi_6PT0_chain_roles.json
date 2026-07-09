@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_6PT0",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-694",
+      "n_residues": 340
+    },
+    "Receptor": {
+      "resid_range": "756-1063",
+      "n_residues": 308
+    },
+    "G_gamma": {
+      "resid_range": "695-755",
+      "n_residues": 61
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_8IRU",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-356",
+      "n_residues": 356
+    },
+    "G_beta": {
+      "resid_range": "357-693",
+      "n_residues": 337
+    },
+    "Receptor": {
+      "resid_range": "750-1131",
+      "n_residues": 382
+    },
+    "G_gamma": {
+      "resid_range": "694-749",
+      "n_residues": 56
+    }
+  }
+}

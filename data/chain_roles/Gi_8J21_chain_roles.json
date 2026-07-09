@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_8J21",
+  "n_segments": 4,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "999-1055",
+      "n_residues": 57
+    },
+    "G_alpha": {
+      "resid_range": "341-694",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "1-340",
+      "n_residues": 340
+    },
+    "Receptor": {
+      "resid_range": "695-998",
+      "n_residues": 304
+    }
+  }
+}

@@ -99,23 +99,23 @@ def make_figure_1():
     fs.despine(ax_a)
     fs.panel_label(ax_a, "A", x=-0.30)
 
-    # ── B — membrane representation (donut) ───────────────────────────────────
-    n_bilayer = int(df["has_bilayer"].sum())
-    n_protein = int((~df["has_bilayer"].astype(bool)).sum())
+    # ── B — structural provenance (donut) ─────────────────────────────────────
+    n_exp = int((df["structural_provenance"] == "experimental").sum())
+    # engineered_uncertain = all non-experimental
+    n_eng = int(len(df) - n_exp)
     wedges, _ = ax_b.pie(
-        [n_bilayer, n_protein], startangle=90, counterclock=False,
+        [n_exp, n_eng], startangle=90, counterclock=False,
         colors=[ACCENT, PALE],
         wedgeprops=dict(width=0.38, edgecolor="white", linewidth=0.6))
     ax_b.text(0, 0.07, "222", ha="center", va="center",
               fontsize=10, fontweight="bold", color=INK)
     ax_b.text(0, -0.12, "systems", ha="center", va="center",
               fontsize=6, color=MUTED)
-    # direct labels, no legend
-    ax_b.text(0, 1.18, f"POPC bilayer · {n_bilayer}", ha="center", va="center",
+    ax_b.text(0, 1.18, f"Experimental · {n_exp}", ha="center", va="center",
               fontsize=6.5, color=ACCENT, fontweight="bold")
-    ax_b.text(0, -1.24, f"Protein-only · {n_protein}", ha="center", va="center",
+    ax_b.text(0, -1.24, f"Engineered/chimeric · {n_eng}", ha="center", va="center",
               fontsize=6.5, color=MUTED, fontweight="bold")
-    ax_b.set_title("Membrane environment", fontsize=7.5, pad=2)
+    ax_b.set_title("Structural provenance", fontsize=7.5, pad=2)
     fs.panel_label(ax_b, "B", x=-0.08)
 
     # ── C — aggregate sampling per family + total (vertical bars) ──────────────

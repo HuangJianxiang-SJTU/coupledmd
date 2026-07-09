@@ -1,0 +1,22 @@
+{
+  "system_id": "Gq_8IYS",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-355",
+      "n_residues": 355
+    },
+    "G_beta": {
+      "resid_range": "356-687",
+      "n_residues": 332
+    },
+    "Receptor": {
+      "resid_range": "743-1044",
+      "n_residues": 302
+    },
+    "G_gamma": {
+      "resid_range": "688-742",
+      "n_residues": 55
+    }
+  }
+}

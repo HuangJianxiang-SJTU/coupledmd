@@ -1,10 +1,35 @@
+# Environment
 .env
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
-data/api/
-data/systems_master.parquet
-db/
+.pytest_cache/
+
+# IDE
+.vscode/
+.codex/
+.claude/
+.agents/
+
+# Frontend build
 frontend/node_modules/
 frontend/dist/
+
+# Heavy data — trajectories, viz, per-system JSON
+data/viz/
+data/api/v1/systems/
+scripts/audit_output/
+
+# Certs & keys
+certs/
+*.pem
+
+# Databases
+*.db
 *.sqlite
+db/
+
+# other
+mdout.mdp

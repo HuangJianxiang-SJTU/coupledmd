@@ -1,0 +1,33 @@
+{
+ "system_id": "Gq_7RYC",
+ "n_segments": 8,
+ "roles": {
+  "G_beta": {
+   "resid_range": "1-338",
+   "n_residues": 338
+  },
+  "G_gamma": {
+   "resid_range": "339-389",
+   "n_residues": 51
+  },
+  "G_alpha": {
+   "resid_range": "390-537",
+   "n_residues": 148
+  },
+  "Receptor": {
+   "resid_range": "602-610",
+   "n_residues": 323
+  },
+  "peptide_ligand": {
+   "resid_range": "538-601",
+   "n_residues": 64
+  },
+  "Receptor_frag0": {
+   "resid_range": "611-924"
+  },
+  "ligand": {
+   "resid_range": "925-925",
+   "n_residues": 1
+  }
+ }
+}

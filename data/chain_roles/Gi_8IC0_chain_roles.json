@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_8IC0",
+  "n_segments": 5,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "993-1049",
+      "n_residues": 57
+    },
+    "G_alpha": {
+      "resid_range": "303-654",
+      "n_residues": 352
+    },
+    "G_beta": {
+      "resid_range": "655-992",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "1-302",
+      "n_residues": 302
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1050-1118",
+      "n_residues": 69
+    }
+  }
+}

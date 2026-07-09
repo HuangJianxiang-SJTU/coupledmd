@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_7Y12",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-352",
+      "n_residues": 352
+    },
+    "G_beta": {
+      "resid_range": "353-690",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "748-1011",
+      "n_residues": 264
+    },
+    "G_gamma": {
+      "resid_range": "691-747",
+      "n_residues": 57
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1012-1012",
+      "n_residues": 1
+    }
+  }
+}

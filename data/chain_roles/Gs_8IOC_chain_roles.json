@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_8IOC",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-235",
+      "n_residues": 235
+    },
+    "G_beta": {
+      "resid_range": "236-576",
+      "n_residues": 341
+    },
+    "Receptor": {
+      "resid_range": "643-921",
+      "n_residues": 279
+    },
+    "G_gamma": {
+      "resid_range": "577-631",
+      "n_residues": 55
+    },
+    "peptide_ligand": {
+      "resid_range": "632-642",
+      "n_residues": 11
+    }
+  }
+}

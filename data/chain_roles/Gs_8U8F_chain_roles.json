@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_8U8F",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-394",
+      "n_residues": 394
+    },
+    "G_beta": {
+      "resid_range": "395-731",
+      "n_residues": 337
+    },
+    "Receptor": {
+      "resid_range": "788-1070",
+      "n_residues": 283
+    },
+    "G_gamma": {
+      "resid_range": "732-787",
+      "n_residues": 56
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1071-1071",
+      "n_residues": 1
+    }
+  }
+}

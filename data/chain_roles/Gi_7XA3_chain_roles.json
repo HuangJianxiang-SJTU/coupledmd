@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_7XA3",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-693",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "752-820",
+      "n_residues": 69
+    },
+    "G_gamma": {
+      "resid_range": "694-751",
+      "n_residues": 58
+    },
+    "Receptor_frag0": {
+      "resid_range": "821-1150",
+      "n_residues": 330
+    }
+  }
+}

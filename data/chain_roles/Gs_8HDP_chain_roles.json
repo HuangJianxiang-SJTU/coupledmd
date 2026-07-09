@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_8HDP",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-238",
+      "n_residues": 238
+    },
+    "G_beta": {
+      "resid_range": "239-576",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "634-941",
+      "n_residues": 308
+    },
+    "G_gamma": {
+      "resid_range": "577-633",
+      "n_residues": 57
+    }
+  }
+}

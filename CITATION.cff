@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use CoupledMD data or software, please cite:"
+type: software
+title: CoupledMD
+version: 1.0.0
+authors:
+  - family-names: Huang
+    given-names: Jianxiang
+repository-code: https://github.com/coupledmd/coupledmd
+license: MIT
+keywords:
+  - GPCR
+  - G-protein
+  - molecular dynamics
+  - web server
+identifiers:
+  - type: doi
+    value: 10.0000/placeholder
+    description: "Zenodo archive of the CoupledMD dataset (DOI pending pre-publication)"

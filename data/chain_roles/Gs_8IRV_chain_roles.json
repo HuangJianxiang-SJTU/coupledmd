@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_8IRV",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-387",
+      "n_residues": 387
+    },
+    "G_beta": {
+      "resid_range": "388-725",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "783-1129",
+      "n_residues": 347
+    },
+    "G_gamma": {
+      "resid_range": "726-782",
+      "n_residues": 57
+    }
+  }
+}

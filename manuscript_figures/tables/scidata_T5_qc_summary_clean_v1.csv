@@ -1,0 +1,7 @@
+gate,systems_n,passing_n,held_back_n,notes
+designed systems,222,222,0,initial current inventory
+clean-v1 included,222,208,14,strict clean-v1 cohort used for Paper 1 drafts
+3 x 500 ns metadata,208,208,0,metadata-level completeness check; frame-level audit still needed
+trajectory path present,208,208,0,metadata file-existence flag
+topology path present,208,208,0,metadata file-existence flag
+pocket outputs present,208,206,2,fpocket-derived validation data; absence may reflect closed pockets or missing processed output

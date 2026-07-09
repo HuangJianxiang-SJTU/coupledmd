@@ -1,0 +1,30 @@
+{
+  "system_id": "Gs_6UVA",
+  "n_segments": 6,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-379",
+      "n_residues": 379
+    },
+    "G_beta": {
+      "resid_range": "380-715",
+      "n_residues": 336
+    },
+    "Receptor": {
+      "resid_range": "716-826",
+      "n_residues": 111
+    },
+    "G_gamma": {
+      "resid_range": "827-875",
+      "n_residues": 49
+    },
+    "peptide_ligand": {
+      "resid_range": "876-918",
+      "n_residues": 43
+    },
+    "Receptor_frag0": {
+      "resid_range": "919-1306",
+      "n_residues": 388
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_8EFO",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-351",
+      "n_residues": 351
+    },
+    "G_beta": {
+      "resid_range": "352-687",
+      "n_residues": 336
+    },
+    "Receptor": {
+      "resid_range": "743-1029",
+      "n_residues": 287
+    },
+    "G_gamma": {
+      "resid_range": "688-742",
+      "n_residues": 55
+    }
+  }
+}

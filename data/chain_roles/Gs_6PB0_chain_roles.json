@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_6PB0",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-384",
+      "n_residues": 384
+    },
+    "G_beta": {
+      "resid_range": "385-722",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "780-1142",
+      "n_residues": 363
+    },
+    "G_gamma": {
+      "resid_range": "723-779",
+      "n_residues": 57
+    },
+    "peptide_ligand": {
+      "resid_range": "1143-1181",
+      "n_residues": 39
+    }
+  }
+}

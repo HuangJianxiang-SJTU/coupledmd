@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_7YK7",
+  "n_segments": 4,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "1-55",
+      "n_residues": 55
+    },
+    "G_alpha": {
+      "resid_range": "56-406",
+      "n_residues": 351
+    },
+    "Receptor": {
+      "resid_range": "407-694",
+      "n_residues": 288
+    },
+    "G_beta": {
+      "resid_range": "695-1032",
+      "n_residues": 338
+    }
+  }
+}

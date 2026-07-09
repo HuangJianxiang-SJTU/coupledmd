@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_8YUV",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-352",
+      "n_residues": 352
+    },
+    "G_beta": {
+      "resid_range": "353-691",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "750-1145",
+      "n_residues": 396
+    },
+    "G_gamma": {
+      "resid_range": "692-749",
+      "n_residues": 58
+    }
+  }
+}

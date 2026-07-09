@@ -1,0 +1,26 @@
+{
+ "system_id": "Gq_7SR8",
+ "n_segments": 5,
+ "roles": {
+  "G_alpha": {
+   "resid_range": "1-226",
+   "n_residues": 226
+  },
+  "G_beta": {
+   "resid_range": "227-565",
+   "n_residues": 339
+  },
+  "Receptor": {
+   "resid_range": "625-955",
+   "n_residues": 331
+  },
+  "G_gamma": {
+   "resid_range": "566-624",
+   "n_residues": 59
+  },
+  "ligand": {
+   "resid_range": "956-956",
+   "n_residues": 1
+  }
+ }
+}

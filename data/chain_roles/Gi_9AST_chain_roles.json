@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_9AST",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-690",
+      "n_residues": 336
+    },
+    "Receptor": {
+      "resid_range": "756-1053",
+      "n_residues": 298
+    },
+    "G_gamma": {
+      "resid_range": "691-744",
+      "n_residues": 54
+    },
+    "UNRESOLVED_seg3": {
+      "resid_range": "745-755",
+      "n_residues": 11
+    }
+  }
+}

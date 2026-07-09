@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_8F7S",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-354",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "355-692",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "757-1061",
+      "n_residues": 305
+    },
+    "G_gamma": {
+      "resid_range": "693-749",
+      "n_residues": 57
+    },
+    "stabilizer_scFv16": {
+      "resid_range": "750-756",
+      "n_residues": 7
+    }
+  }
+}

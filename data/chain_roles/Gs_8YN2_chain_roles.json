@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_8YN2",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-242",
+      "n_residues": 242
+    },
+    "G_beta": {
+      "resid_range": "243-584",
+      "n_residues": 342
+    },
+    "Receptor": {
+      "resid_range": "642-1095",
+      "n_residues": 454
+    },
+    "G_gamma": {
+      "resid_range": "585-641",
+      "n_residues": 57
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1096-1096",
+      "n_residues": 1
+    }
+  }
+}

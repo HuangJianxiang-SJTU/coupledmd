@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_9IIX",
+  "n_segments": 4,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "339-388",
+      "n_residues": 50
+    },
+    "G_alpha": {
+      "resid_range": "389-632",
+      "n_residues": 244
+    },
+    "G_beta": {
+      "resid_range": "1-338",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "633-935",
+      "n_residues": 303
+    }
+  }
+}

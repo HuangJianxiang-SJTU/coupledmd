@@ -1,0 +1,1574 @@
+{
+  "_schema_version": "1.0",
+  "_generated_at": "2026-06-27T08:40:10.483493+00:00",
+  "n_systems": 222,
+  "coverage": {
+    "has_pockets": 219,
+    "has_pockets_gpcrdb": 218,
+    "has_pocketgrid": 219,
+    "has_gateways": 220
+  },
+  "systems": [
+    {
+      "system_id": "G12_7T6B",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "G12_8H8J",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": false
+    },
+    {
+      "system_id": "G12_8IKL",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "G12_8KGG",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "G12_9IY8",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6CMO",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6D9H",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6G79",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6K42",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6LFO",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6OSA",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6PT0",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6WWZ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7CMV",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7E2X",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7E32",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7E33",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7EJX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7EW1",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7EW4",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7EXD",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7EZH",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7F1Q",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7F8V",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7JVR",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7NA7",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7QVM",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7SQO",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7T10",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7T96",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7TUZ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7V68",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VDL",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VGZ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VH0",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VIF",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VKT",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VL9",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7VUG",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": false
+    },
+    {
+      "system_id": "Gi_7W0N",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7W6P",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7WQ3",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7WU9",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7WV9",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7WVU",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7WVX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7X5H",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7X9A",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7X9C",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7X9Y",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XA3",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XBX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XK2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XK8",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XMS",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XTA",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7XXI",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7Y12",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7Y89",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7YK6",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7YK7",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7YKD",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7YON",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7YU8",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8DZQ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8EFO",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8F7S",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8HK2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8HK5",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8HQM",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8HS3",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8IC0",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8ID9",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8IHJ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8IRU",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8IU2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8IY5",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8J18",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8J21",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8J22",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8J6D",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8JZZ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8K3Z",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8K6O",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8KFX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8PJK",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8UGY",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8WWH",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8X16",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8X8L",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8XGM",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8XIP",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8XIQ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8XXU",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8XYD",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8XZI",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8YIC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8YNA",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_8ZQE",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_9AST",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_9IIX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_9J5V",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_6OIJ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7DFL",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7DWC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7E9W",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": false,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7EIB",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7EZM",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7F2O",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7F6G",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7F8W",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7F9Z",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7P00",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7RAN",
+      "has_pockets": false,
+      "has_pockets_gpcrdb": false,
+      "has_pocketgrid": false,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7RYC",
+      "has_pockets": false,
+      "has_pockets_gpcrdb": false,
+      "has_pocketgrid": false,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7S8L",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7S8P",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7SR8",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7SRR",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7W3Z",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7W53",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7W55",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7XJL",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7XW9",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7XWO",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7XXH",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7Y26",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8DPF",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8DWC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8E9W",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8EJC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8F7X",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8H0P",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8HCQ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8HCX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8IBV",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8IUK",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8IYS",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8J9N",
+      "has_pockets": false,
+      "has_pockets_gpcrdb": false,
+      "has_pocketgrid": false,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8JBG",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8WST",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8WZ2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8XGS",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8XOJ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8XOR",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8Y53",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_8ZPT",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_3SN6",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6GDG",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6LI3",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7CFN",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7CX2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7D7M",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7F4H",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7F54",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7FIG",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7JVQ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7KH0",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7L1V",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7MBX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7RMH",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7T9N",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7TMW",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7VUH",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7XT8",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7XTB",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7XTC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7XV3",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7XZ5",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7Y3G",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8F76",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8GY7",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8H4I",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8HDP",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8HJ1",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8HJ2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8HNK",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8HTI",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8I2G",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8INR",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8IOC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8IRV",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8JPP",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8KGK",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8KH5",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8SMV",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8U8F",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8W87",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8W8Q",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8WJX",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8X79",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8XVI",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8YN2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8YUT",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8YUV",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_9BLC",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_6LML",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7TS0",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7TRY",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6NBI",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6PB0",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6PB1",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6UVA",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_6WZG",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7D68",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7DUQ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7F16",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7FIN",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7V9M",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7WBJ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8E3X",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8E3Y",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8F0J",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_8FU6",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "G12_7SF7",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "G12_7SF8",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gi_7D77",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gq_7YDM",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7EQ1",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7WU2",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7WU3",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    },
+    {
+      "system_id": "Gs_7WUJ",
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
+      "has_gateways": true
+    }
+  ],
+  "consensus_files": [
+    "consensus/pockets_druggable.json",
+    "consensus/pockets_orthosteric.json",
+    "consensus/gateways.json",
+    "consensus/druggable_nominations.json",
+    "consensus/reorg_atlas.json"
+  ]
+}

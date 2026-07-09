@@ -1,0 +1,50 @@
+{
+ "system_id": "Gq_8DPF",
+ "n_segments": 11,
+ "roles": {
+  "G_alpha": {
+   "resid_range": "326-546",
+   "n_residues": 221
+  },
+  "G_beta": {
+   "resid_range": "547-560",
+   "n_residues": 14
+  },
+  "Receptor": {
+   "resid_range": "1-325",
+   "n_residues": 325
+  },
+  "stabilizer_scFv16": {
+   "resid_range": "562-562",
+   "n_residues": 1
+  },
+  "UNRESOLVED_seg6": {
+   "resid_range": "563-756",
+   "n_residues": 194
+  },
+  "UNRESOLVED_seg7": {
+   "resid_range": "757-759",
+   "n_residues": 3
+  },
+  "UNRESOLVED_seg8": {
+   "resid_range": "760-882",
+   "n_residues": 123
+  },
+  "UNRESOLVED_seg9": {
+   "resid_range": "883-893",
+   "n_residues": 11
+  },
+  "UNRESOLVED_seg10": {
+   "resid_range": "894-928",
+   "n_residues": 35
+  },
+  "peptide_ligand": {
+   "resid_range": "561-561",
+   "n_residues": 1
+  },
+  "ligand": {
+   "resid_range": "929-929",
+   "n_residues": 1
+  }
+ }
+}

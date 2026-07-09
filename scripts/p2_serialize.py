@@ -68,6 +68,7 @@ GATEWAYS_ATLAS = ANALYSIS_SRC / "paper1_gateways" / "atlas"
 POCKETS_DIR = ANALYSIS_SRC / "paper1_pockets"
 GATEWAYS_DIR = ANALYSIS_SRC / "paper1_gateways"
 SI_DIR = ANALYSIS_SRC / "paper1_si"
+STAGE3_DIR = ANALYSIS_SRC / "stage3_atlas" / "per_system_metrics"
 
 SCHEMA_VERSION = "1.0"
 GENERATED_AT = datetime.now(timezone.utc).isoformat()
@@ -317,13 +318,29 @@ def serialize_consensus() -> dict:
     src_reorg = POCKETS_DIR / "reorg_table.csv"
     if src_reorg.exists():
         df_reorg = pd.read_csv(src_reorg)
+
+        # Enrich with representative system IDs for each (uniprot, family) pair
+        df_master = pd.read_csv(MASTER_CSV)
+        # Build index: (uniprot, family) → first system_id by total_sampling_ns desc
+        sys_idx = (
+            df_master.sort_values("total_sampling_ns", ascending=False)
+            .groupby(["receptor_uniprot", "g_protein_family"])["system_id"]
+            .first()
+            .to_dict()
+        )
+
+        comparisons = df_reorg.where(pd.notna(df_reorg), None).to_dict(orient="records")
+        for c in comparisons:
+            c["sid_A"] = sys_idx.get((c["uniprot"], c["famA"]))
+            c["sid_B"] = sys_idx.get((c["uniprot"], c["famB"]))
+
         out = {
             "_schema_version": SCHEMA_VERSION,
             "_generated_at": GENERATED_AT,
             "_source": "paper1_pockets/reorg_table.csv",
-            "n_comparisons": len(df_reorg),
-            "columns": list(df_reorg.columns),
-            "comparisons": df_reorg.where(pd.notna(df_reorg), None).to_dict(orient="records"),
+            "n_comparisons": len(comparisons),
+            "columns": list(df_reorg.columns) + ["sid_A", "sid_B"],
+            "comparisons": comparisons,
         }
         src_signed = POCKETS_DIR / "reorg_pocket_signed.csv"
         if src_signed.exists():
@@ -350,6 +367,103 @@ def serialize_consensus() -> dict:
         p = API_OUT / "consensus" / "reorg_atlas.json"
         write_json(p, out)
         sizes["reorg_atlas"] = file_size(p)
+
+    return sizes
+
+
+# --------------------------------------------------------------------------- #
+# G-protein interface metrics & coupling geometry
+# --------------------------------------------------------------------------- #
+
+def serialize_gprotein_metrics(df: pd.DataFrame, con: sqlite3.Connection | None,
+                               dry_run: bool) -> dict:
+    """Serialize G-protein coupling geometry, per-system metrics, and barcode reference."""
+    sizes = {}
+    sids = list(df["system_id"])
+
+    # 1. Coupling geometry table → consensus/coupling_geometry.json
+    src_coupling = ANALYSIS_SRC / "paper1_coupling_table.csv"
+    if src_coupling.exists():
+        df_coup = pd.read_csv(src_coupling)
+        out = {
+            "_schema_version": SCHEMA_VERSION,
+            "_generated_at": GENERATED_AT,
+            "_source": "paper1_coupling_table.csv",
+            "n_records": len(df_coup),
+            "records": df_coup.where(pd.notna(df_coup), None).to_dict(orient="records"),
+        }
+        p = API_OUT / "consensus" / "coupling_geometry.json"
+        write_json(p, out)
+        sizes["coupling_geometry"] = file_size(p)
+
+    # 2. Per-system G-protein metrics → systems/{sid}/gprotein_metrics.json
+    n_metrics = 0
+    if not dry_run:
+        for sid in sids:
+            src_csv = STAGE3_DIR / f"{sid}.csv"
+            if not src_csv.exists():
+                continue
+            df_sys = pd.read_csv(src_csv)
+
+            position_cols = [
+                "cgn_position", "cgn_segment", "flock_class",
+                "sim_resid", "sim_resname",
+                "rmsf_mean", "rmsf_ci_low", "rmsf_ci_high",
+                "contact_persistence_mean", "contact_persistence_ci_low",
+                "contact_persistence_ci_high",
+                "chi1_entropy_mean", "s2_mean",
+            ]
+
+            # Map source column names → target column names
+            col_map = {
+                "cgn_position": "cgn_position",
+                "cgn_segment": "cgn_segment",
+                "flock_class": "flock_class",
+                "sim_resid": "sim_resid",
+                "sim_resname": "sim_resname",
+                "rmsf_mean": "rmsf_mean",
+                "replica_bootstrap_ci_low_rmsf": "rmsf_ci_low",
+                "replica_bootstrap_ci_high_rmsf": "rmsf_ci_high",
+                "contact_persistence_mean": "contact_persistence_mean",
+                "replica_bootstrap_ci_low_cp": "contact_persistence_ci_low",
+                "replica_bootstrap_ci_high_cp": "contact_persistence_ci_high",
+                "chi1_entropy": "chi1_entropy_mean",
+                "s2_mean": "s2_mean",
+            }
+
+            # Select and rename columns
+            available_cols = [c for c in col_map if c in df_sys.columns]
+            df_sel = df_sys[available_cols].rename(columns=col_map)
+
+            # Build position records, replacing NaN with None
+            positions = df_sel.where(pd.notna(df_sel), None).to_dict(orient="records")
+
+            out = {
+                "_schema_version": SCHEMA_VERSION,
+                "system_id": sid,
+                "n_positions": len(positions),
+                "positions": positions,
+            }
+            p = API_OUT / "systems" / sid / "gprotein_metrics.json"
+            write_json(p, out)
+            n_metrics += 1
+
+    sizes["gprotein_metrics_count"] = n_metrics
+
+    # 3. Gα barcode reference → consensus/gprotein_barcode_reference.json
+    src_barcode = ANALYSIS_SRC / "galpha_barcode_reference.csv"
+    if src_barcode.exists():
+        df_bc = pd.read_csv(src_barcode)
+        out = {
+            "_schema_version": SCHEMA_VERSION,
+            "_generated_at": GENERATED_AT,
+            "_source": "galpha_barcode_reference.csv",
+            "n_records": len(df_bc),
+            "records": df_bc.where(pd.notna(df_bc), None).to_dict(orient="records"),
+        }
+        p = API_OUT / "consensus" / "gprotein_barcode_reference.json"
+        write_json(p, out)
+        sizes["gprotein_barcode_reference"] = file_size(p)
 
     return sizes
 
@@ -423,6 +537,15 @@ def main(args):
     consensus_sizes = serialize_consensus()
     for name, sz in consensus_sizes.items():
         print(f"  consensus/{name}.json  {sz/1024:.1f} KB")
+
+    # G-protein interface metrics & coupling geometry
+    print("\nSerializing G-protein interface metrics ...")
+    gp_sizes = serialize_gprotein_metrics(df, con, args.dry_run)
+    for name, sz in gp_sizes.items():
+        if name == "gprotein_metrics_count":
+            print(f"  gprotein_metrics: {sz} systems")
+        else:
+            print(f"  consensus/{name}.json  {sz/1024:.1f} KB")
 
     # Per-system files
     print(f"\nSerializing {len(sids)} systems "

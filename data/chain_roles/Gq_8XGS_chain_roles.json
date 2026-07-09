@@ -1,0 +1,26 @@
+{
+  "system_id": "Gq_8XGS",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "687-1030",
+      "n_residues": 344
+    },
+    "G_beta": {
+      "resid_range": "300-632",
+      "n_residues": 333
+    },
+    "Receptor": {
+      "resid_range": "1-299",
+      "n_residues": 299
+    },
+    "G_gamma": {
+      "resid_range": "633-686",
+      "n_residues": 54
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1031-1038",
+      "n_residues": 8
+    }
+  }
+}

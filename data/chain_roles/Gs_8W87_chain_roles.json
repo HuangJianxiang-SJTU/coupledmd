@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_8W87",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-351",
+      "n_residues": 351
+    },
+    "G_beta": {
+      "resid_range": "352-689",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "747-1048",
+      "n_residues": 302
+    },
+    "G_gamma": {
+      "resid_range": "690-746",
+      "n_residues": 57
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1049-1049",
+      "n_residues": 1
+    }
+  }
+}

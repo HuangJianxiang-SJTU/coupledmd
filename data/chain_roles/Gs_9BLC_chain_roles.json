@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_9BLC",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-384",
+      "n_residues": 384
+    },
+    "G_beta": {
+      "resid_range": "385-723",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "816-1191",
+      "n_residues": 376
+    },
+    "G_gamma": {
+      "resid_range": "724-778",
+      "n_residues": 55
+    },
+    "peptide_ligand": {
+      "resid_range": "779-815",
+      "n_residues": 37
+    }
+  }
+}

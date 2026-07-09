@@ -1,0 +1,22 @@
+{
+  "system_id": "Gs_7TMW",
+  "n_segments": 4,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-224",
+      "n_residues": 224
+    },
+    "G_beta": {
+      "resid_range": "225-563",
+      "n_residues": 339
+    },
+    "G_gamma": {
+      "resid_range": "564-623",
+      "n_residues": 60
+    },
+    "Receptor": {
+      "resid_range": "624-1220",
+      "n_residues": 597
+    }
+  }
+}

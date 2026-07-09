@@ -1,0 +1,26 @@
+{
+  "system_id": "Gq_8F7X",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-351",
+      "n_residues": 351
+    },
+    "G_beta": {
+      "resid_range": "352-686",
+      "n_residues": 335
+    },
+    "Receptor": {
+      "resid_range": "757-1041",
+      "n_residues": 285
+    },
+    "G_gamma": {
+      "resid_range": "687-742",
+      "n_residues": 56
+    },
+    "peptide_ligand": {
+      "resid_range": "743-756",
+      "n_residues": 14
+    }
+  }
+}

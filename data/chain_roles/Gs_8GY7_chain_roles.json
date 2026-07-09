@@ -1,0 +1,30 @@
+{
+  "system_id": "Gs_8GY7",
+  "n_segments": 6,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-359",
+      "n_residues": 359
+    },
+    "G_beta": {
+      "resid_range": "360-698",
+      "n_residues": 339
+    },
+    "Receptor": {
+      "resid_range": "753-770",
+      "n_residues": 18
+    },
+    "G_gamma": {
+      "resid_range": "699-752",
+      "n_residues": 54
+    },
+    "Receptor_frag0": {
+      "resid_range": "771-821",
+      "n_residues": 51
+    },
+    "Receptor_frag1": {
+      "resid_range": "822-1095",
+      "n_residues": 274
+    }
+  }
+}

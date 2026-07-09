@@ -1,0 +1,13 @@
+path_or_item,contents,paper_use
+manifest/,"Dataset-level file manifest, version, checksums, and archive index",main archive; required before submission
+metadata/systems.csv,Per-system metadata for included clean-v1 systems,derived from systems_master.csv and final QC table
+metadata/held_back_systems.csv,Systems excluded from initial release and exclusion reasons,transparency table; supplementary
+systems/<system_id>/metadata.json,"System annotation, receptor/G-protein/ligand/source/QC fields",one record per included system
+systems/<system_id>/topology/,Prepared structures and topology/parameter files,archive record
+systems/<system_id>/trajectories/rep{1..3}/,Full production trajectories for each replica,"stable repository, not website-only"
+systems/<system_id>/reduced/,Aligned or strided trajectories for visualization and rapid reuse,also exposed through web portal where available
+systems/<system_id>/features/,"RMSD, RMSF, contacts, secondary structure, gateway/pocket summaries as available",derived analysis layer
+systems/<system_id>/pocket/,"fpocket outputs, orthosteric/druggable pocket summaries, GPCRdb-mapped pocket records",validation/reuse layer
+systems/<system_id>/qc/,"Completeness, frame counts, PBC status, stability checks, file integrity",needed for Technical Validation
+code/,Analysis scripts and notebooks used to process records and reproduce figures/tables,code repository or archived snapshot
+web_api_snapshot/,OpenAPI schema and selected JSON endpoint snapshots,documents portal/API access layer

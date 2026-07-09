@@ -1,0 +1,5 @@
+system_id,status,worst_issue,n_frames,scatter_frames,notes
+Gi_8J22,WARN,"scatter (3/40 frames, minor)",2501,3,minor visualization-audit warning; retain with flag
+Gq_7XJL,WARN,"scatter (1/40 frames, minor)",2500,1,minor visualization-audit warning; retain with flag
+Gs_3SN6,OK,,200,0,minor visualization-audit warning; retain with flag
+Gs_7F4H,WARN,"scatter (3/40 frames, minor)",2500,3,minor visualization-audit warning; retain with flag

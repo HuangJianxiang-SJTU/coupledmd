@@ -1,0 +1,26 @@
+{
+ "system_id": "Gs_7XTB",
+ "n_segments": 4,
+ "roles": {
+  "G_alpha": {
+   "resid_range": "1-394",
+   "n_residues": 394
+  },
+  "G_beta": {
+   "resid_range": "395-732",
+   "n_residues": 338
+  },
+  "Receptor": {
+   "resid_range": "790-1115",
+   "n_residues": 326
+  },
+  "G_gamma": {
+   "resid_range": "733-789",
+   "n_residues": 57
+  },
+  "ligand": {
+   "resid_range": "1116-1116",
+   "n_residues": 1
+  }
+ }
+}

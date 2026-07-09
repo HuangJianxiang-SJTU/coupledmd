@@ -1,0 +1,2144 @@
+{
+  "_schema_version": "1.0",
+  "_generated_at": "2026-06-27T08:40:10.483493+00:00",
+  "_source": "galpha_barcode_reference.csv",
+  "n_records": 356,
+  "records": [
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.01",
+      "class": "conserved",
+      "consensus_residue": "M"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.02",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.10",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.11",
+      "class": "paralog-specific",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.30",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.31",
+      "class": "paralog-specific",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.32",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.33",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.34",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.35",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.36",
+      "class": "neutral",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.37",
+      "class": "paralog-specific",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.38",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.39",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.40",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.41",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.42",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.43",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.44",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.45",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.46",
+      "class": "paralog-specific",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.47",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.48",
+      "class": "paralog-specific",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.49",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.50",
+      "class": "selectivity-determining",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.51",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.52",
+      "class": "neutral",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HN.53",
+      "class": "neutral",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hns1.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hns1.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hns1.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.03",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.04",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.05",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.06",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S1.07",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s1h1.01",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s1h1.02",
+      "class": "conserved",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s1h1.03",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s1h1.04",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s1h1.05",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s1h1.06",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.01",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.02",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.03",
+      "class": "conserved",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.06",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.07",
+      "class": "conserved",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.08",
+      "class": "conserved",
+      "consensus_residue": "M"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.10",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.11",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H1.12",
+      "class": "conserved",
+      "consensus_residue": "H"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h1ha.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h1ha.02",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h1ha.03",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h1ha.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h1ha.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.01",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.02",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.05",
+      "class": "neutral",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.07",
+      "class": "selectivity-determining",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.08",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.09",
+      "class": "neutral",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.10",
+      "class": "selectivity-determining",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.11",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.12",
+      "class": "conserved",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.13",
+      "class": "paralog-specific",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.14",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.15",
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.16",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.17",
+      "class": "selectivity-determining",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.18",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.19",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.20",
+      "class": "paralog-specific",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.21",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.22",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.23",
+      "class": "selectivity-determining",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.24",
+      "class": "paralog-specific",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.25",
+      "class": "conserved",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.26",
+      "class": "conserved",
+      "consensus_residue": "M"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.27",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.28",
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HA.29",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.01",
+      "class": "neutral",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.04",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.05",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.07",
+      "class": "paralog-specific",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.08",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hahb.09",
+      "class": "paralog-specific",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.01",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.02",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.04",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.07",
+      "class": "paralog-specific",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.08",
+      "class": "paralog-specific",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.10",
+      "class": "paralog-specific",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.11",
+      "class": "paralog-specific",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.12",
+      "class": "paralog-specific",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.13",
+      "class": "neutral",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HB.14",
+      "class": "neutral",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.01",
+      "class": "neutral",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.04",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": null,
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": null,
+      "class": "selectivity-determining",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.13",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.14",
+      "class": "neutral",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hbhc.15",
+      "class": "paralog-specific",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.01",
+      "class": "neutral",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.02",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.04",
+      "class": "neutral",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.05",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.07",
+      "class": "neutral",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.08",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.10",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.11",
+      "class": "conserved",
+      "consensus_residue": "W"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HC.12",
+      "class": "neutral",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hchd.01",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.02",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.04",
+      "class": "paralog-specific",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.05",
+      "class": "conserved",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.06",
+      "class": "conserved",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.07",
+      "class": "selectivity-determining",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.08",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.09",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.10",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.11",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HD.12",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hdhe.01",
+      "class": "conserved",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hdhe.02",
+      "class": "conserved",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hdhe.03",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hdhe.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hdhe.05",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.01",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.02",
+      "class": "conserved",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.04",
+      "class": "conserved",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.06",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.07",
+      "class": "paralog-specific",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.08",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.10",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.11",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.12",
+      "class": "paralog-specific",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HE.13",
+      "class": "paralog-specific",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.01",
+      "class": "neutral",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.02",
+      "class": "neutral",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.03",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.04",
+      "class": "conserved",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.05",
+      "class": "neutral",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.06",
+      "class": "conserved",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.hehf.07",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HF.01",
+      "class": "paralog-specific",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HF.02",
+      "class": "conserved",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HF.03",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HF.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HF.05",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "H.HF.06",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.02",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.03",
+      "class": "conserved",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.05",
+      "class": "conserved",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hfs2.07",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.01",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.02",
+      "class": "paralog-specific",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.03",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.05",
+      "class": "paralog-specific",
+      "consensus_residue": "H"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.06",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.07",
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S2.08",
+      "class": "selectivity-determining",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s2s3.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s2s3.02",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.03",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.05",
+      "class": "conserved",
+      "consensus_residue": "M"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.07",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S3.08",
+      "class": "conserved",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s3h2.01",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s3h2.02",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s3h2.03",
+      "class": "conserved",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.01",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.02",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.03",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.04",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.06",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.07",
+      "class": "conserved",
+      "consensus_residue": "W"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.08",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "H"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H2.10",
+      "class": "conserved",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h2s4.01",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h2s4.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h2s4.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h2s4.04",
+      "class": "conserved",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h2s4.05",
+      "class": "conserved",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.02",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.04",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.06",
+      "class": "paralog-specific",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S4.07",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.02",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.04",
+      "class": "conserved",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.05",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.07",
+      "class": "conserved",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.08",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.10",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.11",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.12",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.13",
+      "class": "neutral",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.14",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s4h3.15",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.01",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "M"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.03",
+      "class": "paralog-specific",
+      "consensus_residue": "H"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.04",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.05",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.06",
+      "class": "paralog-specific",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.07",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.08",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.09",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.10",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.11",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.12",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.13",
+      "class": "selectivity-determining",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.14",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.15",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.16",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.17",
+      "class": "conserved",
+      "consensus_residue": "W"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H3.18",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h3s5.01",
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h3s5.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h3s5.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.01",
+      "class": "conserved",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.03",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.04",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.05",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.06",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S5.07",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s5hg.01",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.02",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.03",
+      "class": "paralog-specific",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.06",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.07",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.08",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.09",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.12",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.13",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.14",
+      "class": "selectivity-determining",
+      "consensus_residue": "H"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.15",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.16",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.HG.17",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.02",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.03",
+      "class": "conserved",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.04",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.05",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.06",
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.07",
+      "class": "conserved",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.hgh4.08",
+      "class": "selectivity-determining",
+      "consensus_residue": "P"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.02",
+      "class": "paralog-specific",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.05",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.06",
+      "class": "conserved",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.07",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.08",
+      "class": "paralog-specific",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.10",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.11",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.12",
+      "class": "selectivity-determining",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.13",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.14",
+      "class": "selectivity-determining",
+      "consensus_residue": "Q"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.15",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.16",
+      "class": "paralog-specific",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H4.17",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.02",
+      "class": "selectivity-determining",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.08",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.10",
+      "class": "paralog-specific",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.11",
+      "class": "selectivity-determining",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.12",
+      "class": "paralog-specific",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.h4s6.20",
+      "class": "selectivity-determining",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S6.01",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S6.02",
+      "class": "conserved",
+      "consensus_residue": "Y"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S6.03",
+      "class": "selectivity-determining",
+      "consensus_residue": "S"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S6.04",
+      "class": "conserved",
+      "consensus_residue": "H"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.S6.05",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s6h5.01",
+      "class": "conserved",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s6h5.02",
+      "class": "conserved",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s6h5.03",
+      "class": "conserved",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s6h5.04",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.s6h5.05",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.01",
+      "class": "conserved",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.02",
+      "class": "conserved",
+      "consensus_residue": "E"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.03",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.04",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.05",
+      "class": "conserved",
+      "consensus_residue": "R"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.06",
+      "class": "selectivity-determining",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.07",
+      "class": "conserved",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.08",
+      "class": "conserved",
+      "consensus_residue": "F"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.09",
+      "class": "selectivity-determining",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.10",
+      "class": "selectivity-determining",
+      "consensus_residue": "A"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.11",
+      "class": "conserved",
+      "consensus_residue": "V"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.12",
+      "class": "selectivity-determining",
+      "consensus_residue": "T"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.13",
+      "class": "conserved",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.14",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.15",
+      "class": "conserved",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.16",
+      "class": "selectivity-determining",
+      "consensus_residue": "I"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.17",
+      "class": "paralog-specific",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.18",
+      "class": "paralog-specific",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.19",
+      "class": "conserved",
+      "consensus_residue": "N"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.20",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.21",
+      "class": "conserved",
+      "consensus_residue": "K"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.22",
+      "class": "selectivity-determining",
+      "consensus_residue": "D"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.23",
+      "class": "selectivity-determining",
+      "consensus_residue": "C"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.24",
+      "class": "selectivity-determining",
+      "consensus_residue": "G"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.25",
+      "class": "conserved",
+      "consensus_residue": "L"
+    },
+    {
+      "gene": "all",
+      "cgn_position": "G.H5.26",
+      "class": "selectivity-determining",
+      "consensus_residue": "F"
+    }
+  ]
+}

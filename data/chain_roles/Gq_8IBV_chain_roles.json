@@ -1,0 +1,26 @@
+{
+  "system_id": "Gq_8IBV",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-359",
+      "n_residues": 359
+    },
+    "G_beta": {
+      "resid_range": "360-697",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "698-716",
+      "n_residues": 19
+    },
+    "G_gamma": {
+      "resid_range": "717-770",
+      "n_residues": 54
+    },
+    "Receptor_frag0": {
+      "resid_range": "771-1113",
+      "n_residues": 343
+    }
+  }
+}

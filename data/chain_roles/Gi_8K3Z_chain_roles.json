@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_8K3Z",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "635-988",
+      "n_residues": 354
+    },
+    "G_beta": {
+      "resid_range": "297-634",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "1-296",
+      "n_residues": 296
+    },
+    "G_gamma": {
+      "resid_range": "989-1050",
+      "n_residues": 62
+    },
+    "UNRESOLVED_seg4": {
+      "resid_range": "1051-1105",
+      "n_residues": 55
+    }
+  }
+}

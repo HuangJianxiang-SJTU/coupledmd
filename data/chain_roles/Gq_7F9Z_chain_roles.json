@@ -1,0 +1,26 @@
+{
+  "system_id": "Gq_7F9Z",
+  "n_segments": 6,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-228",
+      "n_residues": 228
+    },
+    "G_beta": {
+      "resid_range": "229-566",
+      "n_residues": 338
+    },
+    "Receptor": {
+      "resid_range": "624-920",
+      "n_residues": 297
+    },
+    "G_gamma": {
+      "resid_range": "567-623",
+      "n_residues": 57
+    },
+    "stabilizer_BRIL": {
+      "resid_range": "921-926",
+      "n_residues": 6
+    }
+  }
+}

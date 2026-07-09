@@ -1,0 +1,26 @@
+{
+  "system_id": "Gs_7RMH",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-387",
+      "n_residues": 387
+    },
+    "G_beta": {
+      "resid_range": "388-714",
+      "n_residues": 327
+    },
+    "Receptor": {
+      "resid_range": "753-1060",
+      "n_residues": 308
+    },
+    "G_gamma": {
+      "resid_range": "715-752",
+      "n_residues": 38
+    },
+    "peptide_ligand": {
+      "resid_range": "1061-1071",
+      "n_residues": 11
+    }
+  }
+}

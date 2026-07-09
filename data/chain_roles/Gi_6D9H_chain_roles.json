@@ -1,0 +1,26 @@
+{
+  "system_id": "Gi_6D9H",
+  "n_segments": 5,
+  "roles": {
+    "G_alpha": {
+      "resid_range": "1-355",
+      "n_residues": 355
+    },
+    "G_beta": {
+      "resid_range": "356-693",
+      "n_residues": 338
+    },
+    "G_gamma": {
+      "resid_range": "694-750",
+      "n_residues": 57
+    },
+    "Receptor": {
+      "resid_range": "751-1074",
+      "n_residues": 324
+    },
+    "ligand": {
+      "resid_range": "1075-1075",
+      "n_residues": 1
+    }
+  }
+}

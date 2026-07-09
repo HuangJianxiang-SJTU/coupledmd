@@ -1,0 +1,22 @@
+{
+  "system_id": "Gi_8XIQ",
+  "n_segments": 4,
+  "roles": {
+    "G_gamma": {
+      "resid_range": "983-1037",
+      "n_residues": 55
+    },
+    "G_alpha": {
+      "resid_range": "290-647",
+      "n_residues": 358
+    },
+    "G_beta": {
+      "resid_range": "648-982",
+      "n_residues": 335
+    },
+    "Receptor": {
+      "resid_range": "1-289",
+      "n_residues": 289
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+ "system_id": "Gs_8H4I",
+ "n_segments": 5,
+ "roles": {
+  "G_alpha": {
+   "resid_range": "1-231",
+   "n_residues": 231
+  },
+  "G_beta": {
+   "resid_range": "232-569",
+   "n_residues": 338
+  },
+  "Receptor": {
+   "resid_range": "626-930",
+   "n_residues": 305
+  },
+  "G_gamma": {
+   "resid_range": "570-625",
+   "n_residues": 56
+  },
+  "ligand": {
+   "resid_range": "931-931",
+   "n_residues": 1
+  }
+ }
+}

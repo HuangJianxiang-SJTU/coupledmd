@@ -1,0 +1,30 @@
+{
+ "system_id": "Gq_7SRR",
+ "n_segments": 6,
+ "roles": {
+  "G_alpha": {
+   "resid_range": "1-68",
+   "n_residues": 68
+  },
+  "G_beta": {
+   "resid_range": "226-563",
+   "n_residues": 338
+  },
+  "Receptor": {
+   "resid_range": "617-956",
+   "n_residues": 340
+  },
+  "G_gamma": {
+   "resid_range": "564-616",
+   "n_residues": 53
+  },
+  "UNRESOLVED_seg2": {
+   "resid_range": "69-225",
+   "n_residues": 157
+  },
+  "ligand": {
+   "resid_range": "957-957",
+   "n_residues": 1
+  }
+ }
+}
