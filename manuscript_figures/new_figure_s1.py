@@ -24,9 +24,9 @@ os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-coupledmd")
 
 import numpy as np
 import pandas as pd
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle, Patch
+from matplotlib.lines import Line2D
+from matplotlib.patches import Circle
 
 import figstyle  # noqa: E402  (local module)
 from scipy.cluster.hierarchy import linkage, leaves_list, to_tree
@@ -34,7 +34,7 @@ from scipy.cluster.hierarchy import linkage, leaves_list, to_tree
 figstyle.apply_style()
 
 HERE = Path(__file__).resolve().parent
-TBL = HERE / "tables"
+V9 = HERE / "scidata_figures" / "v9_figure_inputs"
 OUT = HERE / "scidata_figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -48,7 +48,7 @@ ACCENT = figstyle.ACCENT  # multi-family receptors
 
 
 def load_s1() -> pd.DataFrame:
-    return pd.read_csv(TBL / "scidata_S1_included_systems_clean_v1.csv")
+    return pd.read_csv(V9 / "scidata_S1_included_systems_v9.csv")
 
 
 def _rep_pdb(sub: pd.DataFrame) -> str:
@@ -70,10 +70,21 @@ def _arc_xy(r, th0, th1, n=48):
 
 
 def build_figure(s1: pd.DataFrame) -> None:
+    assert len(s1) == 208
+    assert s1["receptor_name"].nunique(dropna=True) == 174
+    assert s1["receptor_uniprot"].nunique(dropna=True) == 173
+    missing_uniprot = s1.loc[s1["receptor_uniprot"].isna(), "system_id"].tolist()
+    assert missing_uniprot == ["Gs_8HTI"]
+    unnamed = s1.loc[s1["receptor_name"].isna(), "system_id"].tolist()
+    assert unnamed == []
+    # Identifier definition: one leaf per distinct non-null receptor_name.
+    # Gs_8HTI is an explicit consensus-model exception: it has no canonical
+    # UniProt accession and is never silently dropped from receptor grouping.
+    named = s1.dropna(subset=["receptor_name"]).copy()
     # receptor -> set of families, in FAM_ORDER
-    prof = s1.groupby("receptor_uniprot")["g_protein_family"].agg(
+    prof = named.groupby("receptor_name")["g_protein_family"].agg(
         lambda s: sorted(set(s)))
-    rep_pdb = s1.groupby("receptor_uniprot").apply(_rep_pdb, include_groups=False)
+    rep_pdb = named.groupby("receptor_name").apply(_rep_pdb, include_groups=False)
     ids = list(prof.index)
     fams = list(prof.values)
 
@@ -91,7 +102,7 @@ def build_figure(s1: pd.DataFrame) -> None:
     root = to_tree(Z)
     Hmax = float(root.dist) if root.dist > 0 else 1.0
     R_LEAF = 1.00
-    R_CENTER = 0.16
+    R_CENTER = 0.17
 
     def radius_of(h: float) -> float:
         return R_LEAF - (h / Hmax) * (R_LEAF - R_CENTER)
@@ -114,17 +125,19 @@ def build_figure(s1: pd.DataFrame) -> None:
 
     walk(root)
 
-    fig = plt.figure(figsize=(9.6, 9.6))
-    ax = fig.add_axes([0.02, 0.02, 0.96, 0.95])
+    # 183 mm wide: render at the intended publication size so text is not
+    # subsequently reduced by typesetting.
+    fig = plt.figure(figsize=(7.20, 7.35), facecolor="white")
+    ax = fig.add_axes([0.025, 0.025, 0.95, 0.95])
     ax.set_aspect("equal")
     ax.axis("off")
-    ax.set_xlim(-1.42, 1.42)
-    ax.set_ylim(-1.42, 1.42)
+    ax.set_xlim(-1.25, 1.25)
+    ax.set_ylim(-1.34, 1.24)
 
     # faint outer guide ring
     th = np.linspace(0, 2 * np.pi, 240)
     ax.plot(R_LEAF * np.cos(th), R_LEAF * np.sin(th),
-            color=PALE, lw=0.4, ls=(0, (1, 2)), zorder=0)
+            color=PALE, lw=0.45, ls=(0, (1, 2)), zorder=0)
 
     # draw merges recursively
     def draw_node(node):
@@ -134,12 +147,12 @@ def build_figure(s1: pd.DataFrame) -> None:
         li = info[id(l)]; ri = info[id(r)]; ni = info[id(node)]
         # radial line for each child at its own angle, child r -> node r
         x0, y0 = _polar(li[3], li[2]); x1, y1 = _polar(ni[3], li[2])
-        ax.plot([x0, x1], [y0, y1], color=INK, lw=0.7, zorder=2)
+        ax.plot([x0, x1], [y0, y1], color=MUTED, lw=0.55, zorder=2)
         x0, y0 = _polar(ri[3], ri[2]); x1, y1 = _polar(ni[3], ri[2])
-        ax.plot([x0, x1], [y0, y1], color=INK, lw=0.7, zorder=2)
+        ax.plot([x0, x1], [y0, y1], color=MUTED, lw=0.55, zorder=2)
         # connecting arc at node radius between the two child angles
         xa, ya = _arc_xy(ni[3], li[2], ri[2], n=24)
-        ax.plot(xa, ya, color=INK, lw=0.7, zorder=2)
+        ax.plot(xa, ya, color=MUTED, lw=0.55, zorder=2)
         draw_node(l); draw_node(r)
 
     draw_node(root)
@@ -152,7 +165,7 @@ def build_figure(s1: pd.DataFrame) -> None:
         # coloured radial tick just outside the ring
         x0, y0 = _polar(R_LEAF - 0.012, a)
         x1, y1 = _polar(R_LEAF + 0.040, a)
-        ax.plot([x0, x1], [y0, y1], color=col, lw=1.1,
+        ax.plot([x0, x1], [y0, y1], color=col, lw=1.25,
                 solid_capstyle="round", zorder=3)
         # PDB label further out, radial, upright-corrected on the left half
         ang = np.degrees(a) % 360
@@ -162,36 +175,48 @@ def build_figure(s1: pd.DataFrame) -> None:
         else:
             rot = ang
             ha = "left"
-        lr = R_LEAF + 0.052
+        lr = R_LEAF + 0.060
         xt, yt = _polar(lr, a)
         ax.text(xt, yt, rep_pdb.iloc[idx], ha=ha, va="center",
-                fontsize=6.5, color=col, rotation=rot,
+                fontsize=6.2, color=col, rotation=rot,
+                fontfamily="monospace",
                 rotation_mode="anchor", zorder=4)
 
     # center hub + minimal summary
     ax.add_patch(Circle((0, 0), R_CENTER, facecolor="white",
-                        edgecolor=INK, lw=0.6, zorder=5))
-    ax.text(0, 0.045, "CoupledMD", ha="center", va="center",
-            fontsize=9.5, fontweight="bold", color=INK, zorder=6)
-    ax.text(0, -0.02, f"{n} receptors", ha="center", va="center",
-            fontsize=7.2, color=MUTED, zorder=6)
+                        edgecolor=INK, lw=0.65, zorder=5))
+    ax.text(0, 0.050, "CoupledMD", ha="center", va="center",
+            fontsize=8.5, fontweight="bold", color=INK, zorder=6)
+    ax.text(0, -0.005, f"{n} named receptors", ha="center", va="center",
+            fontsize=6.4, color=MUTED, zorder=6)
+    ax.text(0, -0.052, "173 mapped UniProt", ha="center", va="center",
+            fontsize=5.2, color=MUTED, zorder=6)
+    ax.text(0, -0.092, "1 consensus model lacks canonical UniProt", ha="center", va="center",
+            fontsize=4.8, color=MUTED, zorder=6)
 
     # family legend
-    handles = [Patch(facecolor=FAM_COL[f], label=FAM_LABEL[f]) for f in FAM_ORDER]
-    handles.append(Patch(facecolor=ACCENT, label="≥2 families"))
+    handles = [
+        Line2D([0], [0], color=FAM_COL[f], lw=2.2,
+               solid_capstyle="round", label=FAM_LABEL[f])
+        for f in FAM_ORDER
+    ]
+    handles.append(Line2D([0], [0], color=ACCENT, lw=2.2,
+                          solid_capstyle="round", label="≥2 families"))
     leg = ax.legend(handles=handles, loc="lower center",
-                    bbox_to_anchor=(0.5, 0.0), frameon=False, fontsize=10,
-                    handlelength=1.1, ncol=5, borderpad=0.4)
+                    bbox_to_anchor=(0.5, 0.002), frameon=False, fontsize=7.5,
+                    handlelength=1.25, handletextpad=0.5, columnspacing=1.5,
+                    ncol=5, borderpad=0.2)
     for t in leg.get_texts():
         t.set_color(MUTED)
 
-    _save(fig, "new_figureS1_dendrogram")
+    _save(fig, "v9_figureS1_dendrogram")
 
 
 def _save(fig, name: str) -> None:
     for ext in ("pdf", "png"):
         p = OUT / f"{name}.{ext}"
-        fig.savefig(p, dpi=600 if ext == "png" else None)
+        fig.savefig(p, dpi=600 if ext == "png" else None,
+                    facecolor="white")
         print(f"  saved {p}")
     plt.close(fig)
 

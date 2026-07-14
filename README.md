@@ -1,6 +1,12 @@
 # CoupledMD
 
-GPCR–G-protein MD web resource — 222 active-state ternary complex simulations with precomputed pocket, gateway, and reorganization analysis.
+GPCR–G-protein MD web resource — final 208-system active-state ternary-complex cohort, with precomputed pocket, gateway, and reorganization analysis.
+
+## Release status
+
+The public portal and API expose the final release cohort of **208 systems**: 95 Gi/o, 65 Gs, 42 Gq/11 and 6 G12/13 systems. Each system has three selected validated 500-ns replicas (624 trajectories; 312.0 µs total). The 13 unresolved systems and the excluded non-GPCR duplicate/mislabel `Gq_7E9W` are not returned by the release API.
+
+The browser serves one decimated representative PDB/XTC visualization pair per system. This is not the full three-replica primary trajectory set. Complete production trajectories, matched topologies, inputs and checksums are being prepared for archival deposition; do not interpret the portal as a raw-trajectory archive until that manifest is released.
 
 ## Quick Start
 
@@ -90,7 +96,7 @@ Interactive docs: `/api/docs` (Swagger) and `/api/redoc` (ReDoc).
 | Route | Page | Description |
 |-------|------|-------------|
 | `#/` | Home | Landing page with stats and family cards |
-| `#/systems` | Systems | Browse/filter/sort all 222 systems |
+| `#/systems` | Systems | Browse/filter/sort the final 208-system cohort |
 | `#/systems/{id}` | SystemDetail | Full metadata, pocket/gateway charts, NGL trajectory viewer |
 | `#/atlas` | AtlasBrowser | Consensus druggable pockets, gateway atlas, nominations, reorg |
 | `#/compare` | PartnerSwitch | Side-by-side comparison of pocket/gateway data across G-protein partners |

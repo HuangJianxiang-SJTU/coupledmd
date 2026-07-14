@@ -13,7 +13,6 @@ export default function Systems({ navigate }) {
   // Filters — synced to URL hash query params
   const [family, setFamily] = useState(null)
   const [search, setSearch] = useState('')
-  const [trajType, setTrajType] = useState('')
   const [gpcrClass, setGpcrClass] = useState('')
   const [sortKey, setSortKey] = useState('system_id')
   const [sortAsc, setSortAsc] = useState(true)
@@ -23,7 +22,6 @@ export default function Systems({ navigate }) {
     const params = new URLSearchParams(window.location.hash.split('?')[1] || '')
     if (params.get('family')) setFamily(params.get('family'))
     if (params.get('q')) setSearch(params.get('q'))
-    if (params.get('type')) setTrajType(params.get('type'))
     if (params.get('class')) setGpcrClass(params.get('class'))
   }, [])
 
@@ -33,22 +31,20 @@ export default function Systems({ navigate }) {
     const params = new URLSearchParams()
     if (family) params.set('family', family)
     if (search) params.set('q', search)
-    if (trajType) params.set('type', trajType)
     if (gpcrClass) params.set('class', gpcrClass)
     const qs = params.toString()
     const newHash = qs ? `${base}?${qs}` : base
     if (window.location.hash !== newHash) {
       window.history.replaceState(null, '', newHash)
     }
-  }, [family, search, trajType, gpcrClass])
+  }, [family, search, gpcrClass])
 
-  // Fetch all systems in one batch (no pagination UI — 222 systems; 500 gives headroom)
+  // Fetch all final-release systems in one batch (208 systems; 500 gives headroom).
   const load = useCallback(() => {
     setLoading(true)
     setError(null)
     api.systems({
       family: family || undefined,
-      trajectory_type: trajType || undefined,
       gpcr_class: gpcrClass || undefined,
       limit: PAGE_SIZE,
       offset: 0,
@@ -56,14 +52,13 @@ export default function Systems({ navigate }) {
       .then(d => setData(d))
       .catch(e => setError(e.message))
       .finally(() => setLoading(false))
-  }, [family, trajType, gpcrClass])
+  }, [family, gpcrClass])
 
   useEffect(() => { load() }, [load])
 
   function setFilter(key, val) {
     if (key === 'family') setFamily(val)
     if (key === 'search') setSearch(val)
-    if (key === 'trajType') setTrajType(val)
     if (key === 'gpcrClass') setGpcrClass(val)
   }
 
@@ -140,16 +135,12 @@ export default function Systems({ navigate }) {
           onChange={e => setFilter('search', e.target.value)}
           style={{ width: 280 }}
         />
-        <select value={trajType} onChange={e => setFilter('trajType', e.target.value)}>
-          <option value="">All trajectory types</option>
-          <option value="membrane_embedded">Membrane-embedded</option>
-        </select>
         <select value={gpcrClass} onChange={e => setFilter('gpcrClass', e.target.value)}>
           <option value="">All GPCR classes</option>
           {GPCR_CLASSES.map(c => <option key={c} value={c}>Class {c}</option>)}
         </select>
-        {(search || trajType || gpcrClass) &&
-          <button onClick={() => { setFilter('search', ''); setFilter('trajType', ''); setFilter('gpcrClass', '') }}
+        {(search || gpcrClass) &&
+          <button onClick={() => { setFilter('search', ''); setFilter('gpcrClass', '') }}
             style={{ fontSize: 12, color: 'var(--muted)', background: 'none', border: 'none',
                      cursor: 'pointer', padding: '4px 6px' }}>
             Clear
@@ -181,7 +172,6 @@ export default function Systems({ navigate }) {
                 <th>Class</th>
                 <th>Ligand</th>
                 <SortHeader col="total_sampling_ns" sortKey={sortKey} sortAsc={sortAsc} onSort={toggleSort}>Sampling</SortHeader>
-                <th>Type</th>
                 <th>Provenance</th>
               </tr>
             </thead>
@@ -207,8 +197,6 @@ export default function Systems({ navigate }) {
                     {s.ligand_chem_id || '—'}</td>
                   <td style={{ whiteSpace: 'nowrap', fontSize: 12 }}>
                     {(s.total_sampling_ns / 1000).toFixed(1)} μs</td>
-                  <td style={{ fontSize: 11, color: 'var(--muted)' }}>
-                    Bilayer</td>
                   <td><span className={`chip chip-${s.structural_provenance}`} style={{ fontSize: 10 }}>
                     {s.structural_provenance === 'experimental' ? 'exp' : 'eng'}
                   </span></td>

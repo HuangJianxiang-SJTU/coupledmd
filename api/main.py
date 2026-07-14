@@ -5,7 +5,7 @@ All host-specific values (port, DATA_ROOT, DATABASE_URL, API_BASE_URL) come
 from environment variables so the same image runs on localhost and the
 university host with no code changes.
 
-NAR free-access rule: No login, registration, account, or email is ever
+Open-access rule: No login, registration, account, or email is ever
 required to reach any page, dataset, download, CSV, or API endpoint.
 The only access-limiting mechanism is per-IP rate limiting.
 
@@ -27,6 +27,7 @@ Endpoints:
 import json
 import os
 import re
+import csv
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional
@@ -54,6 +55,26 @@ VIZ_DIR = DATA_ROOT / "data" / "viz"
 CHAIN_ROLES_DIR = DATA_ROOT / "data" / "chain_roles"
 CONTACTS_DIR = DATA_ROOT / "data" / "contacts"
 FRONTEND_DIST = _PROJECT_ROOT / "frontend" / "dist"
+FINAL_RELEASE_COHORT = DATA_ROOT / "data" / "release_cohort_v9_final208.csv"
+
+
+def _load_final_release_cohort() -> dict[str, dict[str, str]]:
+    """Load the final public paper cohort without altering the master inventory."""
+    if not FINAL_RELEASE_COHORT.is_file():
+        raise RuntimeError(f"Final release cohort file missing: {FINAL_RELEASE_COHORT}")
+    with FINAL_RELEASE_COHORT.open(newline="") as handle:
+        rows = {row["system_id"]: row for row in csv.DictReader(handle)}
+    if len(rows) != 208:
+        raise RuntimeError("Final release cohort must contain 208 unique systems")
+    return rows
+
+
+FINAL_RELEASE_COHORT_ROWS = _load_final_release_cohort()
+FINAL_RELEASE_IDS = tuple(FINAL_RELEASE_COHORT_ROWS)
+FINAL_RELEASE_CLASS = {
+    sid: row["gpcr_class"].strip().upper() for sid, row in FINAL_RELEASE_COHORT_ROWS.items()
+}
+FINAL_RELEASE_SQL = ",".join("?" * len(FINAL_RELEASE_IDS))
 
 # System IDs follow the pattern "Gx_PDBID" (e.g. Gi_6CMO, G12_7T6B).
 # Enforce this format to prevent path-traversal attacks in file-serving endpoints.
@@ -63,6 +84,8 @@ _SYSTEM_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
 def _validate_system_id(sid: str) -> str:
     if not _SYSTEM_ID_RE.match(sid):
         raise HTTPException(status_code=400, detail=f"Invalid system_id: '{sid}'")
+    if sid not in FINAL_RELEASE_IDS:
+        raise HTTPException(status_code=404, detail=f"System not in the final public release: '{sid}'")
     return sid
 
 
@@ -77,10 +100,10 @@ async def _lifespan(app: FastAPI):
 app = FastAPI(
     title="CoupledMD",
     description=(
-        "GPCR-G-protein MD web resource — 222 active-state ternary complex simulations.\n\n"
+        "GPCR-G-protein MD web resource — 208 validated active-state ternary complex simulations.\n\n"
         "**Open access**: No login required. All data, downloads, and API endpoints are "
         "freely accessible. Optional API keys provide higher rate limits only.\n\n"
-        "**Citation**: Huang J et al., CoupledMD, Nucleic Acids Research (2026). DOI pending (pre-publication).\n\n"
+        "**Citation**: Huang J et al., CoupledMD: a web resource for GPCR–G-protein molecular dynamics. Citation details to be confirmed (pre-publication).\n\n"
         "**Licence**: Data CC-BY-4.0, Code MIT."
     ),
     version="1.0.0",
@@ -113,7 +136,18 @@ if _cors_origins:
 # --------------------------------------------------------------------------- #
 
 def _row_to_dict(row) -> dict:
-    return dict(row)
+    data = dict(row)
+    # The frozen final-release cohort defines sampling uniformly.  The master
+    # table retains historical pre-repair values for a few systems.
+    if "system_id" in data and data["system_id"] in FINAL_RELEASE_IDS:
+        data["gpcr_class"] = FINAL_RELEASE_CLASS[data["system_id"]]
+        if "n_replicas" in data:
+            data["n_replicas"] = 3
+        if "length_per_replica_ns" in data:
+            data["length_per_replica_ns"] = 500
+        if "total_sampling_ns" in data:
+            data["total_sampling_ns"] = 1500.0
+    return data
 
 
 def _load_json(path: Path) -> dict | list:
@@ -135,7 +169,7 @@ def _system_json_path(sid: str, filename: str) -> Path:
 def health():
     con = get_connection()
     cur = con.cursor()
-    cur.execute("SELECT count(*) FROM systems")
+    cur.execute(f"SELECT count(*) FROM systems WHERE system_id IN ({FINAL_RELEASE_SQL})", FINAL_RELEASE_IDS)
     n = cur.fetchone()[0]
     con.close()
     return {"status": "ok", "n_systems": n, "schema_version": "1.0"}
@@ -264,16 +298,13 @@ def delete_account_endpoint(body: CredentialsBody):
 def list_families():
     con = get_connection()
     cur = con.cursor()
-    cur.execute("""
+    rows = [_row_to_dict(r) for r in cur.execute("""
         SELECT g_protein_family AS family,
                count(*) AS n_systems,
                count(DISTINCT receptor_uniprot) AS n_receptors,
-               sum(total_sampling_ns) AS total_sampling_ns
+               count(*) * 1500.0 AS total_sampling_ns
         FROM systems
-        GROUP BY g_protein_family
-        ORDER BY n_systems DESC
-    """)
-    rows = [_row_to_dict(r) for r in cur.fetchall()]
+        WHERE system_id IN (""" + FINAL_RELEASE_SQL + ") GROUP BY g_protein_family ORDER BY n_systems DESC", FINAL_RELEASE_IDS).fetchall()]
     con.close()
     return {"families": rows}
 
@@ -293,7 +324,7 @@ def list_systems(
     limit: int = Query(200, ge=1, le=500),
     offset: int = Query(0, ge=0),
 ):
-    filters, params = [], []
+    filters, params = [f"system_id IN ({FINAL_RELEASE_SQL})"], list(FINAL_RELEASE_IDS)
     if family:
         filters.append("g_protein_family = ?")
         params.append(family)
@@ -310,8 +341,12 @@ def list_systems(
         filters.append("structural_provenance = ?")
         params.append(provenance)
     if gpcr_class:
-        filters.append("gpcr_class = ?")
-        params.append(gpcr_class)
+        requested_class = gpcr_class.strip().upper()
+        if requested_class not in {"A", "B"}:
+            raise HTTPException(status_code=422, detail="gpcr_class must be A or B")
+        class_ids = [sid for sid in FINAL_RELEASE_IDS if FINAL_RELEASE_CLASS[sid] == requested_class]
+        filters.append("system_id IN (" + ",".join("?" * len(class_ids)) + ")")
+        params.extend(class_ids)
 
     where = ("WHERE " + " AND ".join(filters)) if filters else ""
 

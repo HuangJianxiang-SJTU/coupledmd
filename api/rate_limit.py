@@ -6,7 +6,7 @@ Two tiers:
   Tier 1 (optional free API key): 600 req/min per key.
 
 The key only raises the rate limit — it unlocks no data that anonymous
-users cannot already get.  This satisfies the NAR free-access rule.
+users cannot already get.  This preserves the resource's open-access policy.
 
 Implementation: Starlette middleware (not slowapi decorators) for
 reliable operation with gunicorn + uvicorn workers.

@@ -2,6 +2,18 @@ import { useEffect, useState } from 'react'
 import { api } from '../api'
 
 const FAM_COLOR = { Gi: 'var(--gio)', Gs: 'var(--gs)', Gq: 'var(--gq)', 'G12-13': 'var(--g1213)' }
+const POCKET_ZONE_LABEL = {
+  orthosteric: 'Orthosteric',
+  extracellular_vestibule: 'Extracellular vestibule',
+  intracellular_allosteric: 'Intracellular/transducer',
+  tm_core_allosteric: 'Membrane-facing',
+  coupling_interface: 'Intracellular/transducer',
+  g_protein: 'Intracellular/transducer',
+}
+
+function pocketZoneLabel(zone) {
+  return POCKET_ZONE_LABEL[zone] || String(zone || 'Unassigned').replace(/_/g, ' ')
+}
 
 export default function PartnerSwitch({ navigate }) {
   const [reorg, setReorg] = useState(null)
@@ -107,13 +119,13 @@ export default function PartnerSwitch({ navigate }) {
           {selected && !loading && (
             <>
               <ComparisonHeader comparison={selected} navigate={navigate} />
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginTop: 16 }}>
                 <PocketPanel label={selected.famA} sid={selected.sid_A}
                              color={FAM_COLOR[selected.famA]} data={dataA} navigate={navigate} />
                 <PocketPanel label={selected.famB} sid={selected.sid_B}
                              color={FAM_COLOR[selected.famB]} data={dataB} navigate={navigate} />
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 16 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginTop: 16 }}>
                 <GatewayPanel label={selected.famA} color={FAM_COLOR[selected.famA]} data={dataA} />
                 <GatewayPanel label={selected.famB} color={FAM_COLOR[selected.famB]} data={dataB} />
               </div>
@@ -183,8 +195,9 @@ function PocketPanel({ label, sid, color, data, navigate }) {
             const barW = (p.mean_freq / maxFreq) * 100
             return (
               <div key={p.pocket_id} style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 2 }}>
-                <span className="pocket-zone" style={{ width: 60, textAlign: 'center', fontSize: 10 }}>
-                  {p.zone || '—'}
+                <span className="pocket-zone" style={{ width: 128, flexShrink: 0, textAlign: 'right', fontSize: 10,
+                  overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={pocketZoneLabel(p.zone)}>
+                  {pocketZoneLabel(p.zone)}
                 </span>
                 <div style={{ flex: 1, height: 12, background: 'var(--panel)', borderRadius: 2,
                               overflow: 'hidden' }}>

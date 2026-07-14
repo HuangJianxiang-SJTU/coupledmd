@@ -14,8 +14,8 @@ Changes versus the original:
     panel D is covered by main-text Figure 2, so it is dropped here).
 
 Panels:
-  A  Portal file availability (present vs missing, per record type)
-  B  Two-tier data product (production archive vs portal/API layer, log10 bytes)
+  A  Portal file completeness (percentage available per record type)
+  B  Two-tier data product (production archive vs portal/API layer, relative scale)
   C  Documented REST surface (endpoints grouped by manuscript use)
 
 All panels are generated from frozen CSVs. No trajectory I/O is performed.
@@ -38,7 +38,7 @@ import figstyle
 figstyle.apply_style()
 
 HERE = Path(__file__).resolve().parent
-TBL = HERE / "tables"
+V9 = HERE / "scidata_figures" / "v9_figure_inputs"
 OUT = HERE / "scidata_figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -73,17 +73,24 @@ def panel(ax, letter: str, x=-0.10, y=1.04) -> None:
 
 def load_tables() -> dict[str, pd.DataFrame]:
     return {
-        "t6": pd.read_csv(TBL / "scidata_T6_manifest_summary.csv"),
-        "t7": pd.read_csv(TBL / "scidata_T7_portal_file_availability_summary.csv"),
-        "s6": pd.read_csv(TBL / "scidata_S6_portal_api_endpoints.csv"),
-        "s8": pd.read_csv(TBL / "scidata_S8_archive_manifest_clean_v1_from_metadata.csv"),
-        "s9": pd.read_csv(TBL / "scidata_S9_portal_file_manifest_clean_v1.csv"),
+        "t6": pd.read_csv(V9 / "scidata_T6_manifest_summary_v9.csv"),
+        "t7": pd.read_csv(V9 / "scidata_T7_portal_api_availability_summary_v9.csv"),
+        "s8": pd.read_csv(V9 / "scidata_S8_archive_source_inventory_v9.csv"),
+        "s9": pd.read_csv(V9 / "scidata_S9_portal_api_file_manifest_v9.csv"),
     }
 
 
 def make_figure_s2() -> None:
     d = load_tables()
-    t7, s8, s9, s6 = d["t7"], d["s8"], d["s9"], d["s6"]
+    t6, t7, s8, s9 = d["t6"], d["t7"], d["s8"], d["s9"]
+    cohort = t6.loc[t6["manifest"].eq("release_cohort_v9_final208")].iloc[0]
+    archive = t6.loc[t6["manifest"].eq("archive_source_inventory_v9")].iloc[0]
+    portal = t6.loc[t6["manifest"].eq("portal_api_file_manifest_v9")].iloc[0]
+    api = t6.loc[t6["manifest"].eq("openapi_snapshot")].iloc[0]
+    assert int(cohort["systems"]) == 208 and int(cohort["records"]) == 624
+    assert archive["status"] == portal["status"] == "audited"
+    assert len(s8) == 416 and s8["exists"].all()
+    assert len(s9) == 2080 and len(t7) == 10
 
     fig = plt.figure(figsize=(10.8, 3.8))
     gs = fig.add_gridspec(1, 3, width_ratios=[1.05, 1.15, 1.15],
@@ -93,59 +100,77 @@ def make_figure_s2() -> None:
     ax_size = fig.add_subplot(gs[0, 1])
     ax_api = fig.add_subplot(gs[0, 2])
 
-    # ── A: portal file availability (present vs missing) ─────────────────────
+    # ── A: measured portal/API record coverage ───────────────────────────────
     short = t7.copy()
-    short["label"] = (short["record_type"]
-                      .str.replace("api_", "", regex=False)
+    short["label"] = (short["record_type"].str.replace("api_", "", regex=False)
                       .str.replace("viz_", "viz ", regex=False))
-    y = np.arange(len(short))[::-1]
-    ax_files.barh(y, short["present"], color=FAM_COL["Gi"], label="present")
-    ax_files.barh(y, short["missing"], left=short["present"], color=WARN,
-                  label="missing")
+    short["applicable_systems"] = short["expected_systems"] - short["records_not_applicable"]
+    short["coverage_pct"] = 100 * short["records_available"] / short["applicable_systems"]
+    short = short.sort_values(["coverage_pct", "record_type"], ascending=[True, True])
+    colors = np.where(short["records_missing"].add(short["records_unpopulated"]).eq(0),
+                      FAM_COL["Gi"], WARN)
+    y = np.arange(len(short))
+    ax_files.barh(y, short["coverage_pct"], color=colors, edgecolor="white")
     ax_files.set_yticks(y, short["label"], fontsize=FS_TICK)
-    ax_files.tick_params(axis="x", labelsize=FS_TICK)
-    ax_files.set_xlabel("systems", fontsize=FS_LABEL)
-    ax_files.set_title("Portal file availability", fontsize=FS_TITLE,
+    ax_files.set_xlim(97.5, 100.15)
+    ax_files.set_xticks([98, 99, 100])
+    ax_files.set_xlabel("scientifically populated (%)", fontsize=FS_LABEL)
+    for yi, row in enumerate(short.itertuples()):
+        gap = int(row.records_missing + row.records_unpopulated)
+        if gap:
+            ax_files.text(row.coverage_pct + 0.05, yi, f"−{gap}", va="center",
+                          fontsize=FS_ANNOT, color=WARN)
+    ax_files.set_title("Portal/API record coverage", fontsize=FS_TITLE,
                        loc="left", pad=4)
-    ax_files.legend(frameon=False, fontsize=FS_ANNOT)
     panel(ax_files, "A")
 
     # ── B: two-tier data product (archive vs portal, log10 bytes) ─────────────
-    archive_bytes = float(s8["size_bytes"].sum())
-    portal_bytes = float(s9["size_bytes"].sum())
-    ax_size.barh(["production archive", "portal/API layer"],
-                 np.log10([archive_bytes, portal_bytes]),
-                 color=[ACCENT, WARN], edgecolor="white")
-    ax_size.set_xlabel("total size (log$_{10}$ bytes)", fontsize=FS_LABEL)
-    ax_size.set_title("Two-tier data product", fontsize=FS_TITLE,
+    archive_counts = s8.groupby("record_type")["exists"].sum().reindex(
+        ["production_trajectory", "topology"])
+    ax_size.barh(["production trajectory", "topology"], archive_counts.values,
+                 color=[ACCENT, FAM_COL["Gs"]], edgecolor="white")
+    ax_size.set_xlim(0, 225)
+    ax_size.set_xlabel("systems with source record", fontsize=FS_LABEL)
+    for yv, val in enumerate(archive_counts.values):
+        ax_size.text(val + 2, yv, f"{int(val)}/208", va="center",
+                     fontsize=FS_ANNOT, fontweight="bold")
+    ax_size.text(0.02, 0.05, "624 selected replicas · 312.0 µs",
+                 transform=ax_size.transAxes, fontsize=FS_ANNOT, color=MUTED)
+    ax_size.set_title("Archive source inventory", fontsize=FS_TITLE,
                       loc="left", pad=4)
-    ax_size.tick_params(axis="both", labelsize=FS_TICK)
-    ax_size.text(np.log10(archive_bytes), 0, f" {archive_bytes/1e12:.1f} TB",
-                 va="center", fontsize=FS_ANNOT)
-    ax_size.text(np.log10(portal_bytes), 1, f" {portal_bytes/1e9:.1f} GB",
-                 va="center", fontsize=FS_ANNOT)
     panel(ax_size, "B")
 
     # ── C: documented REST surface ───────────────────────────────────────────
-    tags = (s6["manuscript_use"].fillna("other")
-            .str.extract(r"(portal|download|open access|API|citation|account)",
-                         expand=False)
-            .fillna("API/data"))
-    tag_counts = tags.value_counts().sort_values()
-    ax_api.barh(tag_counts.index, tag_counts.values, color=ACCENT,
-                edgecolor="white")
-    ax_api.set_xlabel("endpoints", fontsize=FS_LABEL)
-    ax_api.set_title("Documented REST surface", fontsize=FS_TITLE,
+    gaps = t7.loc[(t7["records_missing"] + t7["records_unpopulated"]).gt(0)].copy()
+    gaps["gap_n"] = gaps["records_missing"] + gaps["records_unpopulated"]
+    gaps["label"] = gaps["record_type"].str.replace("api_", "", regex=False)
+    gaps = gaps.sort_values("gap_n")
+    if gaps.empty:
+        ax_api.axis("off")
+        ax_api.text(0.5, 0.56, "No populated-record gaps", ha="center", va="center",
+                    transform=ax_api.transAxes, fontsize=FS_LABEL, fontweight="bold",
+                    color=FAM_COL["Gi"])
+        ax_api.text(0.5, 0.43, "All applicable portal/API records: 208/208",
+                    ha="center", va="center", transform=ax_api.transAxes,
+                    fontsize=FS_ANNOT, color=MUTED)
+    else:
+        ax_api.barh(gaps["label"], gaps["gap_n"], color=WARN, edgecolor="white")
+        ax_api.set_xlim(0, 3.8)
+        ax_api.set_xticks([0, 1, 2, 3])
+        ax_api.set_xlabel("systems lacking populated record", fontsize=FS_LABEL)
+        for yv, row in enumerate(gaps.itertuples()):
+            ax_api.text(row.gap_n + 0.08, yv, str(row.affected_system_ids),
+                        va="center", fontsize=FS_ANNOT, color=MUTED)
+    ax_api.text(0.98, 0.03, f"OpenAPI snapshot: {int(api['records'])} endpoints",
+                transform=ax_api.transAxes, ha="right", fontsize=FS_ANNOT,
+                color=ACCENT)
+    ax_api.set_title("Measured coverage gaps", fontsize=FS_TITLE,
                      loc="left", pad=4)
-    ax_api.tick_params(axis="both", labelsize=FS_TICK)
-    ax_api.text(0.98, 0.05, "www.coupledmd.cn/api/docs",
-                transform=ax_api.transAxes, ha="right", color=MUTED,
-                fontsize=FS_ANNOT)
     panel(ax_api, "C")
 
     # No suptitle; compact, border-free composition.
     fig.tight_layout(pad=0.5)
-    save(fig, "new_figure_s2_portal_archive_coverage")
+    save(fig, "v9_figureS2_portal_archive_coverage")
 
 
 if __name__ == "__main__":

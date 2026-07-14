@@ -37,6 +37,21 @@ function parseGenerics(val) {
   return []
 }
 
+// Public anatomical vocabulary follows Figure 5C. Raw analysis keys remain
+// available in exported CSVs but are not used as reader-facing labels.
+function zoneLabel(zone) {
+  const labels = {
+    orthosteric: 'Orthosteric',
+    extracellular_vestibule: 'Extracellular vestibule',
+    intracellular_allosteric: 'Intracellular/transducer interface',
+    tm_core_allosteric: 'Membrane-facing',
+    coupling_interface: 'Intracellular/transducer interface',
+    g_protein: 'Intracellular/transducer interface',
+    interface: 'Intracellular/transducer interface',
+  }
+  return labels[zone] || String(zone || 'Unassigned').replace(/_/g, ' ')
+}
+
 export default function AtlasBrowser({ navigate }) {
   const [tab, setTab] = useState('druggable_pockets')
   const [data, setData] = useState({})
@@ -235,7 +250,7 @@ function DrugPocketTable({ data, navigate }) {
                     ))}
                   </td>
                   <td style={{ fontSize: 11, color: 'var(--muted)' }}>
-                    {Object.entries(zones).map(([z, n]) => `${z}(${n})`).join(' ')}
+                    {Object.entries(zones).map(([z, n]) => `${zoneLabel(z)} (${n})`).join(' · ')}
                   </td>
                   <td>{(c.mean_freq * 100).toFixed(1)}%</td>
                   <td style={{ fontSize: 10, color: 'var(--muted)', maxWidth: 180,
@@ -444,7 +459,7 @@ function Nominations({ data }) {
               return (
                 <tr key={i}>
                   <td style={{ fontWeight: 700, fontFamily: 'monospace' }}>{n.cid}</td>
-                  <td><span className="pocket-zone">{n.zone}</span></td>
+                  <td><span className="pocket-zone">{zoneLabel(n.zone)}</span></td>
                   <td>{n.n_receptors}</td>
                   <td>{n.n_pockets}</td>
                   <td style={{ fontSize: 11 }}>

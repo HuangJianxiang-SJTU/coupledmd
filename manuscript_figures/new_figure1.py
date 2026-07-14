@@ -15,7 +15,6 @@ All panels are generated from frozen CSVs. No trajectory I/O is performed.
 
 from __future__ import annotations
 
-import json
 import os
 from pathlib import Path
 
@@ -30,7 +29,7 @@ import figstyle
 figstyle.apply_style()
 
 HERE = Path(__file__).resolve().parent
-TBL = HERE / "tables"
+V9 = HERE / "scidata_figures" / "v9_figure_inputs"
 OUT = HERE / "scidata_figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -64,16 +63,23 @@ def panel(ax, letter: str, x=-0.10, y=1.04) -> None:
             fontweight="bold", va="bottom")
 
 
-def read_json(path: Path) -> dict:
-    with path.open() as fh:
-        return json.load(fh)
-
-
 def load_tables() -> dict[str, pd.DataFrame]:
     return {
-        "s1": pd.read_csv(TBL / "scidata_S1_included_systems_clean_v1.csv"),
-        "s2": pd.read_csv(TBL / "scidata_S2_held_back_systems.csv"),
+        "s1": pd.read_csv(V9 / "scidata_S1_included_systems_v9.csv"),
+        "s2": pd.read_csv(V9 / "scidata_S2_unresolved_systems_v9.csv"),
     }
+
+
+def unresolved_category(row: pd.Series) -> str:
+    """Map frozen readiness evidence to the current high-level issue classes."""
+    evidence = " ".join(str(row.get(c, "")) for c in (
+        "hold_reason", "baseline_replica_statuses", "readiness_action"))
+    evidence = evidence.lower()
+    if "incomplete" in evidence or "span" in evidence:
+        return "incomplete trajectory"
+    if "dissociation" in evidence:
+        return "component continuity"
+    return "PBC/trajectory continuity"
 
 
 def clean_family(value: str) -> str:
@@ -90,6 +96,12 @@ def ordered_families(values) -> list[str]:
 def make_figure1() -> None:
     s1, s2 = load_tables()["s1"].copy(), load_tables()["s2"].copy()
     s1["g_protein_family"] = s1["g_protein_family"].map(clean_family)
+    assert len(s1) == 208 and len(s2) == 13
+    assert int(s1["n_replicas"].sum()) == 624
+    assert float(s1["total_sampling_ns"].sum()) == 312_000.0
+    assert s1["g_protein_family"].value_counts().to_dict() == {
+        "Gi": 95, "Gs": 65, "Gq": 42, "G12-13": 6}
+    assert s1["gpcr_class"].value_counts().to_dict() == {"A": 182, "B": 26}
 
     fig = plt.figure(figsize=(10.8, 7.4))
     gs = fig.add_gridspec(2, 3, width_ratios=[1.1, 1.15, 1.0], height_ratios=[1.0, 1.0],
@@ -169,18 +181,16 @@ def make_figure1() -> None:
     ax_reuse.grid(axis="y", color=PALE, lw=0.4)
     panel(ax_reuse, "D")
 
-    # E: clean vs held-back transparency.
-    reason = s2["hold_reason"].fillna("").map(
-        lambda x: "nonstandard length" if "nonstandard" in x.lower()
-        else "missing/incomplete files")
+    # E: included vs unresolved transparency, using current readiness evidence.
+    reason = s2.apply(unresolved_category, axis=1)
     h = reason.value_counts()
-    ax_hold.bar(["included", "held back"], [len(s1), len(s2)], color=[FAM_COL["Gi"], WARN],
+    ax_hold.bar(["included", "unresolved"], [len(s1), len(s2)], color=[FAM_COL["Gi"], WARN],
                 edgecolor="white")
     ax_hold.set_ylabel("systems", fontsize=FS_LABEL)
     ax_hold.tick_params(axis="both", labelsize=FS_TICK)
-    ax_hold.text(0, len(s1) + 3, f"{len(s1)} clean", ha="center", fontweight="bold",
+    ax_hold.text(0, len(s1) + 3, f"{len(s1)} included", ha="center", fontweight="bold",
                  fontsize=FS_ANNOT)
-    ax_hold.text(1, len(s2) + 3, f"{len(s2)} held", ha="center", fontweight="bold",
+    ax_hold.text(1, len(s2) + 3, f"{len(s2)} unresolved", ha="center", fontweight="bold",
                  fontsize=FS_ANNOT)
     ypos = 0.72
     for key, val in h.items():
@@ -196,7 +206,7 @@ def make_figure1() -> None:
     bbox = ax_prom.get_position()
     _shift = 0.030
     ax_prom.set_position([bbox.x0 + _shift, bbox.y0, bbox.width - _shift, bbox.height])
-    save(fig, "new_figure1_community_landscape")
+    save(fig, "v9_figure1_community_landscape")
 
 
 if __name__ == "__main__":

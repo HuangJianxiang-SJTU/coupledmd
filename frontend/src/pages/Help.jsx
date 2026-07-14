@@ -7,7 +7,7 @@ const SECTIONS = [
     content: (
       <>
         <p>CoupledMD provides open access to molecular dynamics simulation data for
-        <strong> 222 active-state GPCR&ndash;G-protein ternary complexes</strong> across
+        <strong> 208 validated active-state GPCR&ndash;G-protein ternary complexes</strong> across
         all four major G-protein families (G<sub>i/o</sub>, G<sub>s</sub>, G<sub>q/11</sub>,
         G<sub>12/13</sub>).</p>
         <p>Use the <a href="#/systems">Systems</a> browser to find a receptor of interest.
@@ -76,7 +76,7 @@ const SECTIONS = [
             </tr>
           </thead>
           <tbody>
-            <tr><td style={{ padding: '4px 12px', fontFamily: 'monospace' }}>GET /api/v1/systems</td><td style={{ padding: '4px 12px' }}>All 222 systems</td></tr>
+            <tr><td style={{ padding: '4px 12px', fontFamily: 'monospace' }}>GET /api/v1/systems</td><td style={{ padding: '4px 12px' }}>All 208 validated systems</td></tr>
             <tr><td style={{ padding: '4px 12px', fontFamily: 'monospace' }}>GET /api/v1/systems/{'{id}'}</td><td style={{ padding: '4px 12px' }}>Single system metadata</td></tr>
             <tr><td style={{ padding: '4px 12px', fontFamily: 'monospace' }}>GET /api/v1/systems/{'{id}'}/pockets</td><td style={{ padding: '4px 12px' }}>Pocket data</td></tr>
             <tr><td style={{ padding: '4px 12px', fontFamily: 'monospace' }}>GET /api/v1/systems/{'{id}'}/gateways</td><td style={{ padding: '4px 12px' }}>Gateway data</td></tr>

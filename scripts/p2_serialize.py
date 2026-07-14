@@ -61,6 +61,7 @@ DATA_ROOT = Path(os.environ.get("DATA_ROOT", PROJECT_ROOT))
 DATABASE_URL = os.environ.get("DATABASE_URL", f"sqlite:///{DATA_ROOT}/db/coupledmd.sqlite")
 
 MASTER_CSV = DATA_ROOT / "data" / "systems_master.csv"
+FINAL_COHORT_CSV = DATA_ROOT / "data" / "release_cohort_v9_final208.csv"
 API_OUT = DATA_ROOT / "data" / "api" / "v1"
 
 POCKETS_ATLAS = ANALYSIS_SRC / "paper1_pockets" / "atlas"
@@ -276,13 +277,13 @@ def serialize_consensus() -> dict:
         write_json(p, out)
         sizes["pockets_orthosteric"] = file_size(p)
 
-    src_csv = GATEWAYS_DIR / "gateway_atlas_summary.csv"
+    src_csv = GATEWAYS_DIR / "gateway_atlas_summary_final208.csv"
     if src_csv.exists():
         df = pd.read_csv(src_csv)
         out = {
             "_schema_version": SCHEMA_VERSION,
             "_generated_at": GENERATED_AT,
-            "_source": "paper1_gateways/gateway_atlas_summary.csv",
+            "_source": "paper1_gateways/gateway_atlas_summary_final208.csv",
             "n_records": len(df),
             "columns": list(df.columns),
             "records": df.where(pd.notna(df), None).to_dict(orient="records"),
@@ -321,6 +322,8 @@ def serialize_consensus() -> dict:
 
         # Enrich with representative system IDs for each (uniprot, family) pair
         df_master = pd.read_csv(MASTER_CSV)
+        final_ids = set(pd.read_csv(FINAL_COHORT_CSV)["system_id"])
+        df_master = df_master[df_master["system_id"].isin(final_ids)].copy()
         # Build index: (uniprot, family) → first system_id by total_sampling_ns desc
         sys_idx = (
             df_master.sort_values("total_sampling_ns", ascending=False)
@@ -385,6 +388,13 @@ def serialize_gprotein_metrics(df: pd.DataFrame, con: sqlite3.Connection | None,
     src_coupling = ANALYSIS_SRC / "paper1_coupling_table.csv"
     if src_coupling.exists():
         df_coup = pd.read_csv(src_coupling)
+        # This table is keyed by PDB and G-family, not server system_id.
+        release_keys = set(
+            zip(df["pdb_id"].astype(str).str.upper(), df["g_protein_family"])
+        )
+        df_coup = df_coup[
+            df_coup.apply(lambda r: (str(r["system"]).upper(), r["g_family"]) in release_keys, axis=1)
+        ].copy()
         out = {
             "_schema_version": SCHEMA_VERSION,
             "_generated_at": GENERATED_AT,
@@ -479,7 +489,15 @@ def main(args):
         sys.exit("ERROR: systems_master.csv not found. Run p0_freeze_cohort.py first.")
 
     df = pd.read_csv(MASTER_CSV)
-    print(f"Loaded {len(df)} systems from {MASTER_CSV}")
+    release = pd.read_csv(FINAL_COHORT_CSV)
+    final_ids = set(release["system_id"])
+    assert len(final_ids) == 208, f"expected 208 final systems, found {len(final_ids)}"
+    df = df[df["system_id"].isin(final_ids)].copy()
+    # Release sampling is fixed by cohort definition, correcting stale master metadata.
+    df["n_replicas"] = 3
+    df["length_per_replica_ns"] = 500
+    df["total_sampling_ns"] = 1500
+    print(f"Loaded {len(df)} final-release systems from {MASTER_CSV}")
 
     if args.system:
         df = df[df["system_id"] == args.system]

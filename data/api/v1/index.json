@@ -1,12 +1,12 @@
 {
   "_schema_version": "1.0",
-  "_generated_at": "2026-06-27T08:40:10.483493+00:00",
-  "n_systems": 222,
+  "_generated_at": "2026-07-14T09:11:54.656420+00:00",
+  "n_systems": 208,
   "coverage": {
-    "has_pockets": 219,
-    "has_pockets_gpcrdb": 218,
-    "has_pocketgrid": 219,
-    "has_gateways": 220
+    "has_pockets": 208,
+    "has_pockets_gpcrdb": 208,
+    "has_pocketgrid": 208,
+    "has_gateways": 208
   },
   "systems": [
     {
@@ -15,13 +15,6 @@
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,
       "has_gateways": true
-    },
-    {
-      "system_id": "G12_8H8J",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": false
     },
     {
       "system_id": "G12_8IKL",
@@ -178,13 +171,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gi_7JVR",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gi_7NA7",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -221,13 +207,6 @@
     },
     {
       "system_id": "Gi_7TUZ",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
-      "system_id": "Gi_7V68",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,
@@ -274,13 +253,6 @@
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,
       "has_gateways": true
-    },
-    {
-      "system_id": "Gi_7VUG",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": false
     },
     {
       "system_id": "Gi_7W0N",
@@ -563,13 +535,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gi_8J22",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gi_8J6D",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -620,13 +585,6 @@
     },
     {
       "system_id": "Gi_8WWH",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
-      "system_id": "Gi_8X16",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,
@@ -745,13 +703,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gq_7E9W",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": false,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gq_7EIB",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -787,13 +738,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gq_7F9Z",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gq_7P00",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -802,16 +746,9 @@
     },
     {
       "system_id": "Gq_7RAN",
-      "has_pockets": false,
-      "has_pockets_gpcrdb": false,
-      "has_pocketgrid": false,
-      "has_gateways": true
-    },
-    {
-      "system_id": "Gq_7RYC",
-      "has_pockets": false,
-      "has_pockets_gpcrdb": false,
-      "has_pocketgrid": false,
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
       "has_gateways": true
     },
     {
@@ -864,13 +801,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gq_7XJL",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gq_7XW9",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -893,13 +823,6 @@
     },
     {
       "system_id": "Gq_7Y26",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
-      "system_id": "Gq_8DPF",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,
@@ -977,9 +900,9 @@
     },
     {
       "system_id": "Gq_8J9N",
-      "has_pockets": false,
-      "has_pockets_gpcrdb": false,
-      "has_pocketgrid": false,
+      "has_pockets": true,
+      "has_pockets_gpcrdb": true,
+      "has_pocketgrid": true,
       "has_gateways": true
     },
     {
@@ -1151,13 +1074,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gs_7VUH",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gs_7XT8",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -1207,13 +1123,6 @@
       "has_gateways": true
     },
     {
-      "system_id": "Gs_8GY7",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
       "system_id": "Gs_8H4I",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
@@ -1236,13 +1145,6 @@
     },
     {
       "system_id": "Gs_8HJ2",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
-      "system_id": "Gs_8HNK",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,

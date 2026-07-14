@@ -12,8 +12,7 @@ re-designed for publication:
          fidelity benchmark; Table T4a).
       C  per-interface TM-gateway open-fraction distribution across all 208
          systems (box plot; quantifies the heatmap in A using Table S5).
-      D  dataset completeness and exclusion transparency, with a one-line
-         reduced-trajectory integrity callout (Tables S2, T8/T8a).
+      D  dataset completeness and exclusion transparency (Table S2).
   - Panel A (the TM-gateway open-fraction heatmap) is retained as the
     centerpiece.
 
@@ -37,7 +36,7 @@ import figstyle  # noqa: E402  (local module alongside this script)
 figstyle.apply_style()
 
 HERE = Path(__file__).resolve().parent
-TBL = HERE / "tables"
+V9 = HERE / "scidata_figures" / "v9_figure_inputs"
 OUT = HERE / "scidata_figures"
 OUT.mkdir(parents=True, exist_ok=True)
 
@@ -85,31 +84,24 @@ def panel(ax, letter: str, x=-0.12, y=1.05) -> None:
 
 def load_tables() -> dict[str, pd.DataFrame]:
     return {
-        "s1": pd.read_csv(TBL / "scidata_S1_included_systems_clean_v1.csv"),
-        "s2": pd.read_csv(TBL / "scidata_S2_held_back_systems.csv"),
-        "s5": pd.read_csv(TBL / "scidata_S5_gateway_per_system_clean_v1.csv"),
-        "t4a": pd.read_csv(TBL / "scidata_T4a_recovery_summary_clean_v1.csv"),
-        "t8": pd.read_csv(TBL / "scidata_T8_viz_pbc_full_audit_clean_v1.csv"),
-        "t8a": pd.read_csv(TBL / "scidata_T8a_viz_pbc_summary_clean_v1.csv"),
-        "t8b": pd.read_csv(TBL / "scidata_T8b_viz_qc_flags_clean_v1.csv"),
+        "s1": pd.read_csv(V9 / "scidata_S1_included_systems_v9.csv"),
+        "s2": pd.read_csv(V9 / "scidata_S2_unresolved_systems_v9.csv"),
+        "s5": pd.read_csv(V9 / "scidata_S5_gateway_per_system_v9.csv"),
+        "t4a": pd.read_csv(V9 / "scidata_T4a_recovery_summary_v9.csv"),
+        "t8": pd.read_csv(V9 / "scidata_T8_readiness_qc_v9.csv"),
+        "t8a": pd.read_csv(V9 / "scidata_T8a_readiness_qc_summary_v9.csv"),
     }
-
-
-def categorize_hold(reason: str) -> str:
-    r = reason.lower()
-    if "nonstandard 6-replica" in r:
-        return "nonstandard replicas + missing outputs"
-    if "nonstandard trajectory" in r or "3 x 2 ns" in r or "3 x 260" in r:
-        return "nonstandard length"
-    if "missing processed pocket" in r:
-        return "missing processed outputs"
-    return "temporary / incomplete files"
 
 
 def make_figure4() -> None:
     d = load_tables()
     s1, s2, s5 = d["s1"], d["s2"], d["s5"]
-    t4a, t8, t8a, t8b = d["t4a"], d["t8"], d["t8a"], d["t8b"]
+    t4a, t8, t8a = d["t4a"], d["t8"], d["t8a"]
+    assert len(s1) == 208 and len(s2) == 13 and len(s5) == 208
+    assert t8["cohort_status"].value_counts().to_dict() == {
+        "included": 208, "unresolved": 13, "excluded": 1}
+    assert (t8["timestamp_reset_interpretation"] ==
+            "diagnostic_only_not_failure").all()
 
     # ── Panel A: gateway open-fraction heatmap (centerpiece) ───────────────
     mat = s5[["System ID"] + [c[1] for c in IFACE_COLS]].copy()
@@ -125,34 +117,24 @@ def make_figure4() -> None:
 
     # ── Panel B data: orthosteric pocket recovery by family ───────────────
     t4a_fam = t4a[t4a["subset"].isin(["Gi/o", "Gs", "Gq/11", "G12/13"])].copy()
-    t4a_all = t4a[t4a["subset"] == "All clean-v1"].iloc[0]
+    t4a_all = t4a[t4a["subset"] == "All v9"].iloc[0]
 
     # ── Panel D data: completeness / exclusions / integrity ───────────────
-    s2c = s2.copy()
-    s2c["cat"] = s2c["hold_reason"].apply(categorize_hold)
-    cat_counts = s2c["cat"].value_counts()
+    cat_counts = (t8a.loc[t8a["cohort_status"].eq("unresolved")]
+                  .set_index("qc_category")["systems_n"])
     n_included = len(s1)
     n_held = len(s2)
-    # integrity callout numbers
-    audited = int(t8a.loc[t8a["metric"] == "systems_audited", "value"].iloc[0])
-    n_ok = int(t8a.loc[t8a["metric"] == "status_OK", "value"].iloc[0])
-    n_warn = int(t8a.loc[t8a["metric"] == "status_WARN", "value"].iloc[0])
-    scatter_frames = int(t8a.loc[t8a["metric"] == "scatter_frames", "value"].iloc[0])
-    atom_mm = int(t8a.loc[t8a["metric"] == "atom_count_mismatch", "value"].iloc[0])
-    box_mm = int(t8a.loc[t8a["metric"] == "box_mismatch", "value"].iloc[0])
-    intra = int(t8a.loc[t8a["metric"] == "intra_break_frames", "value"].iloc[0])
-    inter = int(t8a.loc[t8a["metric"] == "inter_chain_split_frames", "value"].iloc[0])
-
     # ── Figure layout ─────────────────────────────────────────────────────
     fig = plt.figure(figsize=(10.4, 8.4))
     gs = fig.add_gridspec(1, 2, width_ratios=[1.55, 1.0], wspace=0.34,
-                          left=0.10, right=0.965, top=0.96, bottom=0.085)
+                          left=0.10, right=0.965, top=0.96, bottom=0.12)
     gs_r = gs[0, 1].subgridspec(3, 1, height_ratios=[1.05, 1.05, 0.95], hspace=0.62)
 
     axA = fig.add_subplot(gs[0, 0])
 
     # ── Panel A ───────────────────────────────────────────────────────────
-    cmap = mpl.colormaps["RdYlBu_r"]
+    cmap = mpl.colormaps["RdYlBu_r"].copy()
+    cmap.set_bad("#d9dde3")
     im = axA.imshow(M, aspect="auto", cmap=cmap, vmin=0, vmax=1,
                     interpolation="nearest")
     axA.set_xticks(range(len(IFACE_COLS)))
@@ -173,6 +155,14 @@ def make_figure4() -> None:
         cum += c
     axA.set_ylabel(f"{n_sys} systems (grouped by G-protein family)",
                    fontsize=FS_LABEL)
+    missing_gateway = int(np.isnan(M).all(axis=1).sum())
+    gateway_note = (f"gateway records: {n_sys}/{n_sys}; all values populated"
+                    if missing_gateway == 0 else
+                    f"gateway records: {n_sys - missing_gateway}/{n_sys}; "
+                    f"{missing_gateway} unavailable")
+    axA.text(0.0, 1.008, gateway_note,
+             transform=axA.transAxes, fontsize=FS_ANNOT, color=MUTED,
+             va="bottom")
     axA.tick_params(axis="x", labelsize=FS_TICK)
     cb = fig.colorbar(im, ax=axA, fraction=0.046, pad=0.02)
     cb.set_label("open fraction", fontsize=FS_LABEL)
@@ -196,10 +186,12 @@ def make_figure4() -> None:
     # Annotate % and n on each bar.
     for x, b, (_, row) in zip(xs, bars, rec.iterrows()):
         h = b.get_height()
-        axB.text(x, h + 2.0, f"{h:.1f}%", ha="center", va="bottom",
+        pct_y = h + 2.0 if h > 0 else 8.0
+        axB.text(x, pct_y, f"{h:.1f}%", ha="center", va="bottom",
                  fontsize=FS_ANNOT, fontweight="bold", color=INK)
         axB.text(x, 2.0, f"n={int(row['systems_n'])}", ha="center", va="bottom",
-                 fontsize=FS_ANNOT, color="white", fontweight="bold")
+                 fontsize=FS_ANNOT, color="white" if h > 0 else INK,
+                 fontweight="bold")
     axB.set_ylim(0, 100)
     axB.set_yticks([0, 25, 50, 75, 100])
     axB.set_yticklabels(["0", "25", "50", "75", "100"], fontsize=FS_TICK)
@@ -215,7 +207,7 @@ def make_figure4() -> None:
     data = [M[:, j] for j in range(M.shape[1])]
     labels = [c[0] for c in IFACE_COLS]
     # Sort interfaces by descending median for an informative reading order.
-    order_c = sorted(range(len(labels)), key=lambda k: -np.median(data[k]))
+    order_c = sorted(range(len(labels)), key=lambda k: -np.nanmedian(data[k]))
     data_s = [data[k] for k in order_c]
     labels_s = [labels[k] for k in order_c]
     bp = axC.boxplot(
@@ -232,7 +224,7 @@ def make_figure4() -> None:
         patch.set_edgecolor(INK)
         patch.set_linewidth(0.6)
     # Overlay the mean as a small accent marker.
-    means = [np.mean(col) for col in data_s]
+    means = [np.nanmean(col) for col in data_s]
     axC.scatter(range(len(labels_s)), means, s=22, color=ACCENT, zorder=4,
                 edgecolor="white", lw=0.4, label="mean")
     axC.set_ylim(-0.02, 1.02)
@@ -253,12 +245,8 @@ def make_figure4() -> None:
     panel(axD, "D", x=-0.02, y=0.98)
 
     # Stacked horizontal bar: included vs held-back categories.
-    cat_order = [
-        "temporary / incomplete files",
-        "nonstandard length",
-        "missing processed outputs",
-        "nonstandard replicas + missing outputs",
-    ]
+    cat_order = ["PBC/trajectory continuity", "component continuity",
+                 "incomplete trajectory"]
     cat_order = [c for c in cat_order if c in cat_counts.index]
     held_vals = [int(cat_counts.get(c, 0)) for c in cat_order]
     held_palette = ["#8a4aa0", "#b23a48", "#c0741a", "#586170"]
@@ -277,37 +265,28 @@ def make_figure4() -> None:
             ax_bar.barh([0], [val], left=left, color=col, edgecolor="white",
                         lw=0.5, height=0.55)
             left += val
-    ax_bar.text(n_included + n_held + 3, 0, f"{n_held} held back",
+    ax_bar.text(n_included + n_held + 3, 0, f"{n_held} unresolved",
                 ha="left", va="center", fontsize=FS_ANNOT, fontweight="bold",
                 color=INK)
     ax_bar.set_xlim(0, total + 30)
     ax_bar.set_ylim(-0.5, 0.5)
     ax_bar.set_yticks([])
     ax_bar.set_xticks([0, n_included, total])
-    ax_bar.set_xticklabels(["0", str(n_included), str(total)], fontsize=FS_TICK)
+    ax_bar.set_xticklabels(["0", str(n_included), str(total)], rotation=45,
+                           ha="right", fontsize=FS_TICK)
     ax_bar.set_xlabel("systems", fontsize=FS_LABEL)
     figstyle.despine(ax_bar, left=True, bottom=True)
 
-    # Legend for held-back categories, placed in the lower half of panel D.
+    # Legend for held-back categories, below the bar's x-axis labels.
     handles = [plt.Rectangle((0, 0), 1, 1, color=held_palette[i])
                for i in range(len(cat_order))]
     labels_leg = [f"{c} ({held_vals[i]})" for i, c in enumerate(cat_order)]
-    axD.legend(handles, labels_leg, loc="lower left",
-               bbox_to_anchor=(0.0, 0.0), ncol=2, frameon=False,
+    axD.legend(handles, labels_leg, loc="upper left",
+               bbox_to_anchor=(0.0, 0.02), ncol=2, frameon=False,
                fontsize=FS_ANNOT, handletextpad=0.4, columnspacing=1.0,
                labelcolor=INK)
 
-    # Trajectory-integrity callout as a figure footnote.
-    fig.text(
-        0.10, 0.025,
-        f"Reduced-trajectory integrity audit: {audited}/{audited} systems pass "
-        f"PBC re-image ({n_ok} OK, {n_warn} minor-scatter WARN); "
-        f"0 atom-count mismatch · 0 box mismatch · 0 intra/inter-chain breaks · "
-        f"{scatter_frames} minor-scatter frames ({len(t8b)} systems flagged).",
-        fontsize=FS_ANNOT, color=MUTED, ha="left", va="bottom",
-    )
-
-    save(fig, "new_figure4_qc")
+    save(fig, "v9_figure4_qc")
 
 
 if __name__ == "__main__":

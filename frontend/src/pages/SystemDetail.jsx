@@ -425,8 +425,8 @@ function pocketLabel(p) {
   if (fRec >= 0.8) {
     const z = p.zone || ''
     if (z.includes('extracellular')) return 'Extracellular vestibule'
-    if (z.includes('intracellular')) return 'Intracellular allosteric'
-    if (z.includes('tm_core')) return 'TM-core allosteric'
+    if (z.includes('intracellular')) return 'Intracellular/transducer interface'
+    if (z.includes('tm_core')) return 'Membrane-facing'
     return 'Receptor (other)'
   }
   return null
@@ -445,7 +445,7 @@ function pocketLabelToZone(lbl) {
   if (lbl === 'Orthosteric') return 'orthosteric'
   if (lbl.startsWith('Extracellular')) return 'extracellular'
   if (lbl.startsWith('Intracellular')) return 'intracellular'
-  if (lbl.startsWith('TM-core')) return 'tm_core'
+  if (lbl === 'Membrane-facing') return 'tm_core'
   if (lbl === 'Gα' || lbl === 'Gβ' || lbl === 'Gγ') return 'gprotein'
   if (lbl.includes('interface')) return 'interface'
   return 'other'
