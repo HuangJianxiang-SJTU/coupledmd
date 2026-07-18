@@ -61,7 +61,7 @@ DATA_ROOT = Path(os.environ.get("DATA_ROOT", PROJECT_ROOT))
 DATABASE_URL = os.environ.get("DATABASE_URL", f"sqlite:///{DATA_ROOT}/db/coupledmd.sqlite")
 
 MASTER_CSV = DATA_ROOT / "data" / "systems_master.csv"
-FINAL_COHORT_CSV = DATA_ROOT / "data" / "release_cohort_v9_final208.csv"
+FINAL_COHORT_CSV = DATA_ROOT / "data" / "release_cohort_v9_final207.csv"
 API_OUT = DATA_ROOT / "data" / "api" / "v1"
 
 POCKETS_ATLAS = ANALYSIS_SRC / "paper1_pockets" / "atlas"
@@ -277,13 +277,13 @@ def serialize_consensus() -> dict:
         write_json(p, out)
         sizes["pockets_orthosteric"] = file_size(p)
 
-    src_csv = GATEWAYS_DIR / "gateway_atlas_summary_final208.csv"
+    src_csv = GATEWAYS_DIR / "gateway_atlas_summary_final207.csv"
     if src_csv.exists():
         df = pd.read_csv(src_csv)
         out = {
             "_schema_version": SCHEMA_VERSION,
             "_generated_at": GENERATED_AT,
-            "_source": "paper1_gateways/gateway_atlas_summary_final208.csv",
+            "_source": "paper1_gateways/gateway_atlas_summary_final207.csv",
             "n_records": len(df),
             "columns": list(df.columns),
             "records": df.where(pd.notna(df), None).to_dict(orient="records"),

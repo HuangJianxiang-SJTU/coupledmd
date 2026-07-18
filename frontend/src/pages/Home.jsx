@@ -35,12 +35,12 @@ export default function Home({ navigate }) {
         <div className="stat-card">
           <div className="num">{health?.n_systems ?? '—'}</div>
           <div className="label">MD systems</div>
-          <div className="sub">208 validated ternary complexes</div>
+          <div className="sub">207 validated ternary complexes</div>
         </div>
         <div className="stat-card">
           <div className="num">{totalUs > 0 ? `${totalUs}` : '—'}<span style={{ fontSize: '1rem' }}> μs</span></div>
           <div className="label">Aggregate sampling</div>
-          <div className="sub">208 systems · standard 3 × 500 ns</div>
+          <div className="sub">207 systems · standard 3 × 500 ns</div>
         </div>
         <div className="stat-card">
           <div className="num">4</div>
@@ -116,7 +116,7 @@ export default function Home({ navigate }) {
       <div style={{ marginTop: 24, padding: '20px 0', borderTop: '1px solid var(--rule)',
                     color: 'var(--faint)', fontSize: 12 }}>
         Force field: CHARMM36-based simulation protocols across the final release cohort.
-        Structures from experimental cryo-EM/X-ray ternary complexes (197), plus 11
+        Structures from experimental cryo-EM/X-ray ternary complexes (197), plus 10
         engineered/uncertain models.
       </div>
     </div>

@@ -16,7 +16,7 @@ Jianxiang Huang^1,2,3^, Xin Qiao^3^, Shaoyong Lu^1,2,3,\*^
 
 ## Supplementary Note 1. Cohort definition and release controls
 
-The v9 release contains 208 systems selected from a 222-record working inventory: 95 Gi/o, 65 Gs, 42 Gq/11 and 6 G12/13 systems; 182 Class A and 26 Class B. The production design is three selected 500-ns replicas per system, giving 312.0 µs in aggregate. The cohort contains 174 distinct receptor names and 173 mapped UniProt accessions. `Gs_8HTI` is a consensus OR52c model with no canonical UniProt mapping and is retained with explicit null receptor-accession/gene fields.
+The v9 release contains 207 systems selected from a 222-record working inventory: 95 Gi/o, 65 Gs, 42 Gq/11 and 6 G12/13 systems; 182 Class A and 26 Class B. The production design is three selected 500-ns replicas per system, giving 310.5 µs in aggregate. The cohort contains 174 distinct receptor names and 173 mapped UniProt accessions. `Gs_8HTI` is a consensus OR52c model with no canonical UniProt mapping and is retained with explicit null receptor-accession/gene fields.
 
 Thirteen records are unresolved and do not appear in release counts, API responses, derived records or figures. Their categories are PBC/trajectory continuity (8), component continuity (4) and incomplete trajectory evidence (1). `Gq_7E9W` is separately excluded as a non-GPCR duplicate/mislabel of `Gq_8E9W`. Timestamp resets are diagnostic only and are not classified as failures. Record-level evidence is in Supplementary Data S2.
 
@@ -24,10 +24,10 @@ The following release assertions are verified before the archive is frozen:
 
 | Assertion | Required v9 result |
 |---|---:|
-| Unique system identifiers | 208 |
-| Production replicas | 624 |
-| Total production sampling | 312,000 ns |
-| Systems returned by final API | 208 |
+| Unique system identifiers | 207 |
+| Production replicas | 621 |
+| Total production sampling | 310,500 ns |
+| Systems returned by final API | 207 |
 | Unresolved/excluded IDs in final derived files | 0 |
 | `Gq_7E9W` in final API | 0 |
 | Manifest rows with absolute local paths | Pending archive freeze |
@@ -47,7 +47,7 @@ The release defines three protocol groups:
 | P2 | 26 | AMBER (CHARMM-GUI) | `CHARMM36 (via AMBER CHARMM-GUI)` |
 | P3 | 2 | GROMACS | `CHARMM36 (membrane-embedded, GROMACS)` |
 
-All 208 systems are membrane-embedded in POPC. P1 and P2 input templates specify 310 K, 1 bar, a 2-fs time step, SHAKE constraints on bonds to hydrogen, PME electrostatics, a 12-Å cutoff with switching from 10 Å. P3 templates specify 310 K, 1 bar, a 2-fs step, LINCS constraints, PME, a 1.2-nm cutoff and 1.0–1.2-nm switching. Engine-specific thermostat and barostat algorithms are detailed in the main Methods.
+All 207 systems are membrane-embedded in POPC. P1 and P2 input templates specify 310 K, 1 bar, a 2-fs time step, SHAKE constraints on bonds to hydrogen, PME electrostatics, a 12-Å cutoff with switching from 10 Å. P3 templates specify 310 K, 1 bar, a 2-fs step, LINCS constraints, PME, a 1.2-nm cutoff and 1.0–1.2-nm switching. Engine-specific thermostat and barostat algorithms are detailed in the main Methods.
 
 Ligand parameters were generated with CGenFF when available. Water is TIP3P; ions are Na⁺/Cl⁻ at 0.15 M. Protonation was assigned at pH 7.4. Minimization and multi-step equilibration with progressive restraint release preceded production. Engine versions and dependency versions are recorded in the code archive.
 
@@ -101,7 +101,7 @@ The deposited machine-readable dictionary contains the following columns for eve
 
 | Field | Level | Type / unit | Definition |
 |---|---|---|---|
-| `dataset_version` | all | string | Final release identifier (`v9-final208`) |
+| `dataset_version` | all | string | Final release identifier (`v9-final207`) |
 | `system_id` | system | string | Release-stable family/PDB identifier, e.g. `Gi_7F1Q` |
 | `pdb_id` | system | PDB ID | Verified starting-structure identifier |
 | `receptor_uniprot` | system | UniProt accession, nullable | Mapped receptor accession; missingness reason recorded |
@@ -127,7 +127,7 @@ Empty strings, literal `nan`, zero and absent keys are not interchangeable; each
 
 ## Supplementary Table S2. Unresolved and excluded records
 
-Supplementary Data S2 contains the 13 unresolved records with current readiness evidence. A separate final-exclusions table documents only `Gq_7E9W` as a non-GPCR duplicate/mislabel. Neither category contributes to v9 denominators.
+Supplementary Data S2 contains the 13 unresolved records and two excluded records with current readiness evidence. A separate final-exclusions table documents only `Gq_7E9W` as a non-GPCR duplicate/mislabel. Neither category contributes to v9 denominators.
 
 ## Supplementary Table S3. Molecular-file specification
 
@@ -144,15 +144,15 @@ The deposited table also records format version, units, compression/precision, a
 
 ## Supplementary Table S4. API and versioning contract
 
-The current OpenAPI 3.0 schema describes the final 208-system API access layer with typed success and error responses, media types for PDB/XTC/NPZ downloads, pagination, error codes and controlled vocabularies. Unresolved IDs and `Gq_7E9W` have no final release record. The portal may evolve; a frozen archival schema will accompany deposition.
+The current OpenAPI 3.0 schema describes the final 207-system API access layer with typed success and error responses, media types for PDB/XTC/NPZ downloads, pagination, error codes and controlled vocabularies. Unresolved IDs and `Gq_7E9W` have no final release record. The portal may evolve; a frozen archival schema will accompany deposition.
 
 ## Supplementary Figure S1 | Receptor representation across G-protein families.
 
 Receptors are grouped using a four-element presence/absence vector for Gi/o, Gs, Gq/11 and G12/13. Jaccard distance with average linkage organizes the dendrogram. Branch proximity reflects release coverage only and does not imply sequence, structural or mechanistic similarity.
 
-## Supplementary Figure S2 | Archive and access-layer coverage.
+## Supplementary Figure S2 | Transmembrane gateway definition and aggregation.
 
-The figure reports current server coverage for the final 208 systems. Archive file counts, byte sizes, DOI and direct-download coverage are marked pending until rebuilt from the final 624-replica manifest; no clean-v1 archive metric is presented as current.
+**a**, Top view of the seven membrane-facing gateways formed by adjacent transmembrane helix pairs. **b**, Per-frame definition: lipid heavy atoms within 5.0 Å of both helices and within the central 25th–75th-percentile TM Cα z-band are classified as wedged; radial penetration is measured inward from the nearest pair-Cα wall, and a frame is open when the maximum penetration is at least 0.5 Å. **c**, Frame-to-system aggregation. The four gateway metrics are summarized per replica and then averaged across three replicas; 95% confidence intervals use 1,000 replica-level bootstrap resamples. Unavailable results are encoded as null with a reason code, never as zero.
 
 ## Supplementary Figure S3 | Portal and API access workflow.
 
@@ -162,16 +162,16 @@ Routes for metadata discovery, reduced visualization, derived records and produc
 
 | File | Content | Granularity |
 |---|---|---:|
-| S1 | v9 included-system inventory | 208 rows |
-| S2 | Unresolved systems and readiness evidence | 13 rows |
+| S1 | v9 included-system inventory | 207 rows |
+| S2 | Release-boundary exceptions: 13 unresolved records and two excluded records and one excluded duplicate/mislabel | 14 rows |
 | S3 | Canonical metadata dictionary | One row per field |
-| S4 | Complete archive manifest with checksums | One row per file |
-| S5 | Pocket summaries with GPCRdb mappings | One row per system/pocket |
-| S6 | Gateway records | One row per system/replica/TM pair/metric |
-| S7 | Full production-trajectory QC | 624 replicas |
-| S8 | Reduced-trajectory audit | 208 rows |
-| S9 | Final-cohort API schema and response fixtures | Versioned JSON/YAML |
-| S10 | Code/environment inventory and example-workflow outputs | One frozen release |
+| S4 | Source inventory for production-trajectory and topology evidence (not an archive manifest) | 414 rows |
+| S5 | Pocket summaries with GPCRdb mappings and explicit unavailable records | One row per pocket plus two unavailable-system rows |
+| S6 | Current gateway summaries | 207 systems |
+| S7 | Selected-replica release ledger (not full archived file QC) | 621 replicas |
+| S8 | Final-cohort readiness/QC evidence | 207 rows |
+| S9 | Current final-cohort API access coverage | 10 record types |
+| S10 | Code and environment inventory | One compact inventory |
 
 ## Supplementary reuse cautions
 
@@ -184,4 +184,4 @@ Routes for metadata discovery, reduced visualization, derived records and produc
 
 ## Supplementary Data Availability
 
-The portal at https://www.coupledmd.cn and API documentation at https://www.coupledmd.cn/api/docs provide the current final-208 access layer. Complete primary trajectories, matched topologies, inputs, file-level checksums and the DOI-linked archive are pending final manifest freeze and deposition. Until then, this supplement makes no archive-completeness, DOI, licensing or direct-download claim.
+The portal at https://www.coupledmd.cn and API documentation at https://www.coupledmd.cn/api/docs provide the current final-207 access layer. Complete primary trajectories, matched topologies, inputs, file-level checksums and the DOI-linked archive are pending final manifest freeze and deposition. Until then, this supplement makes no archive-completeness, DOI, licensing or direct-download claim.

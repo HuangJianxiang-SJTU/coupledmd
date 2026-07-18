@@ -33,3 +33,34 @@ db/
 
 # other
 mdout.mdp
+
+# Local backups and working artifacts (never publish)
+*.bak_*
+manuscript_figures/legacy/
+manuscript_figures/scidata_figures/legacy/
+manuscript_figures/scidata_figures/backups/
+manuscript_figures/pandoc-*.deb
+manuscript_figures/reference_paper.pdf
+
+# Massive local analysis payloads (hundreds of GB; not for the repo)
+manuscript_figures/scidata_figures/trajectory_readiness/
+manuscript_figures/scidata_figures/zenodo_reduced_release_*/
+
+# Figure-generation inputs/outputs kept local (heavy)
+manuscript_figures/scidata_figures/v9_figure_inputs/
+manuscript_figures/scidata_figures/pymol/
+manuscript_figures/scidata_figures/portal_screenshots/
+manuscript_figures/scidata_figures/parallel_codex/
+
+# Internal review/audit notes
+ACCESS_MODEL_REPORT.md
+CODE_REVIEW_FINDINGS.md
+COMPLIANCE_REPORT.md
+DETECTION_SUMMARY.md
+INTEGRITY_FIX_REPORT.md
+TRIAGE_REPORT.md
+access_web.md
+load_test.py
+parallel_codex_tasks
+manuscript_figures/scidata_figures/2026-*.md
+manuscript_figures/scidata_figures/v[5-8]_*.md

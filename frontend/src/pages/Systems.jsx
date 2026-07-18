@@ -39,7 +39,7 @@ export default function Systems({ navigate }) {
     }
   }, [family, search, gpcrClass])
 
-  // Fetch all final-release systems in one batch (208 systems; 500 gives headroom).
+  // Fetch all final-release systems in one batch (207 systems; 500 gives headroom).
   const load = useCallback(() => {
     setLoading(true)
     setError(null)

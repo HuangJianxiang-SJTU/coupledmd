@@ -55,7 +55,7 @@ VIZ_DIR = DATA_ROOT / "data" / "viz"
 CHAIN_ROLES_DIR = DATA_ROOT / "data" / "chain_roles"
 CONTACTS_DIR = DATA_ROOT / "data" / "contacts"
 FRONTEND_DIST = _PROJECT_ROOT / "frontend" / "dist"
-FINAL_RELEASE_COHORT = DATA_ROOT / "data" / "release_cohort_v9_final208.csv"
+FINAL_RELEASE_COHORT = DATA_ROOT / "data" / "release_cohort_v9_final207.csv"
 
 
 def _load_final_release_cohort() -> dict[str, dict[str, str]]:
@@ -64,8 +64,8 @@ def _load_final_release_cohort() -> dict[str, dict[str, str]]:
         raise RuntimeError(f"Final release cohort file missing: {FINAL_RELEASE_COHORT}")
     with FINAL_RELEASE_COHORT.open(newline="") as handle:
         rows = {row["system_id"]: row for row in csv.DictReader(handle)}
-    if len(rows) != 208:
-        raise RuntimeError("Final release cohort must contain 208 unique systems")
+    if len(rows) != 207:
+        raise RuntimeError("Final release cohort must contain 207 unique systems")
     return rows
 
 
@@ -100,7 +100,7 @@ async def _lifespan(app: FastAPI):
 app = FastAPI(
     title="CoupledMD",
     description=(
-        "GPCR-G-protein MD web resource — 208 validated active-state ternary complex simulations.\n\n"
+        "GPCR-G-protein MD web resource — 207 validated active-state ternary complex simulations.\n\n"
         "**Open access**: No login required. All data, downloads, and API endpoints are "
         "freely accessible. Optional API keys provide higher rate limits only.\n\n"
         "**Citation**: Huang J et al., CoupledMD: a web resource for GPCR–G-protein molecular dynamics. Citation details to be confirmed (pre-publication).\n\n"

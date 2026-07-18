@@ -1,12 +1,12 @@
 {
   "_schema_version": "1.0",
   "_generated_at": "2026-07-14T09:11:54.656420+00:00",
-  "n_systems": 208,
+  "n_systems": 207,
   "coverage": {
-    "has_pockets": 208,
-    "has_pockets_gpcrdb": 208,
-    "has_pocketgrid": 208,
-    "has_gateways": 208
+    "has_pockets": 207,
+    "has_pockets_gpcrdb": 207,
+    "has_pocketgrid": 207,
+    "has_gateways": 207
   },
   "systems": [
     {
@@ -690,13 +690,6 @@
     },
     {
       "system_id": "Gq_7DFL",
-      "has_pockets": true,
-      "has_pockets_gpcrdb": true,
-      "has_pocketgrid": true,
-      "has_gateways": true
-    },
-    {
-      "system_id": "Gq_7DWC",
       "has_pockets": true,
       "has_pockets_gpcrdb": true,
       "has_pocketgrid": true,

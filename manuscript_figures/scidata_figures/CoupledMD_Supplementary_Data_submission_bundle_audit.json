@@ -1,0 +1,114 @@
+{
+  "archive_integrity_audit": {
+    "gzip_and_tar_read_integrity": "passed",
+    "tar_file_member_count": 11,
+    "tar_file_members": [
+      "CoupledMD_Supplementary_Data/README.txt",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S10_code_environment_inventory.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S1_included_system_inventory.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S2_release_boundary_exceptions.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S3_metadata_dictionary.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S4_source_inventory.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S5_pocket_summaries_gpcrdb.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S6_gateway_per_system.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S7_selected_replica_ledger.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S8_readiness_qc.csv",
+      "CoupledMD_Supplementary_Data/Supplementary_Data_S9_api_access_coverage.csv"
+    ],
+    "tarball_sha256": "9e8df4d2376fb812b36e038d1e4e8f3dc624f995197e8b087f7a4cbc2cb9823a",
+    "tarball_size_bytes": 161217
+  },
+  "cohort": {
+    "classes": {
+      "A": 181,
+      "B": 26
+    },
+    "families": {
+      "G12-13": 6,
+      "Gi": 95,
+      "Gq": 41,
+      "Gs": 65
+    },
+    "mapped_uniprot": 173,
+    "receptor_names": 174,
+    "sampling_ns": 310500,
+    "systems": 207
+  },
+  "independent_source_audit": {
+    "authoritative_cohort_ids_match": true,
+    "figure4_comparison_input": "/MDdata/data02/jxhuang/gpcr_g/gpcr_g_server/manuscript_figures/scidata_figures/backups/supplementary_data_v9_final208_20260716_151046/Supplementary_Data_S6_gateway_per_system.csv",
+    "figure4_comparison_old_system_count": 208,
+    "figure4_open_fraction_max_abs_delta_vs_preserved_wide_input": 0.0,
+    "source_gateway_rows": 5796,
+    "source_pocket_rows": 2149,
+    "source_to_s6_max_abs_delta": 0.0,
+    "source_zero_pocket_systems": [
+      "Gi_7YK6",
+      "Gi_8YIC"
+    ]
+  },
+  "pending": [
+    "frozen archive manifest",
+    "DOI-linked deposition",
+    "archive file checksums",
+    "self-contained per-file QC package",
+    "complete 621-file trajectory manifest freeze",
+    "authoritative exact simulation-engine versions"
+  ],
+  "row_counts": {
+    "S1": 207,
+    "S10": 24,
+    "S2": 15,
+    "S3": 105,
+    "S4": 414,
+    "S5": 2151,
+    "S6": 5796,
+    "S7": 621,
+    "S8": 207,
+    "S9": 10
+  },
+  "s5": {
+    "detected_pocket_rows": 2149,
+    "explicit_zero_pocket_rows": 2,
+    "zero_pocket_systems": [
+      "Gi_7YK6",
+      "Gi_8YIC"
+    ]
+  },
+  "s6": {
+    "interfaces": [
+      "TM1-TM2",
+      "TM2-TM3",
+      "TM3-TM4",
+      "TM4-TM5",
+      "TM5-TM6",
+      "TM6-TM7",
+      "TM7-TM1"
+    ],
+    "metrics": [
+      "penetration",
+      "penetration_p90",
+      "open_fraction",
+      "occupancy"
+    ],
+    "rows": 5796
+  },
+  "schema_version": "1.0",
+  "si_audit": {
+    "docx_repeating_table_headers": 5,
+    "docx_table_rows_protected_from_split": 46,
+    "docx_tables": 5,
+    "rendered_pages_visually_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "rendered_pdf_pages": 6,
+    "visual_inspection_status": "passed"
+  },
+  "status": "passed",
+  "submission_bundle_status": "passed"
+}

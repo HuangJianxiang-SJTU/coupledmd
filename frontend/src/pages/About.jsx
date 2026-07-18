@@ -1,13 +1,13 @@
 export default function About() {
   return (
     <div className="page">
-      <h1 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 20 }}>CoupledMD &mdash; 208 validated GPCR&ndash;G-protein MD simulations</h1>
+      <h1 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 20 }}>CoupledMD &mdash; 207 validated GPCR&ndash;G-protein MD simulations</h1>
 
       <section style={{ marginBottom: 32 }}>
         <h2 className="section-heading">What is CoupledMD?</h2>
         <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 720 }}>
           CoupledMD is a web resource providing open access to molecular dynamics (MD) simulation data
-          for active-state GPCR&ndash;G-protein ternary complexes. It covers <strong>208 validated systems</strong> across
+          for active-state GPCR&ndash;G-protein ternary complexes. It covers <strong>207 validated systems</strong> across
           all four major G-protein families (G<sub>i/o</sub>, G<sub>s</sub>, G<sub>q/11</sub>, G<sub>12/13</sub>),
           with precomputed analyses of druggable pockets, bilayer gateways, and partner-switching
           reorganization. The resource is designed to support structure-based drug discovery and
@@ -19,7 +19,7 @@ export default function About() {
         <h2 className="section-heading">Dataset statistics</h2>
         <div className="stat-grid" style={{ maxWidth: 720 }}>
           <div className="stat-card">
-            <div className="num">208</div>
+            <div className="num">207</div>
             <div className="label">Systems</div>
           </div>
           <div className="stat-card">
@@ -31,7 +31,7 @@ export default function About() {
             <div className="label">Distinct receptor names</div>
           </div>
           <div className="stat-card">
-            <div className="num">312.0 &mu;s</div>
+            <div className="num">310.5 &mu;s</div>
             <div className="label">Aggregate sampling</div>
           </div>
         </div>
@@ -40,20 +40,20 @@ export default function About() {
       <section style={{ marginBottom: 32 }}>
         <h2 className="section-heading">Simulation Protocol</h2>
         <div className="detail-card" style={{ maxWidth: 720 }}>
-          <div className="kv"><span className="k">Systems</span><span className="v">208 validated active-state ternary complexes</span></div>
+          <div className="kv"><span className="k">Systems</span><span className="v">207 validated active-state ternary complexes</span></div>
           <div className="kv"><span className="k">Force field</span><span className="v">CHARMM36</span></div>
           <div className="kv"><span className="k">Replicas</span><span className="v">3 per system (independent trajectories)</span></div>
           <div className="kv"><span className="k">Length</span><span className="v">500 ns per replica (1.5 &mu;s total per system)</span></div>
           <div className="kv"><span className="k">MD engine</span><span className="v">AMBER pmemd (chamber); GROMACS for 10 systems</span></div>
-          <div className="kv"><span className="k">Starting structures</span><span className="v">Experimental cryo-EM / X-ray ternary complexes (197); 11 engineered/uncertain</span></div>
+          <div className="kv"><span className="k">Starting structures</span><span className="v">Experimental cryo-EM / X-ray ternary complexes (197); 10 engineered/uncertain</span></div>
           <div className="kv"><span className="k">Receptor identifiers</span><span className="v">174 distinct receptor names; 173 mapped UniProt accessions (one consensus-model system has no UniProt mapping)</span></div>
-          <div className="kv"><span className="k">Membrane</span><span className="v">208 membrane-embedded (POPC/POPE mixtures)</span></div>
+          <div className="kv"><span className="k">Membrane</span><span className="v">207 membrane-embedded (POPC/POPE mixtures)</span></div>
           <div className="kv"><span className="k">Water model</span><span className="v">TIP3P</span></div>
           <div className="kv"><span className="k">Ionic strength</span><span className="v">0.15 M NaCl</span></div>
           <div className="kv"><span className="k">Temperature</span><span className="v">310 K (Langevin thermostat)</span></div>
           <div className="kv"><span className="k">Pressure</span><span className="v">1 atm (Monte Carlo barostat)</span></div>
           <div className="kv"><span className="k">Constraints</span><span className="v">SHAKE (hydrogen bonds), 2 fs timestep</span></div>
-          <div className="kv"><span className="k">Total sampling</span><span className="v">312.0 &mu;s aggregate</span></div>
+          <div className="kv"><span className="k">Total sampling</span><span className="v">310.5 &mu;s aggregate</span></div>
         </div>
       </section>
 
@@ -64,7 +64,7 @@ export default function About() {
             <PipelineStep
               n="1"
               title="Cohort freeze &amp; validation"
-              desc="Final validated release inventory of 208 systems with force-field corrections, file integrity checks, and structural provenance classification."
+              desc="Final validated release inventory of 207 systems with force-field corrections, file integrity checks, and structural provenance classification."
             />
             <PipelineStep
               n="2"
