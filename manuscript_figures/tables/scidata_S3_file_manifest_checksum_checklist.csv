@@ -1,9 +1,0 @@
-record_type,validation_field,priority,notes
-all files,sha256,required,Generate after final archive assembly
-full trajectories,frame_count,required,Needed for Fig 4A and Technical Validation
-topologies/structures,readability,required,Needed for Data Records
-reduced trajectories,presence + frame_count,recommended,Portal/download layer
-metadata JSON/CSV,schema validation,required,Needed for Tables 2/3
-pocket outputs,presence + parse test,recommended,Needed for Fig 3 validation
-QC reports,threshold pass/fail,required,Needed for Fig 1 funnel and Fig 4
-OpenAPI schema,archived snapshot,recommended,Documents API reuse

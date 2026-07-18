@@ -1,7 +1,0 @@
-category,group,systems_n,unique_receptors,sampling_us,replicas,length_per_replica_ns,notes
-G-protein family,Gi/o,93,85,139.5,3 per system,500,clean-v1 included systems only
-G-protein family,Gs,67,63,100.5,3 per system,500,clean-v1 included systems only
-G-protein family,Gq/11,42,39,63.0,3 per system,500,clean-v1 included systems only
-G-protein family,G12/13,6,6,9.0,3 per system,500,clean-v1 included systems only
-Total clean-v1,All,208,174,312.0,3 per system,500,excludes 14 held-back systems listed in scidata_S2
-Held back,All,14,13,20.286,nonuniform in current metadata,"2, 260, or 500",not included in clean-v1 counts
