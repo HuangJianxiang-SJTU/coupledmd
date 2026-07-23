@@ -6,14 +6,11 @@ version: 1.0.0
 authors:
   - family-names: Huang
     given-names: Jianxiang
-repository-code: https://github.com/coupledmd/coupledmd
+repository-code: https://github.com/HuangJianxiang-SJTU/coupledmd
+repository-artifact: https://github.com/HuangJianxiang-SJTU/coupledmd_database
 license: MIT
 keywords:
   - GPCR
   - G-protein
   - molecular dynamics
   - web server
-identifiers:
-  - type: doi
-    value: 10.0000/placeholder
-    description: "Zenodo archive of the CoupledMD dataset (DOI pending pre-publication)"

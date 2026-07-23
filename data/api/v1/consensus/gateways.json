@@ -1,7 +1,8 @@
 {
-  "_schema_version": "1.0",
-  "_generated_at": "2026-07-14T09:11:54.656420+00:00",
-  "_source": "paper1_gateways/gateway_atlas_summary_final207.csv",
+  "_schema_version": "v12.1",
+  "_generated_at": "2026-07-20T06:53:04.162322+00:00",
+  "_source": "paper1_gateways/gateway_atlas_summary_final207.csv; frozen final-207 processed full-system summary",
+  "_scope_note": "Processed intermediate records; values cannot be recalculated from the reduced protein-complex XTC release.",
   "n_records": 196,
   "columns": [
     "pair",
@@ -35,10 +36,10 @@
       "pair": "TM1-TM2",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.223,
-      "ci_lo": 0.176,
-      "ci_hi": 0.276
+      "n_systems": 41,
+      "mean": 0.218,
+      "ci_lo": 0.169,
+      "ci_hi": 0.272
     },
     {
       "pair": "TM1-TM2",
@@ -53,10 +54,10 @@
       "pair": "TM1-TM2",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.205,
-      "ci_lo": 0.18,
-      "ci_hi": 0.232
+      "n_systems": 181,
+      "mean": 0.204,
+      "ci_lo": 0.176,
+      "ci_hi": 0.23
     },
     {
       "pair": "TM1-TM2",
@@ -71,10 +72,10 @@
       "pair": "TM1-TM2",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.186,
-      "ci_lo": 0.163,
-      "ci_hi": 0.209
+      "n_systems": 207,
+      "mean": 0.185,
+      "ci_lo": 0.162,
+      "ci_hi": 0.211
     },
     {
       "pair": "TM2-TM3",
@@ -98,10 +99,10 @@
       "pair": "TM2-TM3",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.014,
+      "n_systems": 41,
+      "mean": 0.015,
       "ci_lo": 0.005,
-      "ci_hi": 0.025
+      "ci_hi": 0.026
     },
     {
       "pair": "TM2-TM3",
@@ -116,10 +117,10 @@
       "pair": "TM2-TM3",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
+      "n_systems": 181,
       "mean": 0.023,
       "ci_lo": 0.016,
-      "ci_hi": 0.032
+      "ci_hi": 0.031
     },
     {
       "pair": "TM2-TM3",
@@ -134,10 +135,10 @@
       "pair": "TM2-TM3",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
+      "n_systems": 207,
       "mean": 0.02,
       "ci_lo": 0.014,
-      "ci_hi": 0.027
+      "ci_hi": 0.028
     },
     {
       "pair": "TM3-TM4",
@@ -161,10 +162,10 @@
       "pair": "TM3-TM4",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.442,
-      "ci_lo": 0.379,
-      "ci_hi": 0.508
+      "n_systems": 41,
+      "mean": 0.445,
+      "ci_lo": 0.374,
+      "ci_hi": 0.505
     },
     {
       "pair": "TM3-TM4",
@@ -179,10 +180,10 @@
       "pair": "TM3-TM4",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.506,
-      "ci_lo": 0.475,
-      "ci_hi": 0.536
+      "n_systems": 181,
+      "mean": 0.507,
+      "ci_lo": 0.479,
+      "ci_hi": 0.537
     },
     {
       "pair": "TM3-TM4",
@@ -197,10 +198,10 @@
       "pair": "TM3-TM4",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.496,
-      "ci_lo": 0.468,
-      "ci_hi": 0.525
+      "n_systems": 207,
+      "mean": 0.497,
+      "ci_lo": 0.469,
+      "ci_hi": 0.527
     },
     {
       "pair": "TM4-TM5",
@@ -224,10 +225,10 @@
       "pair": "TM4-TM5",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.21,
-      "ci_lo": 0.168,
-      "ci_hi": 0.256
+      "n_systems": 41,
+      "mean": 0.213,
+      "ci_lo": 0.169,
+      "ci_hi": 0.263
     },
     {
       "pair": "TM4-TM5",
@@ -242,10 +243,10 @@
       "pair": "TM4-TM5",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.235,
-      "ci_lo": 0.206,
-      "ci_hi": 0.264
+      "n_systems": 181,
+      "mean": 0.236,
+      "ci_lo": 0.209,
+      "ci_hi": 0.265
     },
     {
       "pair": "TM4-TM5",
@@ -260,10 +261,10 @@
       "pair": "TM4-TM5",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.237,
+      "n_systems": 207,
+      "mean": 0.238,
       "ci_lo": 0.211,
-      "ci_hi": 0.265
+      "ci_hi": 0.268
     },
     {
       "pair": "TM5-TM6",
@@ -287,10 +288,10 @@
       "pair": "TM5-TM6",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.153,
-      "ci_lo": 0.11,
-      "ci_hi": 0.194
+      "n_systems": 41,
+      "mean": 0.157,
+      "ci_lo": 0.116,
+      "ci_hi": 0.2
     },
     {
       "pair": "TM5-TM6",
@@ -305,10 +306,10 @@
       "pair": "TM5-TM6",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.202,
+      "n_systems": 181,
+      "mean": 0.204,
       "ci_lo": 0.177,
-      "ci_hi": 0.228
+      "ci_hi": 0.23
     },
     {
       "pair": "TM5-TM6",
@@ -323,10 +324,10 @@
       "pair": "TM5-TM6",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.196,
-      "ci_lo": 0.175,
-      "ci_hi": 0.219
+      "n_systems": 207,
+      "mean": 0.197,
+      "ci_lo": 0.174,
+      "ci_hi": 0.22
     },
     {
       "pair": "TM6-TM7",
@@ -350,10 +351,10 @@
       "pair": "TM6-TM7",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.113,
-      "ci_lo": 0.087,
-      "ci_hi": 0.146
+      "n_systems": 41,
+      "mean": 0.116,
+      "ci_lo": 0.09,
+      "ci_hi": 0.147
     },
     {
       "pair": "TM6-TM7",
@@ -368,10 +369,10 @@
       "pair": "TM6-TM7",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.132,
-      "ci_lo": 0.111,
-      "ci_hi": 0.154
+      "n_systems": 181,
+      "mean": 0.133,
+      "ci_lo": 0.112,
+      "ci_hi": 0.156
     },
     {
       "pair": "TM6-TM7",
@@ -386,10 +387,10 @@
       "pair": "TM6-TM7",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.153,
-      "ci_lo": 0.132,
-      "ci_hi": 0.176
+      "n_systems": 207,
+      "mean": 0.154,
+      "ci_lo": 0.133,
+      "ci_hi": 0.175
     },
     {
       "pair": "TM7-TM1",
@@ -413,10 +414,10 @@
       "pair": "TM7-TM1",
       "metric": "open_fraction",
       "group": "Gq",
-      "n_systems": 42,
+      "n_systems": 41,
       "mean": 0.446,
-      "ci_lo": 0.375,
-      "ci_hi": 0.515
+      "ci_lo": 0.379,
+      "ci_hi": 0.51
     },
     {
       "pair": "TM7-TM1",
@@ -431,10 +432,10 @@
       "pair": "TM7-TM1",
       "metric": "open_fraction",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.494,
-      "ci_lo": 0.464,
-      "ci_hi": 0.527
+      "n_systems": 181,
+      "mean": 0.495,
+      "ci_lo": 0.463,
+      "ci_hi": 0.524
     },
     {
       "pair": "TM7-TM1",
@@ -449,9 +450,9 @@
       "pair": "TM7-TM1",
       "metric": "open_fraction",
       "group": "ALL",
-      "n_systems": 208,
+      "n_systems": 207,
       "mean": 0.434,
-      "ci_lo": 0.399,
+      "ci_lo": 0.4,
       "ci_hi": 0.469
     },
     {
@@ -476,10 +477,10 @@
       "pair": "TM1-TM2",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.406,
-      "ci_lo": 0.308,
-      "ci_hi": 0.515
+      "n_systems": 41,
+      "mean": 0.401,
+      "ci_lo": 0.303,
+      "ci_hi": 0.513
     },
     {
       "pair": "TM1-TM2",
@@ -494,10 +495,10 @@
       "pair": "TM1-TM2",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.442,
-      "ci_lo": 0.368,
-      "ci_hi": 0.523
+      "n_systems": 181,
+      "mean": 0.441,
+      "ci_lo": 0.361,
+      "ci_hi": 0.524
     },
     {
       "pair": "TM1-TM2",
@@ -512,10 +513,10 @@
       "pair": "TM1-TM2",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.397,
-      "ci_lo": 0.326,
-      "ci_hi": 0.474
+      "n_systems": 207,
+      "mean": 0.396,
+      "ci_lo": 0.328,
+      "ci_hi": 0.477
     },
     {
       "pair": "TM2-TM3",
@@ -539,10 +540,10 @@
       "pair": "TM2-TM3",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
+      "n_systems": 41,
       "mean": 0.024,
       "ci_lo": 0.009,
-      "ci_hi": 0.039
+      "ci_hi": 0.042
     },
     {
       "pair": "TM2-TM3",
@@ -557,9 +558,9 @@
       "pair": "TM2-TM3",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.045,
-      "ci_lo": 0.03,
+      "n_systems": 181,
+      "mean": 0.046,
+      "ci_lo": 0.029,
       "ci_hi": 0.065
     },
     {
@@ -575,10 +576,10 @@
       "pair": "TM2-TM3",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
+      "n_systems": 207,
       "mean": 0.04,
       "ci_lo": 0.026,
-      "ci_hi": 0.055
+      "ci_hi": 0.056
     },
     {
       "pair": "TM3-TM4",
@@ -602,10 +603,10 @@
       "pair": "TM3-TM4",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.756,
-      "ci_lo": 0.62,
-      "ci_hi": 0.906
+      "n_systems": 41,
+      "mean": 0.752,
+      "ci_lo": 0.603,
+      "ci_hi": 0.895
     },
     {
       "pair": "TM3-TM4",
@@ -620,10 +621,10 @@
       "pair": "TM3-TM4",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
+      "n_systems": 181,
       "mean": 0.887,
-      "ci_lo": 0.813,
-      "ci_hi": 0.962
+      "ci_lo": 0.815,
+      "ci_hi": 0.96
     },
     {
       "pair": "TM3-TM4",
@@ -638,9 +639,9 @@
       "pair": "TM3-TM4",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.861,
-      "ci_lo": 0.794,
+      "n_systems": 207,
+      "mean": 0.86,
+      "ci_lo": 0.796,
       "ci_hi": 0.94
     },
     {
@@ -665,10 +666,10 @@
       "pair": "TM4-TM5",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.354,
+      "n_systems": 41,
+      "mean": 0.357,
       "ci_lo": 0.268,
-      "ci_hi": 0.453
+      "ci_hi": 0.467
     },
     {
       "pair": "TM4-TM5",
@@ -683,10 +684,10 @@
       "pair": "TM4-TM5",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.421,
-      "ci_lo": 0.357,
-      "ci_hi": 0.487
+      "n_systems": 181,
+      "mean": 0.422,
+      "ci_lo": 0.364,
+      "ci_hi": 0.489
     },
     {
       "pair": "TM4-TM5",
@@ -701,10 +702,10 @@
       "pair": "TM4-TM5",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.434,
-      "ci_lo": 0.377,
-      "ci_hi": 0.495
+      "n_systems": 207,
+      "mean": 0.435,
+      "ci_lo": 0.376,
+      "ci_hi": 0.503
     },
     {
       "pair": "TM5-TM6",
@@ -728,10 +729,10 @@
       "pair": "TM5-TM6",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.233,
-      "ci_lo": 0.169,
-      "ci_hi": 0.293
+      "n_systems": 41,
+      "mean": 0.238,
+      "ci_lo": 0.179,
+      "ci_hi": 0.302
     },
     {
       "pair": "TM5-TM6",
@@ -746,10 +747,10 @@
       "pair": "TM5-TM6",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.359,
-      "ci_lo": 0.301,
-      "ci_hi": 0.424
+      "n_systems": 181,
+      "mean": 0.361,
+      "ci_lo": 0.3,
+      "ci_hi": 0.426
     },
     {
       "pair": "TM5-TM6",
@@ -764,10 +765,10 @@
       "pair": "TM5-TM6",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.347,
-      "ci_lo": 0.299,
-      "ci_hi": 0.408
+      "n_systems": 207,
+      "mean": 0.348,
+      "ci_lo": 0.294,
+      "ci_hi": 0.405
     },
     {
       "pair": "TM6-TM7",
@@ -791,10 +792,10 @@
       "pair": "TM6-TM7",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.211,
-      "ci_lo": 0.15,
-      "ci_hi": 0.3
+      "n_systems": 41,
+      "mean": 0.217,
+      "ci_lo": 0.157,
+      "ci_hi": 0.296
     },
     {
       "pair": "TM6-TM7",
@@ -809,9 +810,9 @@
       "pair": "TM6-TM7",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.278,
-      "ci_lo": 0.215,
+      "n_systems": 181,
+      "mean": 0.28,
+      "ci_lo": 0.218,
       "ci_hi": 0.354
     },
     {
@@ -827,10 +828,10 @@
       "pair": "TM6-TM7",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.299,
-      "ci_lo": 0.243,
-      "ci_hi": 0.367
+      "n_systems": 207,
+      "mean": 0.301,
+      "ci_lo": 0.241,
+      "ci_hi": 0.368
     },
     {
       "pair": "TM7-TM1",
@@ -854,10 +855,10 @@
       "pair": "TM7-TM1",
       "metric": "penetration",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.858,
-      "ci_lo": 0.679,
-      "ci_hi": 1.061
+      "n_systems": 41,
+      "mean": 0.859,
+      "ci_lo": 0.68,
+      "ci_hi": 1.062
     },
     {
       "pair": "TM7-TM1",
@@ -872,10 +873,10 @@
       "pair": "TM7-TM1",
       "metric": "penetration",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.985,
-      "ci_lo": 0.901,
-      "ci_hi": 1.084
+      "n_systems": 181,
+      "mean": 0.986,
+      "ci_lo": 0.898,
+      "ci_hi": 1.078
     },
     {
       "pair": "TM7-TM1",
@@ -890,10 +891,10 @@
       "pair": "TM7-TM1",
       "metric": "penetration",
       "group": "ALL",
-      "n_systems": 208,
+      "n_systems": 207,
       "mean": 0.864,
-      "ci_lo": 0.775,
-      "ci_hi": 0.956
+      "ci_lo": 0.774,
+      "ci_hi": 0.959
     },
     {
       "pair": "TM1-TM2",
@@ -917,10 +918,10 @@
       "pair": "TM1-TM2",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 1.174,
-      "ci_lo": 0.932,
-      "ci_hi": 1.429
+      "n_systems": 41,
+      "mean": 1.159,
+      "ci_lo": 0.906,
+      "ci_hi": 1.434
     },
     {
       "pair": "TM1-TM2",
@@ -935,10 +936,10 @@
       "pair": "TM1-TM2",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 1.236,
-      "ci_lo": 1.068,
-      "ci_hi": 1.404
+      "n_systems": 181,
+      "mean": 1.233,
+      "ci_lo": 1.055,
+      "ci_hi": 1.399
     },
     {
       "pair": "TM1-TM2",
@@ -953,10 +954,10 @@
       "pair": "TM1-TM2",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 1.105,
-      "ci_lo": 0.945,
-      "ci_hi": 1.259
+      "n_systems": 207,
+      "mean": 1.102,
+      "ci_lo": 0.937,
+      "ci_hi": 1.267
     },
     {
       "pair": "TM2-TM3",
@@ -980,10 +981,10 @@
       "pair": "TM2-TM3",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.081,
-      "ci_lo": 0.011,
-      "ci_hi": 0.168
+      "n_systems": 41,
+      "mean": 0.083,
+      "ci_lo": 0.009,
+      "ci_hi": 0.176
     },
     {
       "pair": "TM2-TM3",
@@ -998,10 +999,10 @@
       "pair": "TM2-TM3",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
+      "n_systems": 181,
       "mean": 0.127,
-      "ci_lo": 0.078,
-      "ci_hi": 0.19
+      "ci_lo": 0.076,
+      "ci_hi": 0.185
     },
     {
       "pair": "TM2-TM3",
@@ -1016,10 +1017,10 @@
       "pair": "TM2-TM3",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
+      "n_systems": 207,
       "mean": 0.111,
-      "ci_lo": 0.068,
-      "ci_hi": 0.163
+      "ci_lo": 0.066,
+      "ci_hi": 0.166
     },
     {
       "pair": "TM3-TM4",
@@ -1043,10 +1044,10 @@
       "pair": "TM3-TM4",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 1.825,
-      "ci_lo": 1.593,
-      "ci_hi": 2.071
+      "n_systems": 41,
+      "mean": 1.814,
+      "ci_lo": 1.567,
+      "ci_hi": 2.041
     },
     {
       "pair": "TM3-TM4",
@@ -1061,10 +1062,10 @@
       "pair": "TM3-TM4",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 2.025,
-      "ci_lo": 1.912,
-      "ci_hi": 2.132
+      "n_systems": 181,
+      "mean": 2.024,
+      "ci_lo": 1.914,
+      "ci_hi": 2.128
     },
     {
       "pair": "TM3-TM4",
@@ -1079,10 +1080,10 @@
       "pair": "TM3-TM4",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 1.971,
-      "ci_lo": 1.874,
-      "ci_hi": 2.082
+      "n_systems": 207,
+      "mean": 1.97,
+      "ci_lo": 1.873,
+      "ci_hi": 2.086
     },
     {
       "pair": "TM4-TM5",
@@ -1106,10 +1107,10 @@
       "pair": "TM4-TM5",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 1.147,
-      "ci_lo": 0.902,
-      "ci_hi": 1.412
+      "n_systems": 41,
+      "mean": 1.145,
+      "ci_lo": 0.89,
+      "ci_hi": 1.433
     },
     {
       "pair": "TM4-TM5",
@@ -1124,10 +1125,10 @@
       "pair": "TM4-TM5",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 1.159,
-      "ci_lo": 1.015,
-      "ci_hi": 1.3
+      "n_systems": 181,
+      "mean": 1.158,
+      "ci_lo": 1.026,
+      "ci_hi": 1.305
     },
     {
       "pair": "TM4-TM5",
@@ -1142,10 +1143,10 @@
       "pair": "TM4-TM5",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 1.176,
-      "ci_lo": 1.045,
-      "ci_hi": 1.31
+      "n_systems": 207,
+      "mean": 1.175,
+      "ci_lo": 1.041,
+      "ci_hi": 1.318
     },
     {
       "pair": "TM5-TM6",
@@ -1169,10 +1170,10 @@
       "pair": "TM5-TM6",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.719,
-      "ci_lo": 0.509,
-      "ci_hi": 0.899
+      "n_systems": 41,
+      "mean": 0.737,
+      "ci_lo": 0.548,
+      "ci_hi": 0.945
     },
     {
       "pair": "TM5-TM6",
@@ -1187,10 +1188,10 @@
       "pair": "TM5-TM6",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.981,
-      "ci_lo": 0.863,
-      "ci_hi": 1.107
+      "n_systems": 181,
+      "mean": 0.987,
+      "ci_lo": 0.86,
+      "ci_hi": 1.111
     },
     {
       "pair": "TM5-TM6",
@@ -1205,10 +1206,10 @@
       "pair": "TM5-TM6",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.958,
-      "ci_lo": 0.853,
-      "ci_hi": 1.074
+      "n_systems": 207,
+      "mean": 0.962,
+      "ci_lo": 0.849,
+      "ci_hi": 1.081
     },
     {
       "pair": "TM6-TM7",
@@ -1232,10 +1233,10 @@
       "pair": "TM6-TM7",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 0.665,
-      "ci_lo": 0.492,
-      "ci_hi": 0.873
+      "n_systems": 41,
+      "mean": 0.681,
+      "ci_lo": 0.501,
+      "ci_hi": 0.89
     },
     {
       "pair": "TM6-TM7",
@@ -1250,10 +1251,10 @@
       "pair": "TM6-TM7",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 0.742,
-      "ci_lo": 0.608,
-      "ci_hi": 0.885
+      "n_systems": 181,
+      "mean": 0.746,
+      "ci_lo": 0.619,
+      "ci_hi": 0.895
     },
     {
       "pair": "TM6-TM7",
@@ -1268,10 +1269,10 @@
       "pair": "TM6-TM7",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 0.806,
+      "n_systems": 207,
+      "mean": 0.81,
       "ci_lo": 0.678,
-      "ci_hi": 0.942
+      "ci_hi": 0.938
     },
     {
       "pair": "TM7-TM1",
@@ -1295,10 +1296,10 @@
       "pair": "TM7-TM1",
       "metric": "penetration_p90",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 1.984,
-      "ci_lo": 1.656,
-      "ci_hi": 2.313
+      "n_systems": 41,
+      "mean": 1.996,
+      "ci_lo": 1.679,
+      "ci_hi": 2.325
     },
     {
       "pair": "TM7-TM1",
@@ -1313,10 +1314,10 @@
       "pair": "TM7-TM1",
       "metric": "penetration_p90",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 2.261,
-      "ci_lo": 2.115,
-      "ci_hi": 2.423
+      "n_systems": 181,
+      "mean": 2.265,
+      "ci_lo": 2.102,
+      "ci_hi": 2.414
     },
     {
       "pair": "TM7-TM1",
@@ -1331,10 +1332,10 @@
       "pair": "TM7-TM1",
       "metric": "penetration_p90",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 1.982,
-      "ci_lo": 1.819,
-      "ci_hi": 2.142
+      "n_systems": 207,
+      "mean": 1.985,
+      "ci_lo": 1.809,
+      "ci_hi": 2.154
     },
     {
       "pair": "TM1-TM2",
@@ -1358,10 +1359,10 @@
       "pair": "TM1-TM2",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 8.25,
-      "ci_lo": 7.898,
-      "ci_hi": 8.576
+      "n_systems": 41,
+      "mean": 8.307,
+      "ci_lo": 7.972,
+      "ci_hi": 8.646
     },
     {
       "pair": "TM1-TM2",
@@ -1376,10 +1377,10 @@
       "pair": "TM1-TM2",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 8.433,
-      "ci_lo": 8.257,
-      "ci_hi": 8.616
+      "n_systems": 181,
+      "mean": 8.447,
+      "ci_lo": 8.267,
+      "ci_hi": 8.643
     },
     {
       "pair": "TM1-TM2",
@@ -1394,10 +1395,10 @@
       "pair": "TM1-TM2",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 8.294,
-      "ci_lo": 8.111,
-      "ci_hi": 8.496
+      "n_systems": 207,
+      "mean": 8.305,
+      "ci_lo": 8.115,
+      "ci_hi": 8.503
     },
     {
       "pair": "TM2-TM3",
@@ -1421,10 +1422,10 @@
       "pair": "TM2-TM3",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 3.818,
-      "ci_lo": 3.47,
-      "ci_hi": 4.183
+      "n_systems": 41,
+      "mean": 3.864,
+      "ci_lo": 3.516,
+      "ci_hi": 4.247
     },
     {
       "pair": "TM2-TM3",
@@ -1439,10 +1440,10 @@
       "pair": "TM2-TM3",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 3.897,
-      "ci_lo": 3.677,
-      "ci_hi": 4.098
+      "n_systems": 181,
+      "mean": 3.908,
+      "ci_lo": 3.705,
+      "ci_hi": 4.114
     },
     {
       "pair": "TM2-TM3",
@@ -1457,10 +1458,10 @@
       "pair": "TM2-TM3",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 3.845,
-      "ci_lo": 3.658,
-      "ci_hi": 4.034
+      "n_systems": 207,
+      "mean": 3.854,
+      "ci_lo": 3.668,
+      "ci_hi": 4.042
     },
     {
       "pair": "TM3-TM4",
@@ -1484,10 +1485,10 @@
       "pair": "TM3-TM4",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 9.307,
-      "ci_lo": 8.636,
-      "ci_hi": 9.889
+      "n_systems": 41,
+      "mean": 9.521,
+      "ci_lo": 9.045,
+      "ci_hi": 9.965
     },
     {
       "pair": "TM3-TM4",
@@ -1502,10 +1503,10 @@
       "pair": "TM3-TM4",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 9.37,
-      "ci_lo": 9.078,
-      "ci_hi": 9.642
+      "n_systems": 181,
+      "mean": 9.418,
+      "ci_lo": 9.127,
+      "ci_hi": 9.671
     },
     {
       "pair": "TM3-TM4",
@@ -1520,10 +1521,10 @@
       "pair": "TM3-TM4",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 9.374,
-      "ci_lo": 9.118,
-      "ci_hi": 9.625
+      "n_systems": 207,
+      "mean": 9.417,
+      "ci_lo": 9.167,
+      "ci_hi": 9.67
     },
     {
       "pair": "TM4-TM5",
@@ -1547,10 +1548,10 @@
       "pair": "TM4-TM5",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 4.262,
-      "ci_lo": 3.887,
-      "ci_hi": 4.631
+      "n_systems": 41,
+      "mean": 4.343,
+      "ci_lo": 4.013,
+      "ci_hi": 4.651
     },
     {
       "pair": "TM4-TM5",
@@ -1565,10 +1566,10 @@
       "pair": "TM4-TM5",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 4.321,
-      "ci_lo": 4.149,
-      "ci_hi": 4.504
+      "n_systems": 181,
+      "mean": 4.339,
+      "ci_lo": 4.153,
+      "ci_hi": 4.524
     },
     {
       "pair": "TM4-TM5",
@@ -1583,10 +1584,10 @@
       "pair": "TM4-TM5",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 4.359,
-      "ci_lo": 4.175,
-      "ci_hi": 4.554
+      "n_systems": 207,
+      "mean": 4.375,
+      "ci_lo": 4.181,
+      "ci_hi": 4.563
     },
     {
       "pair": "TM5-TM6",
@@ -1610,10 +1611,10 @@
       "pair": "TM5-TM6",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 7.832,
-      "ci_lo": 7.395,
-      "ci_hi": 8.224
+      "n_systems": 41,
+      "mean": 7.963,
+      "ci_lo": 7.663,
+      "ci_hi": 8.281
     },
     {
       "pair": "TM5-TM6",
@@ -1628,10 +1629,10 @@
       "pair": "TM5-TM6",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 7.84,
-      "ci_lo": 7.638,
-      "ci_hi": 8.033
+      "n_systems": 181,
+      "mean": 7.87,
+      "ci_lo": 7.671,
+      "ci_hi": 8.054
     },
     {
       "pair": "TM5-TM6",
@@ -1646,10 +1647,10 @@
       "pair": "TM5-TM6",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 7.799,
-      "ci_lo": 7.606,
-      "ci_hi": 7.989
+      "n_systems": 207,
+      "mean": 7.825,
+      "ci_lo": 7.63,
+      "ci_hi": 8.023
     },
     {
       "pair": "TM6-TM7",
@@ -1673,10 +1674,10 @@
       "pair": "TM6-TM7",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 7.653,
-      "ci_lo": 7.154,
-      "ci_hi": 8.052
+      "n_systems": 41,
+      "mean": 7.84,
+      "ci_lo": 7.607,
+      "ci_hi": 8.121
     },
     {
       "pair": "TM6-TM7",
@@ -1691,10 +1692,10 @@
       "pair": "TM6-TM7",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 7.836,
-      "ci_lo": 7.639,
-      "ci_hi": 8.036
+      "n_systems": 181,
+      "mean": 7.88,
+      "ci_lo": 7.716,
+      "ci_hi": 8.072
     },
     {
       "pair": "TM6-TM7",
@@ -1709,10 +1710,10 @@
       "pair": "TM6-TM7",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 7.912,
-      "ci_lo": 7.713,
-      "ci_hi": 8.11
+      "n_systems": 207,
+      "mean": 7.95,
+      "ci_lo": 7.752,
+      "ci_hi": 8.134
     },
     {
       "pair": "TM7-TM1",
@@ -1736,10 +1737,10 @@
       "pair": "TM7-TM1",
       "metric": "occupancy",
       "group": "Gq",
-      "n_systems": 42,
-      "mean": 9.011,
-      "ci_lo": 8.08,
-      "ci_hi": 10.699
+      "n_systems": 41,
+      "mean": 8.318,
+      "ci_lo": 7.949,
+      "ci_hi": 8.685
     },
     {
       "pair": "TM7-TM1",
@@ -1754,10 +1755,10 @@
       "pair": "TM7-TM1",
       "metric": "occupancy",
       "group": "ClassA",
-      "n_systems": 182,
-      "mean": 8.5,
-      "ci_lo": 8.165,
-      "ci_hi": 8.956
+      "n_systems": 181,
+      "mean": 8.34,
+      "ci_lo": 8.145,
+      "ci_hi": 8.551
     },
     {
       "pair": "TM7-TM1",
@@ -1772,10 +1773,10 @@
       "pair": "TM7-TM1",
       "metric": "occupancy",
       "group": "ALL",
-      "n_systems": 208,
-      "mean": 8.319,
-      "ci_lo": 8.019,
-      "ci_hi": 8.707
+      "n_systems": 207,
+      "mean": 8.178,
+      "ci_lo": 7.971,
+      "ci_hi": 8.377
     }
   ]
 }
