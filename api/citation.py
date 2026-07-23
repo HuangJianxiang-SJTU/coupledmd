@@ -7,18 +7,18 @@ Provides:
   - CITATION.cff content
 """
 
-# Pre-publication: DOI / Zenodo / repository URL are pending. Use a single
-# constant so the wording stays consistent everywhere it is shown to users.
-PENDING_DOI = "DOI pending (pre-publication)"
-PENDING_ZENODO = "Zenodo DOI pending (pre-publication)"
-PENDING_REPO = "repository URL pending (pre-publication)"
+# Dataset DOI and repository URL are fixed; article citation details remain
+# pre-publication.
+PENDING_DOI = "Article DOI pending (pre-publication)"
+ZENODO_RECORD_DOI = "10.5281/zenodo.21395292"
+REPOSITORY_URL = "https://github.com/HuangJianxiang-SJTU/coupledmd"
 
 CITATION_TEXT = (
     "Huang J et al., CoupledMD: a web resource for GPCR–G-protein molecular dynamics. "
     "Citation details to be confirmed (pre-publication)."
 )
 
-ZENODO_DOI = PENDING_ZENODO
+ZENODO_DOI = ZENODO_RECORD_DOI
 
 DATA_LICENSE = "CC-BY-4.0"
 CODE_LICENSE = "MIT"
@@ -41,8 +41,8 @@ keywords:
   - web server
 identifiers:
   - type: doi
-    value: 10.0000/placeholder
-    description: "Zenodo archive of the CoupledMD dataset (DOI pending pre-publication)"
+    value: 10.5281/zenodo.21395292
+    description: "Zenodo archive of the CoupledMD dataset"
 """
 
 # Provenance header lines for different file formats

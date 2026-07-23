@@ -39,7 +39,10 @@ export default function Terms() {
           Citation details to be confirmed (pre-publication).
         </blockquote>
         <p style={{ color: 'var(--faint)', fontSize: 12 }}>
-          The Zenodo DOI for the archived dataset: pending (pre-publication).
+          The Zenodo DOI for the archived dataset is{' '}
+          <a href="https://doi.org/10.5281/zenodo.21395292" target="_blank" rel="noreferrer">
+            10.5281/zenodo.21395292
+          </a>.
         </p>
       </section>
 

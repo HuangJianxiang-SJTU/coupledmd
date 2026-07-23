@@ -109,7 +109,7 @@ export default function Home({ navigate }) {
           Citation details to be confirmed (pre-publication).
         </p>
         <p style={{ fontSize: 11, color: 'var(--faint)', marginTop: 8, marginBottom: 0 }}>
-          Data: CC-BY-4.0 &middot; Code: MIT &middot; Zenodo DOI pending (pre-publication)
+          Data: CC-BY-4.0 &middot; Code: MIT &middot; Zenodo DOI 10.5281/zenodo.21395292
         </p>
       </div>
 

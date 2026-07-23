@@ -154,8 +154,11 @@ export default function About() {
       <section style={{ marginBottom: 32 }}>
         <h2 className="section-heading">Data availability</h2>
         <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 720 }}>
-          Full trajectory data will be available via a Zenodo archive upon publication
-          (DOI pending, pre-publication).
+          The reduced three-replica molecular dataset is archived in Zenodo under DOI{' '}
+          <a href="https://doi.org/10.5281/zenodo.21395292" target="_blank" rel="noreferrer">
+            10.5281/zenodo.21395292
+          </a>{' '}
+          and will be made public upon publication.
         </p>
       </section>
 
@@ -165,7 +168,10 @@ export default function About() {
           Jianxiang Huang, <a href="mailto:jxhuang@sjtu.edu.cn">jxhuang@sjtu.edu.cn</a>
         </p>
         <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.7, maxWidth: 720, marginTop: 4 }}>
-          GitHub: <strong>repository URL pending (pre-publication)</strong>
+          GitHub:{' '}
+          <a href="https://github.com/HuangJianxiang-SJTU/coupledmd" target="_blank" rel="noreferrer">
+            HuangJianxiang-SJTU/coupledmd
+          </a>
         </p>
       </section>
     </div>
